@@ -5,38 +5,98 @@
  * @returns The new tag
  */
 function createTag(name, attrs) {
-    const el = document.createElement(name);
-    if (typeof attrs === 'object') {
-      for (let [key, value] of Object.entries(attrs)) {
-        el.setAttribute(key, value);
-      }
+  const el = document.createElement(name);
+  if (typeof attrs === 'object') {
+    for (let [key, value] of Object.entries(attrs)) {
+      el.setAttribute(key, value);
     }
-    return el;
+  }
+  return el;
 }
 
 function toClassName(name) {
-    return (name.toLowerCase().replace(/[^0-9a-z]/gi, '-'))
-  }
-  
-  
-      
+  return (name.toLowerCase().replace(/[^0-9a-z]/gi, '-'))
+}
+
 /**
  * Loads a CSS file.
  * @param {string} href The path to the CSS file
  */
 function loadCSS(href) {
-    const link = document.createElement('link');
-    link.setAttribute('rel', 'stylesheet');
-    link.setAttribute('href', href);
-    document.head.appendChild(link);
+  const link = document.createElement('link');
+  link.setAttribute('rel', 'stylesheet');
+  link.setAttribute('href', href);
+  document.head.appendChild(link);
 };
 
+/**
+ * Moves the metadata from the document into meta tags.
+ */
+function handleMetadata() {
+  const $metaBlock = document.querySelector('main div.metadata');
+  if (!$metaBlock) return;
+  const md = [];
+  Array.from($metaBlock.children).forEach(($row) => {
+    const name = $row.querySelector('div:nth-of-type(1)').innerText.toLowerCase();
+    const content = $row.querySelector('div:nth-of-type(2)').innerText;
+    if (name === 'title') {
+      md.push({
+        property: 'og:title',
+        content,
+      });
+    }
+    if (name === "description") {
+      md.push({
+        name: 'description',
+        content,
+      });
+      md.push({
+        name: 'og:description',
+        content,
+      });
+    }
+    if (name === "keywords") {
+      content
+        .split(',')
+        .filter((keyword) => keyword !== '')
+        .map((keyword) => keyword.trim())
+        .forEach((content) => md.push({
+        property: 'article:tag',
+        content,
+      }));
+    }
+    if (name === "topics") {
+      content
+        .split(',')
+        .filter((keyword) => keyword !== '')
+        .map((keyword) => keyword.trim())
+        .forEach((content) => md.push({
+        property: 'article:section',
+        content,
+      }));
+    }
+  });
+  $metaBlock.remove();
+
+  const $tags = Array.from(document.head.querySelectorAll('meta'));
+  const $frag = document.createDocumentFragment();
+  md.forEach((m) => {
+    const $tag = $tags.find((t) => t.getAttribute('name') === m.name || t.getAttribute('property') === m.property);
+    if ($tag) {
+      // update existing meta tag
+      $tag.setAttribute('content', m.content);
+    } else {
+      // add new meta tag
+      $frag.appendChild(createTag('meta', m));
+    }
+  });
+  document.head.appendChild($frag);
+}
 
 /**
  * Turn tables to DIV.
  * @param {object} $table Table element
  */
-
 function tableToDivs($table) {
     const $rows=$table.querySelectorAll('tbody tr');
     const blockname=$table.querySelector('th').textContent;
@@ -86,10 +146,8 @@ function decorateBackgroundImageBlocks() {
       } 
     }) 
   }
-  
 
 function decorateEmbeds() {
-
     document.querySelectorAll('a[href]').forEach(($a) => {
       const url=new URL($a.href);
       const usp=new URLSearchParams(url.search);
@@ -113,8 +171,7 @@ function decorateEmbeds() {
         $div.parentElement.replaceChild($embed, $div);
       }
 
-    })
-
+    });
 }
   
 function decorateButtons() {
@@ -141,6 +198,7 @@ function wrapSections(element) {
   
 async function decoratePage() {
     decorateTables();
+    handleMetadata();
     wrapSections('main>div');
     decorateBlocks();
     wrapSections('header>div, footer>div');
