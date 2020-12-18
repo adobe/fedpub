@@ -4,7 +4,7 @@ FEDS Publishing Platform for SEO Articles on A.com
 
 Origin:
 
-- https://fedpub-adobe.hlx.page/
+- https://fedpub--adobe.hlx.page/
 
 
 ## How to develop and test locally
