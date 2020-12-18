@@ -1,0 +1,24 @@
+{
+  "name": "@adobe/fedpub",
+  "version": "1.0.0",
+  "description": "Adobe Federated Publishing",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adobe/fedpub.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adobe/fedpub/issues"
+  },
+  "homepage": "https://github.com/adobe/fedpub#readme",
+  "devDependencies": {
+    "@adobe/eslint-config-helix": "1.1.3",
+    "eslint": "7.15.0",
+    "eslint-plugin-header": "3.1.0",
+    "eslint-plugin-import": "2.22.1"
+  }
+}
