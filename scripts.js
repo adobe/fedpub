@@ -30,54 +30,63 @@ function loadCSS(href) {
 };
 
 /**
+ * Reads key/value pairs from a block.
+ * @param {HTMLElement} $block The block
+ * @returns {Object} The configuration
+ */
+function readBlockConfig($block) {
+  const config = {};
+  $block.querySelectorAll(':scope>div').forEach(($row) => {
+    if ($row.children && $row.children[1]) {
+      const name = toClassName($row.children[0].textContent);
+      const $a = $row.children[1].querySelector('a');
+      let value = '';
+      if ($a) value = $a.href;
+      else value = $row.children[1].textContent;
+      config[name] = value;  
+    }
+  });
+  return config;
+}
+
+/**
  * Moves the metadata from the document into meta tags.
  */
 function handleMetadata() {
   const $metaBlock = document.querySelector('main div.metadata');
   if (!$metaBlock) return;
   const md = [];
-  Array.from($metaBlock.children).forEach(($row) => {
-    const name = $row.querySelector('div:nth-of-type(1)').innerText.toLowerCase();
-    const content = $row.querySelector('div:nth-of-type(2)').innerText;
-    if (name === 'title') {
-      md.push({
-        property: 'og:title',
-        content,
-      });
-    }
-    if (name === "description") {
-      md.push({
-        name: 'description',
-        content,
-      });
-      md.push({
-        name: 'og:description',
-        content,
-      });
-    }
-    if (name === "keywords") {
-      content
-        .split(',')
-        .filter((keyword) => keyword !== '')
-        .map((keyword) => keyword.trim())
-        .forEach((content) => md.push({
-        property: 'article:tag',
-        content,
-      }));
-    }
-    if (name === "topics") {
-      content
-        .split(',')
-        .filter((keyword) => keyword !== '')
-        .map((keyword) => keyword.trim())
-        .forEach((content) => md.push({
-        property: 'article:section',
-        content,
-      }));
+  const config = readBlockConfig($metaBlock);
+  Object.entries(config).forEach(([key, value]) => {
+    switch (key.toLowerCase()) {
+      case 'tags':
+        value
+          .split(',') // split comma-separated tags
+          .filter((tag) => tag !== '') // remove empty values
+          .map((tag) => tag.trim()) // remove whitespace
+          .forEach((content) => md.push({
+          property: 'article:tag',
+          content,
+        }));
+        break;
+      case 'title':
+        md.push({
+          property: 'og:title',
+          content: value,
+        });
+        break;
+      case 'description':
+        md.push({
+          property: 'og:description',
+          content: value,
+        });
+      default:
+        md.push({
+          name: key,
+          content: value,
+        });
     }
   });
-  $metaBlock.remove();
-
   const $tags = Array.from(document.head.querySelectorAll('meta'));
   const $frag = document.createDocumentFragment();
   md.forEach((m) => {
@@ -90,7 +99,10 @@ function handleMetadata() {
       $frag.appendChild(createTag('meta', m));
     }
   });
-  document.head.appendChild($frag);
+  if ($frag.childNodes.length) {
+    document.head.appendChild($frag);
+  }
+  $metaBlock.remove();
 }
 
 /**
