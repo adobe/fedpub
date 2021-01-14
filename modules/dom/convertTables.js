@@ -1,13 +1,13 @@
-import {CONFIG} from '../CONFIG.js';
-import {createElement} from './createElement.js';
-import {isNonEmptyString} from '../lang/isNonEmptyString.js';
-import {stringToClassname} from '../lang/stringToClassname.js';
+import CONFIG from '../CONFIG.js';
+import createCustomElement from './createCustomElement.js';
+import isNonEmptyString from '../lang/isNonEmptyString.js';
+import stringToClassname from '../lang/stringToClassname.js';
 
 /**
  * Converts tables that have a single `th` element with text content inside
  * to a namespaced `div` wrapper that acts like a pseudo-component
  */
-export function convertTables() {
+export default function convertTables() {
     const tables = document.querySelectorAll(`${CONFIG.SELECTORS.MAIN} table`);
 
     tables.forEach((table) => {
@@ -23,13 +23,13 @@ export function convertTables() {
 
                 // Add a starting performance marker
                 const startMarkerName = `start-tableConversion--${sectionIdentifier}`;
-                performance.mark(startMarkerName);
+                window.performance.mark(startMarkerName);
 
                 // Create a specific class name for the component
                 const sectionClass = `${CONFIG.SELECTORS.NAMESPACE}--${sectionIdentifier}`;
                 // Create a placeholder element
                 // where all the transformed table markup will be added
-                const sectionMarkup = createElement('div', {
+                const sectionMarkup = createCustomElement('div', {
                     class: sectionClass,
                 });
 
@@ -38,7 +38,7 @@ export function convertTables() {
 
                 tableRows.forEach((tableRow) => {
                     // For each row, create a `div` element
-                    const sectionRow = createElement('div', {
+                    const sectionRow = createCustomElement('div', {
                         class: `${sectionClass}-row`,
                     });
 
@@ -51,7 +51,7 @@ export function convertTables() {
 
                         if (isNonEmptyString(sectionEntryContent)) {
                             // For each column that has content, create a `div` element
-                            const sectionEntry = createElement('div', {
+                            const sectionEntry = createCustomElement('div', {
                                 class: `${sectionClass}-entry`,
                             });
 
@@ -78,7 +78,7 @@ export function convertTables() {
                 }
 
                 // Measure the time, in ms, required for the table transformation
-                performance.measure(`tableConversionTime--${sectionIdentifier}`, startMarkerName);
+                window.performance.measure(`tableConversionTime--${sectionIdentifier}`, startMarkerName);
             }
         }
     });

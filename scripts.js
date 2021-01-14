@@ -1,6 +1,6 @@
-import {CONFIG} from './modules/CONFIG.js';
-import {wrapElements} from './modules/dom/wrapElements.js';
-import {convertTables} from './modules/dom/convertTables.js';
+import CONFIG from './modules/CONFIG.js';
+import wrapElements from './modules/dom/wrapElements.js';
+import convertTables from './modules/dom/convertTables.js';
 
 function decoratePage() {
     const mainElement = document.querySelector(`${CONFIG.SELECTORS.MAIN}`);

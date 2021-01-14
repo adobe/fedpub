@@ -1,4 +1,4 @@
-import {isNonEmptyString} from './isNonEmptyString.js';
+import isNonEmptyString from './isNonEmptyString.js';
 
 /**
  * Transforms a given string to a safe class name to be used in HTML
@@ -10,10 +10,10 @@ import {isNonEmptyString} from './isNonEmptyString.js';
  * // returns 'quote-component'
  * stringToClassname('Quote #$% component');
  */
-export function stringToClassname(str) {
+export default function stringToClassname(str) {
     // Stop execution if a valid string is not provided
     if (!isNonEmptyString(str)) {
-        return;
+        return undefined;
     }
 
     // Make the string lower case;

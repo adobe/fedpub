@@ -1,4 +1,4 @@
-export const CONFIG = {
+const CONFIG = {
     SELECTORS: {
         NAMESPACE: 'fedpub',
         MAIN: 'main',
@@ -6,3 +6,5 @@ export const CONFIG = {
         SECTION: 'section-wrapper',
     },
 };
+
+export default CONFIG;

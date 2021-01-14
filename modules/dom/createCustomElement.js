@@ -1,4 +1,4 @@
-import {isNonEmptyString} from '../lang/isNonEmptyString.js';
+import isNonEmptyString from '../lang/isNonEmptyString.js';
 
 /**
  * Creates and returns an element based on a provided tag name and attributes
@@ -7,10 +7,10 @@ import {isNonEmptyString} from '../lang/isNonEmptyString.js';
  * for the attributes to be attached to the created element
  * @return {Element} The resulting HTML element
  */
-export function createElement(tagName, attributes) {
+export default function createCustomElement(tagName, attributes) {
     // If no tag name is provided, no element is created
     if (!isNonEmptyString(tagName)) {
-        return;
+        return undefined;
     }
 
     const element = document.createElement(tagName);

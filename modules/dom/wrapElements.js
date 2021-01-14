@@ -1,6 +1,6 @@
-import {CONFIG} from '../CONFIG.js';
-import {isNonEmptyString} from '../lang/isNonEmptyString.js';
-import {createElement} from './createElement.js';
+import CONFIG from '../CONFIG.js';
+import isNonEmptyString from '../lang/isNonEmptyString.js';
+import createCustomElement from './createCustomElement.js';
 
 /**
  * Wraps all the elements identified by the selector
@@ -9,7 +9,7 @@ import {createElement} from './createElement.js';
  * that need to be wrapped
  * @param {String} className The class name for the wrapper element
  */
-export function wrapElements(selector, className) {
+export default function wrapElements(selector, className) {
     if (!isNonEmptyString(selector)) {
         return;
     }
@@ -23,7 +23,7 @@ export function wrapElements(selector, className) {
         };
 
         elements.forEach((element) => {
-            const wrapper = createElement('div', attributeObj);
+            const wrapper = createCustomElement('div', attributeObj);
 
             if (wrapper instanceof HTMLElement
                 && element.parentNode instanceof HTMLElement) {
