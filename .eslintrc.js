@@ -23,6 +23,9 @@ module.exports = {
         // TODO: re-enable header
         'header/header': [0],
     },
+    ignorePatterns: [
+        '/dist/*.min.js',
+    ],
     parserOptions: {
         // Allow the use of JS modules (import/export statements)
         sourceType: 'module',
