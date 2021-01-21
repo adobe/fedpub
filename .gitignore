@@ -2,6 +2,6 @@
 .hlx/
 logs/
 node_modules/
+npm-debug.log
 # keep dist/ in code source until github action is available
 # dist/
-npm-debug.log

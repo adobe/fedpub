@@ -1,9 +1,9 @@
 const CONFIG = {
     SELECTORS: {
         NAMESPACE: 'fedpub',
+        WRAPPER: 'fedpub-wrapper',
         MAIN: 'main',
-        READY: 'ready',
-        SECTION: 'section-wrapper',
+        READY: 'fedpub--ready',
     },
 };
 

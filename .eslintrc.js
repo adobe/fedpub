@@ -13,6 +13,7 @@
 module.exports = {
     root: true,
     extends: '@adobe/helix',
+    plugins: ['file-progress'],
     rules: {
         // Allow reassigning param
         'no-param-reassign': [2, { props: false }],
@@ -22,6 +23,7 @@ module.exports = {
         'import/extensions': [2, { js: 'always' }],
         // TODO: re-enable header
         'header/header': [0],
+        'file-progress/activate': 1,
     },
     ignorePatterns: [
         '/dist/*.min.js',

@@ -2,6 +2,12 @@ import CONFIG from '../CONFIG.js';
 import isNonEmptyString from '../lang/isNonEmptyString.js';
 import createCustomElement from './createCustomElement.js';
 
+/* This module is no longer used,
+ * since sections have been replaced by components.
+ * We're keeping it for reference and will remove it
+ * if it proves it's not needed anymore.
+ */
+
 /**
  * Wraps all the elements identified by the selector
  * in a wrapper element with a specified class name

@@ -1,0 +1,273 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v5.0.1 | 20191019
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+menu,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section {
+  display: block;
+}
+/* HTML5 hidden-attribute fix for newer browsers */
+*[hidden] {
+  display: none;
+}
+body {
+  line-height: 1;
+}
+menu,
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body {
+  background: #fff;
+}
+main {
+  visibility: hidden;
+}
+main.fedpub--ready {
+  visibility: visible;
+}
+.fedpub-wrapper {
+  max-width: 800px;
+  margin: auto;
+  padding: 50px 0;
+  font-family: adobe-clean, sans-serif;
+}
+.fedpub-wrapper *,
+.fedpub-wrapper *:before,
+.fedpub-wrapper *:after {
+  box-sizing: border-box;
+}
+.fedpub-wrapper > * {
+  max-width: 600px;
+  margin: auto;
+  padding: 0 20px;
+}
+@media screen and (min-width: 800px) {
+  .fedpub-wrapper > * {
+    padding: 0;
+  }
+}
+.fedpub-wrapper h1,
+.fedpub-wrapper h2,
+.fedpub-wrapper h3,
+.fedpub-wrapper h4,
+.fedpub-wrapper h5,
+.fedpub-wrapper h6,
+.fedpub-wrapper p {
+  margin-bottom: 20px;
+  line-height: 1.45;
+}
+.fedpub-wrapper h1:last-child,
+.fedpub-wrapper h2:last-child,
+.fedpub-wrapper h3:last-child,
+.fedpub-wrapper h4:last-child,
+.fedpub-wrapper h5:last-child,
+.fedpub-wrapper h6:last-child,
+.fedpub-wrapper p:last-child {
+  margin-bottom: 0;
+}
+.fedpub-wrapper h1,
+.fedpub-wrapper h2,
+.fedpub-wrapper h3,
+.fedpub-wrapper h4,
+.fedpub-wrapper h5,
+.fedpub-wrapper h6 {
+  font-weight: 700;
+}
+.fedpub-wrapper h1 {
+  font-size: 28px;
+}
+.fedpub-wrapper h2 {
+  font-size: 23px;
+}
+.fedpub-wrapper h3 {
+  font-size: 17px;
+}
+.fedpub-wrapper a {
+  text-decoration: none;
+  color: #1473e6;
+}
+.fedpub-wrapper a:hover {
+  text-decoration: underline;
+}
+.fedpub-wrapper ul,
+.fedpub-wrapper ol {
+  padding-left: 30px;
+  margin-bottom: 30px;
+}
+.fedpub-wrapper ul {
+  list-style-type: disc;
+}
+.fedpub-wrapper ol {
+  list-style-type: decimal;
+}
+.fedpub-wrapper li {
+  margin-bottom: 10px;
+  line-height: 1.45;
+}
+.fedpub-wrapper li:last-child {
+  margin-bottom: 0;
+}
+.fedpub-wrapper em {
+  font-style: italic;
+}
+.fedpub-wrapper h1 + p > em {
+  margin-top: -15px;
+  display: block;
+}
+.fedpub--callout {
+  position: relative;
+  max-width: 100%;
+  padding: 64px 20px;
+  margin-bottom: 20px;
+  background: #f5f5f5;
+}
+@media screen and (min-width: 800px) {
+  .fedpub--callout {
+    padding: 64px 100px;
+  }
+}
+.fedpub--callout:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, #ffa701, #e329e0);
+  content: '';
+}
+@media screen and (min-width: 800px) {
+  .fedpub--callout:before {
+    right: auto;
+    bottom: 0;
+    height: auto;
+    width: 8px;
+    background: linear-gradient(#ffa701, #e329e0);
+  }
+}
+.fedpub--callout--cc {
+  background: linear-gradient(90deg, #ffa701, #e329e0);
+  content: '';
+}
+@media screen and (min-width: 800px) {
+  .fedpub--callout--cc {
+    background: linear-gradient(#ffa701, #e329e0);
+  }
+}
