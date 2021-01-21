@@ -5,7 +5,7 @@ export default {
     output: {
         file: './dist/app.min.js',
         format: 'iife',
-        sourcemap: true,
+        sourcemap: false,
     },
     plugins: [
         terser(),
