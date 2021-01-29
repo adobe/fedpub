@@ -151,7 +151,7 @@ function decorateBlocks() {
   document.querySelectorAll('main>div.section-wrapper>div>div').forEach(($block) => {
     const classes = Array.from($block.classList.values());
     if (classes[0]) {
-      loadCSS(`/styles/blocks/${classes[0]}.css`);
+      loadCSS(`/hub/styles/blocks/${classes[0]}.css`);
     }
   });
 }
