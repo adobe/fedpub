@@ -5,7 +5,7 @@
   "scripts": {
     "build:js": "./node_modules/.bin/eslint . && rollup --config",
     "watch:js": "onchange './scripts/**/*.js' -- npm run build:js",
-    "build:css": "lessc ./styles/main.less ./dist/app.css && minify ./dist/app.css > ./dist/app.min.css",
+    "build:css": "lessc ./styles/main.less ./bench/dist/app.css && minify ./bench/dist/app.css > ./bench/dist/app.min.css",
     "watch:css": "onchange './styles/**/*.less' -- npm run build:css",
     "app:build": "npm run build:js && npm run build:css",
     "app:watch": "concurrently 'npm:watch:js' 'npm:watch:css'"
