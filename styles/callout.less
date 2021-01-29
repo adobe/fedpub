@@ -1,0 +1,41 @@
+.fedpub--callout {
+    position: relative;
+    max-width: 100%; // Allow the Callout component expand to the full width of its parent
+    padding: @spacing-callout-default @gutter-callout-mobile;
+    margin-bottom: 20px;
+    background: @background-callout;
+
+    @media screen and (min-width: @breakpoint-mobile) {
+        padding: @spacing-callout-default @gutter-callout-desktop;
+    }
+
+    &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: @size-callout-branding;
+        background: @gradient-callout-cc--mobile;
+        content: '';
+
+        @media screen and (min-width: @breakpoint-mobile) {
+            right: auto;
+            bottom: 0;
+            height: auto;
+            width: @size-callout-branding;
+            background: @gradient-callout-cc--desktop;
+        }
+    }
+
+    // This modifier class is not used at the moment;
+    // cloud-specific modifier classes need to be added from JS
+    // to the Callout component to decide the colour of the gradient
+    &--cc {
+        background: @gradient-callout-cc--mobile;
+        content: '';
+
+        @media screen and (min-width: @breakpoint-mobile) {
+            background: @gradient-callout-cc--desktop;
+        }
+    }
+}

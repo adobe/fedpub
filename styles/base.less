@@ -1,0 +1,121 @@
+@import '../node_modules/reset-css/less/reset';
+
+body {
+    background: @background-body;
+}
+
+// Hide the content until the transformations have occurred,
+// thus avoiding any FOUC issues; we're using 'visibility'
+// instead of 'display: none' to limit page jump
+main {
+    visibility: hidden;
+
+    &.fedpub--ready {
+        visibility: visible;
+    }
+}
+
+.fedpub-wrapper {
+    max-width: @width-content-outer;
+    margin: auto;
+    padding: @gutter-content 0;
+    font-family: @fontFamily-default;
+
+    // All elements should have 'border-box' box sizing
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box;
+    }
+
+    // All direct elements in the main Fedpub wrapper
+    // (mostly headings and paragraphs)
+    // should have a certain width and be centered
+    > * {
+        max-width: @width-content-inner;
+        margin: auto;
+        padding: 0 20px;
+
+        @media screen and (min-width: @breakpoint-mobile) {
+            padding: 0;
+        }
+    }
+
+    // These are the main types of elements used in the Fedpub wrapper;
+    // attaching some basic shared styling to them
+    h1, h2, h3, h4, h5, h6, p {
+        margin-bottom: 20px;
+        line-height: @lineHeight-default;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    // Headlines need a bolder font weight
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: @fontWeight-headlines;
+    }
+
+    // Define headline font sizes;
+    // Will be moved to variables is reused somewhere else
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 23px;
+    }
+
+    h3 {
+        font-size: 17px;
+    }
+
+    // Standard styling for normal links that come up in paragraphs
+    a {
+        text-decoration: none;
+        color: @color-link-default;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    // Common styles for lists
+    ul, ol {
+        padding-left: 30px;
+        margin-bottom: 30px;
+    }
+
+    // Style unordered list elements to have bullet points
+    ul {
+        list-style-type: disc;
+    }
+
+    // Style ordered list elements to have decimal numbers
+    ol {
+        list-style-type: decimal;
+    }
+
+    // Common styles for the default list items
+    li {
+        margin-bottom: 10px;
+        line-height: @lineHeight-default;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    // `em` elements should have italic text
+    em {
+        font-style: italic;
+    }
+
+    // When an 'em' element is present right after an 'h1',
+    // treat it as a subheadline and bring it closer to the 'h1'
+    h1 + p > em {
+        margin-top: -15px;
+        display: block;
+    }
+}
