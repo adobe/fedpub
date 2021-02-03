@@ -1,3 +1,3 @@
-<script>
-    console.log('test script from header.md');
-</script>
+<div>
+    <div id="feds-header"></div>
+</div>
