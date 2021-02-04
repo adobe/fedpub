@@ -17,4 +17,12 @@ module.exports = {
     // allow reassigning param
     'no-param-reassign': [2, { props: false }],
   },
+  globals: {
+    document: true,
+    window: true,
+    HTMLElement: true,
+    HTMLLinkElement: true,
+    HTMLScriptElement: true,
+    NodeList: true,
+  },
 };

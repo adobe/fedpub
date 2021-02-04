@@ -9,37 +9,76 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-/* global document */
+
+const CONFIG = {
+  SELECTORS: {
+    NAMESPACE: 'fedpub',
+    WRAPPER: 'fedpub-wrapper',
+    MAIN: 'main',
+    READY: 'fedpub--ready',
+    METADATA: 'fedpub--metadata',
+  },
+};
 
 /**
- * Creates a tag with the given name and attributes.
- * @param {string} name The tag name
- * @param {object} attrs An object containing the attributes
- * @returns The new tag
+ * Checks whether a given parameter is a non-empty string
+ * @param {String} str The parameter requiring validation
+ * @return {Boolean} Whether the provided parameter is a non-empty string
  */
-function createTag(name, attrs) {
-  const el = document.createElement(name);
-  if (typeof attrs === 'object') {
-    for (const [key, value] of Object.entries(attrs)) {
-      el.setAttribute(key, value);
+function isNonEmptyString(str) {
+  return typeof str === 'string' && !!str.length;
+}
+
+/**
+ * Transforms a given string to a safe class name to be used in HTML
+ * @param {String} str The string to be transformed into a class name
+ * @return {String} Safe class name to be used as part of HTML templates
+ * @example
+ * // returns 'quote-component'
+ * stringToClassname('Quote component');
+ * // returns 'quote-component'
+ * stringToClassname('Quote #$% component');
+ */
+function stringToClassname(str) {
+  // Stop execution if a valid string is not provided
+  if (!isNonEmptyString(str)) {
+    return undefined;
+  }
+
+  // Make the string lower case;
+  // then transform all the special characters to '-';
+  // a longer sequence of special characters will be replaced by a single '-'
+  return str.toLowerCase().replace(/[^0-9a-z]{1,}/gi, '-');
+}
+
+/**
+ * Creates and returns an element based on a provided tag name and attributes
+ * @param {String} tagName The tag name of the desired element
+ * @param {Object} attributes Object containing key/value pairs
+ * for the attributes to be attached to the created element
+ * @return {Element} The resulting HTML element
+ */
+function createCustomElement(tagName, attributes) {
+  // If no tag name is provided, no element is created
+  if (!isNonEmptyString(tagName)) {
+    return undefined;
+  }
+
+  const element = document.createElement(tagName);
+
+  if (typeof attributes === 'object') {
+    for (const [key, value] of Object.entries(attributes)) {
+      if (isNonEmptyString(key)) {
+        // The value needs to be a string. If another type
+        // is used, it will be transformed into an empty string
+        const parsedValue = !isNonEmptyString(value) ? '' : value;
+
+        element.setAttribute(key, parsedValue);
+      }
     }
   }
-  return el;
-}
 
-function toClassName(name) {
-  return (name.toLowerCase().replace(/[^0-9a-z]/gi, '-'));
-}
-
-/**
- * Loads a CSS file.
- * @param {string} href The path to the CSS file
- */
-function loadCSS(href) {
-  const link = document.createElement('link');
-  link.setAttribute('rel', 'stylesheet');
-  link.setAttribute('href', href);
-  document.head.appendChild(link);
+  return element;
 }
 
 /**
@@ -51,7 +90,7 @@ function readBlockConfig($block) {
   const config = {};
   $block.querySelectorAll(':scope>div').forEach(($row) => {
     if ($row.children && $row.children[1]) {
-      const name = toClassName($row.children[0].textContent);
+      const name = stringToClassname($row.children[0].textContent);
       const $a = $row.children[1].querySelector('a');
       let value = '';
       if ($a) value = $a.href;
@@ -66,7 +105,7 @@ function readBlockConfig($block) {
  * Moves the metadata from the document into META tags.
  */
 function handleMetadata() {
-  const $metaBlock = document.querySelector('main div.metadata');
+  const $metaBlock = document.querySelector(`.${CONFIG.SELECTORS.METADATA}`);
   if (!$metaBlock) return;
   const md = [];
   const config = readBlockConfig($metaBlock);
@@ -111,7 +150,7 @@ function handleMetadata() {
       $tag.setAttribute('content', m.content);
     } else {
       // add new meta tag
-      $frag.appendChild(createTag('meta', m));
+      $frag.appendChild(createCustomElement('meta', m));
     }
   });
   if ($frag.childNodes.length) {
@@ -121,54 +160,88 @@ function handleMetadata() {
 }
 
 /**
- * Turn tables to DIV.
- * @param {object} $table Table element
+ * Converts tables that have a single `th` element with text content inside
+ * to a namespaced `div` wrapper that acts like a pseudo-component
  */
-function tableToDivs($table) {
-  const $rows = $table.querySelectorAll('tbody tr');
-  const blockname = $table.querySelector('th').textContent;
-  const $block = createTag('div', { class: `${toClassName(blockname)}` });
-  $rows.forEach(($tr) => {
-    const $row = createTag('div');
-    $tr.querySelectorAll('td').forEach(($td) => {
-      const $div = createTag('div');
-      $div.innerHTML = $td.innerHTML;
-      $row.append($div);
+function convertTables() {
+  const tables = document.querySelectorAll(`${CONFIG.SELECTORS.MAIN} table`);
+
+  tables.forEach((table) => {
+    // Remove all empty `th` elements
+    const emptyTableHeadings = table.querySelectorAll('thead th:empty');
+
+    emptyTableHeadings.forEach((emptyTableHeading) => {
+      emptyTableHeading.remove();
     });
-    $block.append($row);
-  });
-  return ($block);
-}
+    // Initialize table conversion only if there is just one authored `th` element
+    const tableHeading = table.querySelector('thead th:only-child');
 
-function decorateTables() {
-  document.querySelectorAll('main div>table').forEach(($table) => {
-    const $div = tableToDivs($table);
-    $table.parentNode.replaceChild($div, $table);
-  });
-}
+    if (tableHeading instanceof HTMLElement) {
+      const sectionName = tableHeading.textContent;
 
-function decorateBlocks() {
-  document.querySelectorAll('main>div.section-wrapper>div>div').forEach(($block) => {
-    const classes = Array.from($block.classList.values());
-    if (classes[0]) {
-      loadCSS(`/hub/styles/blocks/${classes[0]}.css`);
-    }
-  });
-}
+      if (isNonEmptyString(sectionName)) {
+        // Turn the `th` string into a valid HTML class name
+        const sectionIdentifier = stringToClassname(sectionName);
 
-function decorateBackgroundImageBlocks() {
-  document.querySelectorAll('main div.background-image').forEach(($bgImgDiv) => {
-    const $images = $bgImgDiv.querySelectorAll('img');
-    const $lastImage = $images[$images.length - 1];
-    const $section = $bgImgDiv.closest('.section-wrapper');
-    if ($section && $lastImage) {
-      $section.style.backgroundImage = `url(${$lastImage.src})`;
-      let $caption = $lastImage.nextElementSibling;
-      if ($caption) {
-        if ($caption.textContent === '') $caption = $caption.nextElementSibling;
-        if ($caption) $caption.classList.add('background-image-caption');
+        // Add a starting performance marker
+        const startMarkerName = `start-tableConversion--${sectionIdentifier}`;
+        window.performance.mark(startMarkerName);
+
+        // Create a specific class name for the component
+        const sectionClass = `${CONFIG.SELECTORS.NAMESPACE}--${sectionIdentifier}`;
+        // Create a placeholder element
+        // where all the transformed table markup will be added
+        const sectionMarkup = createCustomElement('div', {
+          class: sectionClass,
+        });
+
+        // Identify all the rows of the table
+        const tableRows = table.querySelectorAll('tbody tr');
+
+        tableRows.forEach((tableRow) => {
+          // For each row, create a `div` element
+          const sectionRow = createCustomElement('div', {
+            class: `${sectionClass}-row`,
+          });
+
+          // Identify all the columns of the row
+          const rowColumns = tableRow.querySelectorAll('td');
+
+          rowColumns.forEach((rowColumn) => {
+            // Get the column's content
+            const sectionEntryContent = rowColumn.innerHTML;
+
+            if (isNonEmptyString(sectionEntryContent)) {
+              // For each column that has content, create a `div` element
+              const sectionEntry = createCustomElement('div', {
+                class: `${sectionClass}-entry`,
+              });
+
+              // Append the column content to the previously created `div` element
+              sectionEntry.innerHTML = rowColumn.innerHTML;
+              // Append the transformed column to its row
+              sectionRow.appendChild(sectionEntry);
+            }
+          });
+
+          // If the row has been populated with at least one element,
+          // coming from inner-columns, append the transformed row to the section `div`
+          if (sectionRow.hasChildNodes()) {
+            sectionMarkup.appendChild(sectionRow);
+          }
+        });
+
+        // If the section has been populated with at least one element,
+        // replace the original table with the transformed markup
+        if (sectionMarkup.hasChildNodes()) {
+          // Replace the table with the transformed markup
+          // (we can be sure the table's parent exists based on the initial selector)
+          table.parentNode.replaceChild(sectionMarkup, table);
+        }
+
+        // Measure the time, in ms, required for the table transformation
+        window.performance.measure(`tableConversionTime--${sectionIdentifier}`, startMarkerName);
       }
-      $lastImage.remove();
     }
   });
 }
@@ -191,7 +264,7 @@ function decorateEmbeds() {
     }
 
     if (type) {
-      const $embed = createTag('div', { class: `embed embed-oembed embed-${type}` });
+      const $embed = createCustomElement('div', { class: `embed embed-oembed embed-${type}` });
       const $div = $a.closest('div');
       $embed.innerHTML = embedHTML;
       $div.parentElement.replaceChild($embed, $div);
@@ -213,23 +286,29 @@ function decorateButtons() {
   });
 }
 
-function wrapSections(element) {
-  document.querySelectorAll(element).forEach(($div) => {
-    const $wrapper = createTag('div', { class: 'section-wrapper' });
-    $div.parentNode.appendChild($wrapper);
-    $wrapper.appendChild($div);
-  });
+function markReadyAfterDecorations() {
+  const mainElement = document.querySelector(`${CONFIG.SELECTORS.MAIN}`);
+
+  if (mainElement instanceof HTMLElement) {
+    // Attach a class to the main 'div' in the 'main' section
+    const mainDiv = mainElement.children[0];
+
+    if (mainDiv instanceof HTMLElement
+        && mainDiv.matches('div')) {
+      mainDiv.classList.add(CONFIG.SELECTORS.WRAPPER);
+    }
+
+    // Mark the content as 'ready'
+    mainElement.classList.add(CONFIG.SELECTORS.READY);
+  }
 }
 
 async function decoratePage() {
-  decorateTables();
+  convertTables();
   handleMetadata();
-  wrapSections('main>div');
-  decorateBlocks();
-  wrapSections('header>div, footer>div');
   decorateEmbeds();
   decorateButtons();
-  decorateBackgroundImageBlocks();
+  markReadyAfterDecorations();
 }
 
 decoratePage();
