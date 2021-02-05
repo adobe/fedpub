@@ -18,18 +18,7 @@ body {
     background: @background-body;
 }
 
-// Hide the content until the transformations have occurred,
-// thus avoiding any FOUC issues; we're using 'visibility'
-// instead of 'display: none' to limit layout shift
 main {
-    visibility: hidden;
-
-    &.fedpub--ready {
-        visibility: visible;
-    }
-}
-
-.fedpub-wrapper {
     max-width: @width-content-outer;
     margin: auto;
     padding: @gutter-content 0;
@@ -51,7 +40,7 @@ main {
     // All direct elements in the main Fedpub wrapper
     // (mostly headings, paragraphs and lists)
     // should have a certain width and be centered
-    > * {
+    > div > * {
         max-width: @width-content-inner;
         margin: auto;
         padding: 0 20px;
@@ -130,6 +119,15 @@ main {
         }
     }
 
+    // Styles for CTA buttons
+    .fedpub-cta--primary {
+        .cta--primary();
+    }
+
+    .fedpub-cta--secondary {
+        .cta--secondary();
+    }
+
     // `strong` elements should have bold text
     strong {
         font-weight: @fontWeight-strong;
@@ -171,8 +169,13 @@ main {
         }
     }
 
-    // Ensure adjacent table cells have shared borders
+    // Basic table styles
     table {
-        border-collapse: collapse;
+        visibility: hidden;
+        border-collapse: collapse; // Ensure adjacent table cells have shared borders
+    }
+
+    .fedpub--ready table {
+        visibility: visible;
     }
 }

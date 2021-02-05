@@ -15,3 +15,66 @@
         font-size: @@desktopVariableName;
     }
 }
+
+// Define shared styles between all types of CTA buttons
+.cta() {
+    display: flex;
+    height: @height-cta;
+    width: auto;
+    min-width: @minWidth-cta;
+    padding: 0 @padding-cta;
+    border-width: @borderWidth-cta;
+    border-style: solid;
+    border-radius: @borderRadius-cta;
+    font-size: @fontSize-cta;
+    font-weight: @fontWeight-cta;
+    line-height: 0;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    transition: background-color @transitionDuration-cta ease-out,
+        border-color @transitionDuration-cta ease-out,
+        color @transitionDuration-cta ease-out;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        box-shadow: none;
+        text-decoration: none;
+    }
+
+    &:focus {
+        outline-offset: 0;
+    }
+}
+
+// Define styles for the primary CTA
+.cta--primary() {
+    .cta();
+
+    background-color: @background-primaryCta;
+    border-color: @background-primaryCta;
+    color: @color-primaryCta;
+
+    &:hover,
+    &:focus {
+        background-color: @background-primaryCta--hover;
+        border-color: @background-primaryCta--hover;
+    }
+}
+
+// Define styles for the secondary CTA
+.cta--secondary() {
+    .cta();
+
+    background-color: @background-secondaryCta;
+    border-color: @color-secondaryCta;
+    color: @color-secondaryCta;
+
+    &:hover,
+    &:focus {
+        background-color: @background-secondaryCta--hover;
+        color: @color-secondaryCta--hover;
+    }
+}
