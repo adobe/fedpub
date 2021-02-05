@@ -35,11 +35,11 @@
    * @return {String} Safe class name to be used as part of HTML templates
    * @example
    * // returns 'quote-component'
-   * stringToClassname('Quote component');
+   * toClassName('Quote component');
    * // returns 'quote-component'
-   * stringToClassname('Quote #$% component');
+   * toClassName('Quote #$% component');
    */
-  function stringToClassname(str) {
+  function toClassName(str) {
     // Stop execution if a valid string is not provided
     if (!isNonEmptyString(str)) {
       return undefined;
@@ -58,7 +58,7 @@
    * for the attributes to be attached to the created element
    * @return {Element} The resulting HTML element
    */
-  function createCustomElement(tagName, attributes) {
+  function createTag(tagName, attributes) {
     // If no tag name is provided, no element is created
     if (!isNonEmptyString(tagName)) {
       return undefined;
@@ -71,9 +71,7 @@
         if (isNonEmptyString(key)) {
           // The value needs to be a string. If another type
           // is used, it will be transformed into an empty string
-          const parsedValue = !isNonEmptyString(value) ? '' : value;
-
-          element.setAttribute(key, parsedValue);
+          element.setAttribute(key, !isNonEmptyString(value) ? '' : value);
         }
       }
     }
@@ -90,7 +88,7 @@
     const config = {};
     $block.querySelectorAll(':scope>div').forEach(($row) => {
       if ($row.children && $row.children[1]) {
-        const name = stringToClassname($row.children[0].textContent);
+        const name = toClassName($row.children[0].textContent);
         const $a = $row.children[1].querySelector('a');
         let value = '';
         if ($a) value = $a.href;
@@ -150,7 +148,7 @@
         $tag.setAttribute('content', m.content);
       } else {
         // add new meta tag
-        $frag.appendChild(createCustomElement('meta', m));
+        $frag.appendChild(createTag('meta', m));
       }
     });
     if ($frag.childNodes.length) {
@@ -163,7 +161,7 @@
    * Converts tables that have a single `th` element with text content inside
    * to a namespaced `div` wrapper that acts like a pseudo-component
    */
-  function convertTables() {
+  function decorateTables() {
     const tables = document.querySelectorAll(`${CONFIG.SELECTORS.MAIN} table`);
 
     tables.forEach((table) => {
@@ -181,7 +179,7 @@
 
         if (isNonEmptyString(sectionName)) {
           // Turn the `th` string into a valid HTML class name
-          const sectionIdentifier = stringToClassname(sectionName);
+          const sectionIdentifier = toClassName(sectionName);
 
           // Add a starting performance marker
           const startMarkerName = `start-tableConversion--${sectionIdentifier}`;
@@ -191,7 +189,7 @@
           const sectionClass = `${CONFIG.SELECTORS.NAMESPACE}--${sectionIdentifier}`;
           // Create a placeholder element
           // where all the transformed table markup will be added
-          const sectionMarkup = createCustomElement('div', {
+          const sectionMarkup = createTag('div', {
             class: sectionClass,
           });
 
@@ -200,7 +198,7 @@
 
           tableRows.forEach((tableRow) => {
             // For each row, create a `div` element
-            const sectionRow = createCustomElement('div', {
+            const sectionRow = createTag('div', {
               class: `${sectionClass}-row`,
             });
 
@@ -213,7 +211,7 @@
 
               if (isNonEmptyString(sectionEntryContent)) {
                 // For each column that has content, create a `div` element
-                const sectionEntry = createCustomElement('div', {
+                const sectionEntry = createTag('div', {
                   class: `${sectionClass}-entry`,
                 });
 
@@ -264,7 +262,7 @@
       }
 
       if (type) {
-        const $embed = createCustomElement('div', { class: `embed embed-oembed embed-${type}` });
+        const $embed = createTag('div', { class: `embed embed-oembed embed-${type}` });
         const $div = $a.closest('div');
         $embed.innerHTML = embedHTML;
         $div.parentElement.replaceChild($embed, $div);
@@ -334,7 +332,7 @@
   }
 
   async function decoratePage() {
-    convertTables();
+    decorateTables();
     handleMetadata();
     decorateEmbeds();
     decorateButtons();
