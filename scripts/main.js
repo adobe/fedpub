@@ -1,4 +1,5 @@
 import CONFIG from './modules/CONFIG.js';
+import initializeFEDS from './modules/initializeFEDS.js';
 import convertTables from './modules/dom/convertTables.js';
 
 // Attach basic classes to the default content
@@ -21,6 +22,7 @@ function decoratePage() {
 
 // Transform default markup to a richer structure
 function initTransformations() {
+    initializeFEDS();
     decoratePage();
     convertTables();
 }

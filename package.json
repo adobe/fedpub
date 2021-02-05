@@ -32,8 +32,5 @@
     "less": "^4.1.0",
     "minify": "^6.0.1",
     "onchange": "^7.1.0"
-  },
-  "dependencies": {
-    "reset-css": "^5.0.1"
   }
 }

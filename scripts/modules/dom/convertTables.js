@@ -11,11 +11,22 @@ export default function convertTables() {
     const tables = document.querySelectorAll(`${CONFIG.SELECTORS.MAIN} table`);
 
     tables.forEach((table) => {
-        // Initialize table conversion only if there is just one `th` element
+        // Remove all empty `th` elements.
+        // Sometimes, even if the table head is authored to have a single column,
+        // the resulting HTML still shows multiple columns, but only one with text
+        const emptyTableHeadings = table.querySelectorAll('thead th:empty');
+
+        emptyTableHeadings.forEach((emptyTableHeading) => {
+            emptyTableHeading.remove();
+        });
+
+        // Initialize table conversion only if there is just one populated `th` element
         const tableHeading = table.querySelector('thead th:only-child');
 
         if (tableHeading instanceof HTMLElement) {
-            const sectionName = tableHeading.innerText;
+            // Get the `th` text; using `textContent` and not `innerText`,
+            // since the latter triggers a reflow
+            const sectionName = tableHeading.textContent;
 
             if (isNonEmptyString(sectionName)) {
                 // Turn the `th` string into a valid HTML class name

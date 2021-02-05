@@ -1,4 +1,18 @@
-@import '../node_modules/reset-css/less/reset';
+// Provide base styles for some default tags;
+// Other important elements that might need to be added to the list:
+// iframe, form, label, article, aside, embed, sub, sup, s/strike
+html, body, footer, header, main, div, span, // containers
+h1, h2, h3, h4, h5, h6, p, a, // typography
+em, strong, u, // typography alternative styles
+img, // media elements
+ol, ul, li, // list elements
+table, tbody, thead, tr, th, td { // table elements
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
 
 body {
     background: @background-body;
@@ -6,7 +20,7 @@ body {
 
 // Hide the content until the transformations have occurred,
 // thus avoiding any FOUC issues; we're using 'visibility'
-// instead of 'display: none' to limit page jump
+// instead of 'display: none' to limit layout shift
 main {
     visibility: hidden;
 
@@ -20,6 +34,12 @@ main {
     margin: auto;
     padding: @gutter-content 0;
     font-family: @fontFamily-default;
+    line-height: @lineHeight-default;
+    font-size: @fontSize-100--mobile;
+
+    @media screen and (min-width: @breakpoint-mobile) {
+        font-size: @fontSize-100--desktop;
+    }
 
     // All elements should have 'border-box' box sizing
     *,
@@ -29,7 +49,7 @@ main {
     }
 
     // All direct elements in the main Fedpub wrapper
-    // (mostly headings and paragraphs)
+    // (mostly headings, paragraphs and lists)
     // should have a certain width and be centered
     > * {
         max-width: @width-content-inner;
@@ -41,34 +61,63 @@ main {
         }
     }
 
-    // These are the main types of elements used in the Fedpub wrapper;
-    // attaching some basic shared styling to them
-    h1, h2, h3, h4, h5, h6, p {
-        margin-bottom: 20px;
-        line-height: @lineHeight-default;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
-
-    // Headlines need a bolder font weight
-    h1, h2, h3, h4, h5, h6 {
+    // Headline styles, as defined by https://spectrum.adobe.com/page/heading/
+    // Define shared headline styles
+    h1, h2, h3, h4, h5, h6 {
+        line-height: @lineHeight-headlines;
         font-weight: @fontWeight-headlines;
     }
 
-    // Define headline font sizes;
-    // Will be moved to variables is reused somewhere else
+    // Define headline individual properties
     h1 {
-        font-size: 28px;
+        .headlineStyles(900);
     }
 
     h2 {
-        font-size: 23px;
+        .headlineStyles(700);
     }
 
     h3 {
-        font-size: 17px;
+        .headlineStyles(500);
+    }
+
+    h4 {
+        .headlineStyles(300);
+    }
+
+    h5 {
+        .headlineStyles(200);
+    }
+
+    h6 {
+        .headlineStyles(100);
+    }
+
+    // Treat the first 'p' after a headline as a subheadline
+    // Styles as defined by https://spectrum.adobe.com/page/detail/
+    h1 + p {
+        margin-top: (round(@fontSize-200--mobile / @marginTopMultiplier-headlines));
+        margin-bottom: (round(@fontSize-200--mobile * @marginBottomMultiplier-headlines));
+        font-size: @fontSize-200--mobile;
+        line-height: @lineHeight-headlines;
+
+        @media screen and (min-width: @breakpoint-mobile) {
+            margin-top: (round(@fontSize-200--desktop / @marginTopMultiplier-headlines));
+            margin-bottom: (round(@fontSize-200--desktop * @marginBottomMultiplier-headlines));
+            font-size: @fontSize-200--desktop;
+        }
+    }
+
+    // Default paragraph styling
+    // Styles as defined by https://spectrum.adobe.com/page/body/
+    p {
+        margin-bottom: (round(@marginMultiplier-bodyText * @fontSize-100--mobile));
+        margin-top: (round(@marginMultiplier-bodyText * @fontSize-100--mobile));
+
+        @media screen and (min-width: @breakpoint-mobile) {
+            margin-bottom: (round(@marginMultiplier-bodyText * @fontSize-100--desktop));
+            margin-top: (round(@marginMultiplier-bodyText * @fontSize-100--desktop));
+        }
     }
 
     // Standard styling for normal links that come up in paragraphs
@@ -79,6 +128,16 @@ main {
         &:hover {
             text-decoration: underline;
         }
+    }
+
+    // `strong` elements should have bold text
+    strong {
+        font-weight: @fontWeight-strong;
+    }
+
+    // `em` elements should have italic text
+    em {
+        font-style: italic;
     }
 
     // Common styles for lists
@@ -99,23 +158,21 @@ main {
 
     // Common styles for the default list items
     li {
-        margin-bottom: 10px;
-        line-height: @lineHeight-default;
+        margin-bottom: (round(@marginMultiplier-bodyText * @fontSize-100--mobile));
+        margin-top: (round(@marginMultiplier-bodyText * @fontSize-100--mobile));
 
         &:last-child {
             margin-bottom: 0;
         }
+
+        @media screen and (min-width: @breakpoint-mobile) {
+            margin-bottom: (round(@marginMultiplier-bodyText * @fontSize-100--desktop));
+            margin-top: (round(@marginMultiplier-bodyText * @fontSize-100--desktop));
+        }
     }
 
-    // `em` elements should have italic text
-    em {
-        font-style: italic;
-    }
-
-    // When an 'em' element is present right after an 'h1',
-    // treat it as a subheadline and bring it closer to the 'h1'
-    h1 + p > em {
-        margin-top: -15px;
-        display: block;
+    // Ensure adjacent table cells have shared borders
+    table {
+        border-collapse: collapse;
     }
 }

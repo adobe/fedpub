@@ -1,0 +1,17 @@
+// Generate headline styles based on provided font size
+.headlineStyles(@fontSizeVariant) {
+    // Define variable names to be used, based on mixin argument
+    @mobileVariableName: ~"fontSize-@{fontSizeVariant}--mobile";
+    @desktopVariableName: ~"fontSize-@{fontSizeVariant}--desktop";
+
+    // Output the styles, rounding the margin values
+    margin-top: (round(@@mobileVariableName / @marginTopMultiplier-headlines));
+    margin-bottom: (round(@@mobileVariableName * @marginBottomMultiplier-headlines));
+    font-size: @@mobileVariableName;
+
+    @media screen and (min-width: @breakpoint-mobile) {
+        margin-top: (round(@@desktopVariableName / @marginTopMultiplier-headlines));
+        margin-bottom: (round(@@desktopVariableName * @marginBottomMultiplier-headlines));
+        font-size: @@desktopVariableName;
+    }
+}
