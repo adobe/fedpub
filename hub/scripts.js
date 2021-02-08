@@ -13,10 +13,12 @@
   const CONFIG = {
     SELECTORS: {
       NAMESPACE: 'fedpub',
-      WRAPPER: 'fedpub-wrapper',
       MAIN: 'main',
       READY: 'fedpub--ready',
       METADATA: 'fedpub--metadata',
+      CTA: 'fedpub-cta',
+      PRIMARY_CTA: 'fedpub-cta--primary',
+      SECONDARY_CTA: 'fedpub-cta--secondary',
     },
   };
 
@@ -275,29 +277,32 @@
       const $up = $a.parentElement;
       const $twoup = $a.parentElement.parentElement;
       if ($up.childNodes.length === 1 && $up.tagName === 'P') {
-        $a.className = 'button secondary';
+        // Setting CTA parent element to `flex` in order to be able
+        // to apply all the suggested Spectrum styling.
+        // CTA buttons should not normally occur in the normal text,
+        // they should be present in the card component, so this
+        // is just a temporary solution for demo purposes
+        $up.style.display = 'flex';
+        $a.className = `${CONFIG.SELECTORS.CTA} ${CONFIG.SELECTORS.SECONDARY_CTA}`;
       }
       if ($up.childNodes.length === 1 && $up.tagName === 'STRONG'
         && $twoup.childNodes.length === 1 && $twoup.tagName === 'P') {
-        $a.className = 'button primary';
+        $twoup.style.display = 'flex';
+        $a.className = `${CONFIG.SELECTORS.CTA} ${CONFIG.SELECTORS.PRIMARY_CTA}`;
       }
     });
   }
 
-  function markReadyAfterDecorations() {
+  // Attach a 'ready' class to the main `div` once transformations are complete
+  function markPageAsReady() {
     const mainElement = document.querySelector(`${CONFIG.SELECTORS.MAIN}`);
 
     if (mainElement instanceof HTMLElement) {
-      // Attach a class to the main 'div' in the 'main' section
       const mainDiv = mainElement.children[0];
 
-      if (mainDiv instanceof HTMLElement
-          && mainDiv.matches('div')) {
-        mainDiv.classList.add(CONFIG.SELECTORS.WRAPPER);
+      if (mainDiv instanceof HTMLElement && mainDiv.matches('div')) {
+        mainDiv.classList.add(CONFIG.SELECTORS.READY);
       }
-
-      // Mark the content as 'ready'
-      mainElement.classList.add(CONFIG.SELECTORS.READY);
     }
   }
 
@@ -336,7 +341,7 @@
     handleMetadata();
     decorateEmbeds();
     decorateButtons();
-    markReadyAfterDecorations();
+    markPageAsReady();
   }
 
   initializeFEDS();
