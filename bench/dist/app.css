@@ -34,6 +34,7 @@ td {
 }
 body {
   background: #fff;
+  font-family: adobe-clean, sans-serif;
 }
 main {
   visibility: hidden;
@@ -45,7 +46,6 @@ main.fedpub--ready {
   max-width: 800px;
   margin: auto;
   padding: 20px 0;
-  font-family: adobe-clean, sans-serif;
   line-height: 1.5;
   font-size: 14px;
 }
