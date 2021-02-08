@@ -1,4 +1,5 @@
 import CONFIG from './modules/CONFIG.js';
+import handlePageDetails from './modules/handlePageDetails.js';
 import initializeFEDS from './modules/initializeFEDS.js';
 import convertTables from './modules/dom/convertTables.js';
 
@@ -17,6 +18,7 @@ function markPageAsReady() {
 
 // Transform default markup to a richer structure
 function initTransformations() {
+    handlePageDetails();
     initializeFEDS();
     convertTables();
     markPageAsReady();

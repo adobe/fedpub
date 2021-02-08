@@ -24,7 +24,7 @@ function getOtDomainId() {
  */
 export default function initializeFEDS() {
     window.fedsConfig = {
-        locale: 'en', // TODO: add locale based on URL
+        locale: window.fedPub.locale,
         content: {
             experience: 'acom', // TODO: use fedPub experience
         },
