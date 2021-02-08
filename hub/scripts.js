@@ -13,7 +13,6 @@
   const CONFIG = {
     SELECTORS: {
       NAMESPACE: 'fedpub',
-      MAIN: 'main',
       READY: 'fedpub--ready',
       METADATA: 'fedpub--metadata',
       CTA: 'fedpub-cta',
@@ -164,7 +163,7 @@
    * to a namespaced `div` wrapper that acts like a pseudo-component
    */
   function decorateTables() {
-    const tables = document.querySelectorAll(`${CONFIG.SELECTORS.MAIN} table`);
+    const tables = document.querySelectorAll('main table');
 
     tables.forEach((table) => {
       // Remove all empty `th` elements
@@ -295,7 +294,7 @@
 
   // Attach a 'ready' class to the main `div` once transformations are complete
   function markPageAsReady() {
-    const mainElement = document.querySelector(`${CONFIG.SELECTORS.MAIN}`);
+    const mainElement = document.querySelector('main');
 
     if (mainElement instanceof HTMLElement) {
       const mainDiv = mainElement.children[0];
