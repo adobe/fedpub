@@ -306,6 +306,45 @@
   }
 
   /**
+   * Parses the page URL and retrieves the locale, cloud and category.
+   * Page details are updated based on these values.
+   */
+  function handlePageDetails() {
+    const MAP = {
+      ca: { country: 'CA', language: 'en' },
+      ca_fr: { country: 'CA', language: 'fr' },
+      en: { country: 'US', language: 'en' },
+    };
+    const [locale, cloud, category] = window.location.pathname
+      .split('/').filter(isNonEmptyString);
+    let localeDetails = MAP[locale];
+    let currentLocale = locale;
+
+    if (typeof localeDetails !== 'object') {
+      // Locale is undefined or unsupported, default to "en"
+      currentLocale = 'en';
+      localeDetails = MAP[currentLocale];
+    }
+
+    window.fedPub = {
+      language: localeDetails.language,
+      country: localeDetails.country,
+      locale: currentLocale,
+    };
+
+    if (isNonEmptyString(cloud)) {
+      window.fedPub.cloud = cloud;
+    }
+
+    if (isNonEmptyString(category)) {
+      window.fedPub.category = category;
+    }
+
+    /** Set details */
+    document.querySelector('html').setAttribute('lang', window.fedPub.language);
+  }
+
+  /**
    * Initialize FEDS library
    */
   function initializeFEDS() {
@@ -325,7 +364,7 @@
     }
 
     window.fedsConfig = {
-      locale: 'en', // TODO: add locale based on URL
+      locale: window.fedPub.locale,
       content: {
         experience: 'acom', // TODO: use fedPub experience
       },
@@ -343,6 +382,7 @@
     markPageAsReady();
   }
 
+  handlePageDetails();
   initializeFEDS();
   decoratePage();
 })();
