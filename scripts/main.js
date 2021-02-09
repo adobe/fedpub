@@ -5,7 +5,7 @@ import convertTables from './modules/dom/convertTables.js';
 
 // Attach a 'ready' class to the main `div` once transformations are complete
 function markPageAsReady() {
-    const mainElement = document.querySelector(`${CONFIG.SELECTORS.MAIN}`);
+    const mainElement = document.querySelector('main');
 
     if (mainElement instanceof HTMLElement) {
         const mainDiv = mainElement.children[0];
