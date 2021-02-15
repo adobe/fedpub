@@ -245,6 +245,24 @@
     });
   }
 
+  /**
+   * Loads a JS file on the page
+   * @param {String} src The path to the JS file
+   * @param {Object} params The parameters used to load the file
+   */
+  function loadJS(src, params) {
+    if (isNonEmptyString(src)) {
+      const script = document.createElement('script');
+      script.setAttribute('src', src);
+      script.setAttribute('type', 'text/javascript');
+      if (typeof params === 'object' && isNonEmptyString(params.id)) {
+        script.setAttribute('id', params.id);
+      }
+
+      document.head.appendChild(script);
+    }
+  }
+
   function decorateEmbeds() {
     document.querySelectorAll('a[href]').forEach(($a) => {
       const url = new URL($a.href);
@@ -345,6 +363,19 @@
   }
 
   /**
+   * Initializes IMS library
+   */
+  function initializeIMS() {
+    window.adobeid = {
+      client_id: 'fedpub',
+      scope: 'AdobeID,openid,gnav',
+      locale: window.fedPub.locale,
+    };
+
+    loadJS('https://static.adobelogin.com/imslib/imslib.min.js');
+  }
+
+  /**
    * Initialize FEDS library
    */
   function initializeFEDS() {
@@ -372,6 +403,10 @@
         otDomainId: getOtDomainId(),
       },
     };
+
+    loadJS('https://www.adobe.com/etc.clientlibs/globalnav/clientlibs/base/feds.js', {
+      id: 'feds-script',
+    });
   }
 
   async function decoratePage() {
@@ -383,6 +418,7 @@
   }
 
   handlePageDetails();
+  initializeIMS();
   initializeFEDS();
   decoratePage();
 })();
