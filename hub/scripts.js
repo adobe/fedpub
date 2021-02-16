@@ -409,6 +409,26 @@
     });
   }
 
+  /**
+   * Initialize Launch
+   */
+  function initializeLaunch() {
+    window.marketingtech = {
+      adobe: {
+        launch: {
+          property: 'global',
+          environment: 'production',
+        },
+        target: true,
+        audienceManager: true,
+      },
+    };
+
+    loadJS('https://www.adobe.com/marketingtech/main.no-promise.min.js', {
+      id: 'AdobeLaunch',
+    });
+  }
+
   async function decoratePage() {
     decorateTables();
     handleMetadata();
@@ -418,7 +438,8 @@
   }
 
   handlePageDetails();
-  initializeIMS();
   initializeFEDS();
+  initializeIMS();
+  initializeLaunch();
   decoratePage();
 })();
