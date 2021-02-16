@@ -1,4 +1,3 @@
-import CONFIG from '../CONFIG.js';
 import isNonEmptyString from '../lang/isNonEmptyString.js';
 import createCustomElement from './createCustomElement.js';
 
@@ -20,7 +19,7 @@ export default function wrapElements(selector, className) {
         return;
     }
 
-    const mainElement = document.querySelector(`${CONFIG.SELECTORS.MAIN}`);
+    const mainElement = document.querySelector('main');
 
     if (mainElement instanceof HTMLElement) {
         const elements = mainElement.querySelectorAll(selector);

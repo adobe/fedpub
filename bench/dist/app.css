@@ -174,7 +174,7 @@ main a {
 main a:hover {
   text-decoration: underline;
 }
-main .fedpub-cta--primary {
+main .fedpub-cta {
   display: flex;
   height: 32px;
   width: auto;
@@ -192,17 +192,19 @@ main .fedpub-cta--primary {
   transition: background-color 130ms ease-out, border-color 130ms ease-out, color 130ms ease-out;
   cursor: pointer;
   text-decoration: none;
-  background-color: #1473e6;
-  border-color: #1473e6;
-  color: #ffffff;
 }
-main .fedpub-cta--primary:hover,
-main .fedpub-cta--primary:focus {
+main .fedpub-cta:hover,
+main .fedpub-cta:focus {
   box-shadow: none;
   text-decoration: none;
 }
-main .fedpub-cta--primary:focus {
+main .fedpub-cta:focus {
   outline-offset: 0;
+}
+main .fedpub-cta--primary {
+  background-color: #1473e6;
+  border-color: #1473e6;
+  color: #ffffff;
 }
 main .fedpub-cta--primary:hover,
 main .fedpub-cta--primary:focus {
@@ -210,34 +212,9 @@ main .fedpub-cta--primary:focus {
   border-color: #0d66d0;
 }
 main .fedpub-cta--secondary {
-  display: flex;
-  height: 32px;
-  width: auto;
-  min-width: 72px;
-  padding: 0 14px;
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 16px;
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 0;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  transition: background-color 130ms ease-out, border-color 130ms ease-out, color 130ms ease-out;
-  cursor: pointer;
-  text-decoration: none;
   background-color: rgba(0, 0, 0, 0);
   border-color: #4b4b4b;
   color: #4b4b4b;
-}
-main .fedpub-cta--secondary:hover,
-main .fedpub-cta--secondary:focus {
-  box-shadow: none;
-  text-decoration: none;
-}
-main .fedpub-cta--secondary:focus {
-  outline-offset: 0;
 }
 main .fedpub-cta--secondary:hover,
 main .fedpub-cta--secondary:focus {

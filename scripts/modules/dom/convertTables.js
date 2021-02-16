@@ -8,7 +8,7 @@ import stringToClassname from '../lang/stringToClassname.js';
  * to a namespaced `div` wrapper that acts like a pseudo-component
  */
 export default function convertTables() {
-    const tables = document.querySelectorAll(`${CONFIG.SELECTORS.MAIN} table`);
+    const tables = document.querySelectorAll('main table');
 
     tables.forEach((table) => {
         // Remove all empty `th` elements.
