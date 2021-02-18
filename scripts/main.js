@@ -2,6 +2,7 @@ import CONFIG from './modules/CONFIG.js';
 import handlePageDetails from './modules/handlePageDetails.js';
 import initializeFEDS from './modules/initializeFEDS.js';
 import initializeIMS from './modules/initializeIMS.js';
+import initializeLaunch from './modules/initializeLaunch.js';
 import convertTables from './modules/dom/convertTables.js';
 
 // Attach a 'ready' class to the main `div` once transformations are complete
@@ -22,6 +23,7 @@ function initTransformations() {
     handlePageDetails();
     initializeFEDS();
     initializeIMS();
+    initializeLaunch();
     convertTables();
     markPageAsReady();
 }
