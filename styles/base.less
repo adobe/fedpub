@@ -24,11 +24,7 @@ main {
     margin: auto;
     padding: @gutter-content 0;
     line-height: @lineHeight-default;
-    font-size: @fontSize-100--mobile;
-
-    @media screen and (min-width: @breakpoint-mobile) {
-        font-size: @fontSize-100--desktop;
-    }
+    font-size: @fontSize-200--mobile;
 
     // All elements should have 'border-box' box sizing
     *,
@@ -87,13 +83,12 @@ main {
     h1 + p {
         margin-top: (round(@fontSize-200--mobile / @marginTopMultiplier-headlines));
         margin-bottom: (round(@fontSize-200--mobile * @marginBottomMultiplier-headlines));
-        font-size: @fontSize-200--mobile;
+        font-size: @fontSize-200--desktop;
         line-height: @lineHeight-headlines;
 
         @media screen and (min-width: @breakpoint-mobile) {
             margin-top: (round(@fontSize-200--desktop / @marginTopMultiplier-headlines));
             margin-bottom: (round(@fontSize-200--desktop * @marginBottomMultiplier-headlines));
-            font-size: @fontSize-200--desktop;
         }
     }
 
