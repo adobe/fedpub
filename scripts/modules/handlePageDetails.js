@@ -1,31 +1,36 @@
 import isNonEmptyString from './lang/isNonEmptyString.js';
-
-const MAP = {
-    ca: { country: 'CA', language: 'en' },
-    ca_fr: { country: 'CA', language: 'fr' },
-    en: { country: 'US', language: 'en' },
-};
+import localeMAP from './localeMAP.js';
 
 /**
  * Parses the page URL and retrieves the locale, cloud and category.
  * Page details are updated based on these values.
  */
 export default function handlePageDetails() {
-    const [locale, cloud, category] = window.location.pathname
+    const paths = window.location.pathname.replace('/bench', '')
         .split('/').filter(isNonEmptyString);
-    let localeDetails = MAP[locale];
-    let currentLocale = locale;
+    // Identify hub placement in order to split paths
+    const hubPosition = paths.indexOf('hub');
+    const pageDetails = paths.slice(0, hubPosition);
 
-    if (typeof localeDetails !== 'object') {
-        // Locale is undefined or unsupported, default to "en"
-        currentLocale = 'en';
-        localeDetails = MAP[currentLocale];
+    let localeDetails = localeMAP[pageDetails[0]];
+    let locale;
+
+    if (typeof localeDetails === 'object') {
+        // Locale is part of the URL
+        locale = pageDetails.shift();
+    } else {
+        // Locale is not part of URL or unsupported
+        locale = 'en';
+        localeDetails = localeMAP[locale];
     }
+
+    const cloud = pageDetails.shift();
+    const category = pageDetails.shift();
 
     window.fedPub = {
         language: localeDetails.language,
         country: localeDetails.country,
-        locale: currentLocale,
+        locale,
     };
 
     if (isNonEmptyString(cloud)) {
