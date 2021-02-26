@@ -1,3 +1,6 @@
+import isStageEnvironment from './isStageEnvironment.js';
+import loadResource from './dom/loadResource.js';
+
 /**
  * Get the OneTrust ID based on the current domain
  * @return {String} The OneTrust ID for the current domain;
@@ -23,6 +26,7 @@ function getOtDomainId() {
  * and exposes it to the global namespace
  */
 export default function initializeFEDS() {
+    // Define the FEDS configuration object
     window.fedsConfig = {
         locale: window.fedPub.locale,
         content: {
@@ -32,4 +36,14 @@ export default function initializeFEDS() {
             otDomainId: getOtDomainId(),
         },
     };
+
+    // Define the FEDS script path based on the current environment
+    const fedsPath = `https://www.${!isStageEnvironment ? '' : 'stage.'}adobe.com/etc.clientlibs/globalnav/clientlibs/base/feds.js`;
+
+    // Load the FEDS library
+    loadResource({
+        path: fedsPath,
+        type: 'script',
+        id: 'feds-script',
+    });
 }
