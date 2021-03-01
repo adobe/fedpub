@@ -68,12 +68,12 @@ function addToFilters(item) {
   }
 }
 
-export default async function getTaxonomy() {
+export default function getTaxonomy(locale = 'en') {
   if (taxonomy) {
     return taxonomy;
   }
 
-  taxonomy = window.fetch('/_taxonomy.json')
+  taxonomy = window.fetch(`${locale !== 'en' ? `/${locale}` : ''}/_taxonomy.json`)
     .then((response) => response.json())
     .then((json) => {
       if (json && json.data && !!json.data.length) {
@@ -102,7 +102,6 @@ export default async function getTaxonomy() {
             name,
             filter,
             category,
-            // children: [],
             level1,
             level2,
             exclude,
@@ -114,7 +113,6 @@ export default async function getTaxonomy() {
         });
 
         return {
-          CONSTANTS: {},
           getCategories: function getCategories() {
             return currentData.categories;
           },
