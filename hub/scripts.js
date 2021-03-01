@@ -21,6 +21,80 @@
     },
   };
 
+  const localeMAP = {
+    ae_ar: { country: 'ae', language: 'ar' },
+    ae_en: { country: 'ae', language: 'en' },
+    africa: { country: 'africa', language: 'en' },
+    at: { country: 'at', language: 'de' },
+    au: { country: 'au', language: 'en' },
+    be_en: { country: 'be', language: 'en' },
+    be_fr: { country: 'be', language: 'fr' },
+    be_nl: { country: 'be', language: 'nl' },
+    bg: { country: 'bg', language: 'bg' },
+    br: { country: 'br', language: 'pt' },
+    ca: { country: 'ca', language: 'en' },
+    ca_fr: { country: 'ca', language: 'fr' },
+    ch_de: { country: 'ch', language: 'de' },
+    ch_fr: { country: 'ch', language: 'fr' },
+    ch_it: { country: 'ch', language: 'it' },
+    cis_en: { country: 'cis', language: 'en' },
+    cis_ru: { country: 'cis', language: 'ru' },
+    cl: { country: 'cl', language: 'es' },
+    cn: { country: 'cn', language: 'zh' },
+    cy_en: { country: 'cy', language: 'en' },
+    cz: { country: 'cz', language: 'cs' },
+    de: { country: 'de', language: 'de' },
+    dk: { country: 'dk', language: 'da' },
+    eeurope: { country: 'eeurope', language: 'en' },
+    ee: { country: 'ee', language: 'et' },
+    en: { country: 'us', language: 'en' },
+    es: { country: 'es', language: 'es' },
+    fi: { country: 'fi', language: 'fi' },
+    fr: { country: 'fr', language: 'fr' },
+    gr_en: { country: 'gr', language: 'en' },
+    hk_en: { country: 'hk', language: 'en' },
+    hk_zh: { country: 'hk', language: 'zh' },
+    hu: { country: 'hu', language: 'hu' },
+    ie: { country: 'ie', language: 'en' },
+    il_en: { country: 'il', language: 'en' },
+    il_he: { country: 'il', language: 'he' },
+    in: { country: 'in', language: 'en' },
+    it: { country: 'it', language: 'it' },
+    jp: { country: 'jp', language: 'ja' },
+    kr: { country: 'kr', language: 'ko' },
+    la: { country: 'la', language: 'es' },
+    lt: { country: 'lt', language: 'lt' },
+    lu_de: { country: 'lu', language: 'de' },
+    lu_en: { country: 'lu', language: 'en' },
+    lu_fr: { country: 'lu', language: 'fr' },
+    lv: { country: 'lv', language: 'lv' },
+    mena_ar: { country: 'mena', language: 'ar' },
+    mena_en: { country: 'mena', language: 'en' },
+    mena_fr: { country: 'mena', language: 'fr' },
+    mt: { country: 'mt', language: 'en' },
+    mx: { country: 'mx', language: 'es' },
+    nl: { country: 'nl', language: 'nl' },
+    no: { country: 'no', language: 'nb' },
+    nz: { country: 'nz', language: 'en' },
+    pl: { country: 'pl', language: 'pl' },
+    pt: { country: 'pt', language: 'pt' },
+    ro: { country: 'ro', language: 'ro' },
+    ru: { country: 'ru', language: 'ru' },
+    sa_ar: { country: 'sa', language: 'ar' },
+    sa_en: { country: 'sa', language: 'en' },
+    se: { country: 'se', language: 'sv' },
+    sea: { country: 'sea', language: 'en' },
+    sg: { country: 'sg', language: 'en' },
+    si: { country: 'si', language: 'sl' },
+    sk: { country: 'sk', language: 'sk' },
+    th_en: { country: 'th', language: 'en' },
+    th_th: { country: 'th', language: 'th' },
+    tr: { country: 'tr', language: 'tr' },
+    tw: { country: 'tw', language: 'zh' },
+    ua: { country: 'ua', language: 'uk' },
+    uk: { country: 'uk', language: 'en' },
+  };
+
   /**
    * Checks whether a given parameter is a non-empty string
    * @param {String} str The parameter requiring validation
@@ -328,26 +402,31 @@
    * Page details are updated based on these values.
    */
   function handlePageDetails() {
-    const MAP = {
-      ca: { country: 'CA', language: 'en' },
-      ca_fr: { country: 'CA', language: 'fr' },
-      en: { country: 'US', language: 'en' },
-    };
-    const [locale, cloud, category] = window.location.pathname
+    const paths = window.location.pathname.replace('/bench', '')
       .split('/').filter(isNonEmptyString);
-    let localeDetails = MAP[locale];
-    let currentLocale = locale;
+    // Identify hub placement in order to split paths
+    const hubPosition = paths.indexOf('hub');
+    const pageDetails = paths.slice(0, hubPosition);
 
-    if (typeof localeDetails !== 'object') {
-      // Locale is undefined or unsupported, default to "en"
-      currentLocale = 'en';
-      localeDetails = MAP[currentLocale];
+    let localeDetails = localeMAP[pageDetails[0]];
+    let locale;
+
+    if (typeof localeDetails === 'object') {
+      // Locale is part of the URL
+      locale = pageDetails.shift();
+    } else {
+      // Locale is not part of URL or unsupported
+      locale = 'en';
+      localeDetails = localeMAP[locale];
     }
+
+    const cloud = pageDetails.shift();
+    const category = pageDetails.shift();
 
     window.fedPub = {
       language: localeDetails.language,
       country: localeDetails.country,
-      locale: currentLocale,
+      locale,
     };
 
     if (isNonEmptyString(cloud)) {
@@ -369,7 +448,7 @@
     window.adobeid = {
       client_id: 'fedpub',
       scope: 'AdobeID,openid,gnav',
-      locale: window.fedPub.locale,
+      locale: `${window.fedPub.language}_${window.fedPub.country.toUpperCase()}`,
     };
 
     loadJS('https://static.adobelogin.com/imslib/imslib.min.js');
