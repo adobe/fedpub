@@ -1,0 +1,123 @@
+body {
+    font-family: 'adobe-clean';
+    padding: 20px;
+    line-height: 1.4;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+#results {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 150px;
+}
+
+#search {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid darkgrey;
+    font-size: 24px;
+    outline: none;
+    padding: 5px 0;
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    padding: 0 40px;
+}
+
+#selection {
+    background-color: #dfe4ea;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+    width: 100%;
+    display: none;
+}
+
+.notInViewport {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+}
+
+#selection.visible {
+    display: block;
+}
+
+.selectedTag {
+    margin: 5px;
+    display: inline-block;
+    border: 1px dashed #2f3542;
+    border-radius: 10px;
+    line-height: 1;
+}
+
+.selectedTag .tag--path {
+    padding-left: 5px;
+    margin-right: 0;
+}
+
+.selectedTag .tag--name {
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.tag {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 5px 0;
+    border-radius: 10px;
+    border: 1px dashed darkgrey;
+    padding: 5px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.tag.selected {
+    background-color: #dfe4ea;
+    border-color: #2f3542;
+    border-style: solid;
+}
+
+.tag--name {
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+.tag--path {
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.copy-buttons {
+    margin-left: 5px;
+    margin-top: 10px;
+}
+
+.copy-button {
+    background-color: #2f3542;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
+    margin: 0 5px;
+    cursor: pointer;
+    outline: none;
+}
+
+.copy-button[disabled] {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}

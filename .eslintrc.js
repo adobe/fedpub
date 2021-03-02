@@ -16,6 +16,8 @@ module.exports = {
   rules: {
     // allow reassigning param
     'no-param-reassign': [2, { props: false }],
+    // Allow modules to load from a path containing '.js'
+    'import/extensions': [2, { js: 'always' }],
   },
   globals: {
     document: true,
@@ -24,5 +26,8 @@ module.exports = {
     HTMLLinkElement: true,
     HTMLScriptElement: true,
     NodeList: true,
+  },
+  parserOptions: {
+    sourceType: 'module',
   },
 };
