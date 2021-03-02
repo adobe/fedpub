@@ -473,17 +473,26 @@
       return `${domains[currentDomain] || domains[Object.keys(domains)[0]]}`;
     }
 
+    function getExperience() {
+      let experience = 'fedpub';
+      if (isNonEmptyString(window.fedPub.cloud) && isNonEmptyString(window.fedPub.category)) {
+        experience += `/${window.fedPub.cloud}/${window.fedPub.category}`;
+      }
+
+      return experience;
+    }
+
     window.fedsConfig = {
       locale: window.fedPub.locale,
       content: {
-        experience: 'acom', // TODO: use fedPub experience
+        experience: getExperience(),
       },
       privacy: {
         otDomainId: getOtDomainId(),
       },
     };
 
-    loadJS('https://www.adobe.com/etc.clientlibs/globalnav/clientlibs/base/feds.js', {
+    loadJS('https://www.stage.adobe.com/etc.clientlibs/globalnav/clientlibs/base/feds.js', {
       id: 'feds-script',
     });
   }
