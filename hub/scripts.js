@@ -236,7 +236,7 @@
         $frag.appendChild(createTag('meta', m));
       }
       // check if property can be found in the sharedMetaImage that contains the og:image
-      if (sharedMetaImages.indexOf(md.property) !== -1) { 
+      if (sharedMetaImages.indexOf(m.property) !== -1) { 
         // update the content to point to our default image under /hub/
         $tag.setAttribute('content', window.location.host + '/hub/default-meta-image.png');
       }
