@@ -207,7 +207,7 @@ function updateSelection() {
   html += '<div class="copy-buttons">Copy tags for:';
   Object.entries(selectionValues).forEach(([key, value]) => {
     html += `<button data-target="selection-${key}" class="copy-button">${key}</button>`;
-    html += `<input type="text" id="selection-${key}" value="${value.join(',')}" class="notInViewport" />`;
+    html += `<input type="text" id="selection-${key}" value="${value.join(', ')}" class="notInViewport" />`;
   });
   html += '<div>';
 
@@ -227,10 +227,19 @@ function updateSelection() {
   selection.classList.toggle('visible', !!selectedTags.length);
 }
 
+function handleErrors() {
+  document.getElementById('results').innerHTML = '<p>Could not retrieve tags.</p>';
+  document.getElementById('search').setAttribute('disabled', 'disabled');
+}
+
 async function init() {
   generateLocaleSwitcher();
-  taxonomy = await getTaxonomy(currentLocale);
-  filterTags();
+  try {
+    taxonomy = await getTaxonomy(currentLocale);
+    filterTags();
+  } catch (e) {
+    handleErrors();
+  }
 
   const searchTerm = document.getElementById('search');
   searchTerm.addEventListener('input', (event) => {
