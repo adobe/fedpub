@@ -190,6 +190,7 @@
     const $metaBlock = document.querySelector(`.${CONFIG.SELECTORS.METADATA}`);
     if (!$metaBlock) return;
     const md = [];
+    const sharedMetaImages = ["og:image", "og:image:secure_url", "twitter:image"];
     const config = readBlockConfig($metaBlock);
     Object.entries(config).forEach(([key, value]) => {
       switch (key.toLowerCase()) {
@@ -238,6 +239,14 @@
     if ($frag.childNodes.length) {
       document.head.appendChild($frag);
     }
+
+    sharedMetaImages.forEach((el) => {
+      const $defaultimg = $tags.find((t) => t.getAttribute('property') === el);
+      if ($defaultimg) {
+        $defaultimg.setAttribute('content', window.location.host + '/hub/default-meta-image.png');
+      }
+    });
+
     $metaBlock.remove();
   }
 
