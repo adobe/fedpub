@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Adobe. All rights reserved.
+ * Copyright 2021 Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License. You may obtain a copy
  * of the License at http://www.apache.org/licenses/LICENSE-2.0
@@ -14,14 +14,6 @@
 (() => {
   const sk = window.hlx && window.hlx.sidekick ? window.hlx.sidekick : window.hlxSidekick;
   if (typeof sk !== 'object') return;
-
-  const path = sk.location.pathname;
-  if (!path.includes('/publish/') && /\d{4}\/\d{2}\/\d{2}/.test(path)) {
-    // post URL without publish in the path, add it back
-    const segs = path.split('/');
-    segs.splice(2, 0, 'publish');
-    sk.location = new URL(segs.join('/'), sk.location.origin);
-  }
 
   // PREVIEW ----------------------------------------------------------------------
 
@@ -59,7 +51,7 @@
       text: 'Tagger',
       action: () => {
         const { config } = sk;
-        window.open(`https://${config.host}/tools/tagger/`, 'hlx-sidekick-tagger');
+        window.open(`https://${config.innerHost}/tools/tagger/`, 'hlx-sidekick-tagger');
       },
     },
   });
