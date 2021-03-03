@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Adobe. All rights reserved.
+ * Copyright 2021 Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License. You may obtain a copy
  * of the License at http://www.apache.org/licenses/LICENSE-2.0
@@ -94,6 +94,15 @@
     ua: { country: 'ua', language: 'uk' },
     uk: { country: 'uk', language: 'en' },
   };
+
+  /**
+   * Determine whether the current environment is a staging one.
+   * This can occur either when previewing a page from the Git `stage` branch
+   * or when a Fedpub page is visited from Adobe's regular staging environment
+   */
+  const isStageEnvironment = window.location.hostname.indexOf('stage--') > -1
+      || window.location.hostname.indexOf('.stage.') > -1
+      || window.location.hostname === 'localhost';
 
   /**
    * Checks whether a given parameter is a non-empty string
@@ -451,7 +460,7 @@
       locale: `${window.fedPub.language}_${window.fedPub.country.toUpperCase()}`,
     };
 
-    loadJS('https://static.adobelogin.com/imslib/imslib.min.js');
+    loadJS(`https://static.adobelogin.com/imslib/${!isStageEnvironment ? '' : 'stg1/'}imslib.min.js`);
   }
 
   /**
@@ -492,7 +501,7 @@
       },
     };
 
-    loadJS('https://www.stage.adobe.com/etc.clientlibs/globalnav/clientlibs/base/feds.js', {
+    loadJS(`https://www.${!isStageEnvironment ? '' : 'stage.'}adobe.com/etc.clientlibs/globalnav/clientlibs/base/feds.js`, {
       id: 'feds-script',
     });
   }
@@ -505,14 +514,14 @@
       adobe: {
         launch: {
           property: 'global',
-          environment: 'production',
+          environment: !isStageEnvironment ? 'production' : 'stage',
         },
         target: true,
         audienceManager: true,
       },
     };
 
-    loadJS('https://www.adobe.com/marketingtech/main.no-promise.min.js', {
+    loadJS(`https://www.adobe.com/marketingtech/main.no-promise.${!isStageEnvironment ? '' : 'stage.'}min.js`, {
       id: 'AdobeLaunch',
     });
   }
