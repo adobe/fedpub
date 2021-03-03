@@ -126,6 +126,9 @@ export default function getTaxonomy(locale = 'en') {
       } else {
         return {};
       }
+    })
+    .catch(() => {
+      throw new Error('Could not fetch taxonomy');
     });
 
   return taxonomy;
