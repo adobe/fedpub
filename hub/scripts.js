@@ -186,13 +186,13 @@
   /**
    * Change default image to acom default stardand in added in /hub/
    */
-  function handleDefaultImageMetadata() {
-    const shareableMetaImages = document.querySelectorAll('head meta[content *= "/default-meta-image.png"]'); 
-    shareableMetaImages.forEach((el) => {
-        // update the content to point to our default image under /hub/
-        el.setAttribute('content', `${window.location.origin}/hub/default-meta-image.png`);    
-    });
-  }
+  // function handleDefaultImageMetadata() {
+  //   const shareableMetaImages = document.querySelectorAll('head meta[content *= "/default-meta-image.png"]'); 
+  //   shareableMetaImages.forEach((el) => {
+  //       // update the content to point to our default image under /hub/
+  //       el.setAttribute('content', `${window.location.origin}/hub/default-meta-image.png`);    
+  //   });
+  // }
   /**
    * Moves the metadata from the document into META tags.
    */
@@ -530,7 +530,7 @@
 
   async function decoratePage() {
     decorateTables();
-    handleDefaultImageMetadata();
+    //handleDefaultImageMetadata();
     handleMetadata();
     decorateEmbeds();
     decorateButtons();

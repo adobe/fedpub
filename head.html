@@ -11,5 +11,9 @@
             el.setAttribute('content', `${window.location.origin}/hub/default-meta-image.png`);    
         });
       }
+
+    window.addEventListener('load', function() {
+        handleDefaultImageMetadata();
+        });
 </script>
 <script src="/hub/scripts.js" defer></script>
