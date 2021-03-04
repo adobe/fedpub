@@ -26,7 +26,8 @@ module.exports = {
         'file-progress/activate': 1,
     },
     ignorePatterns: [
-        '/bench/dist/*.min.js',
+        '/bench/**/*.min.js',
+        '/tools/**/*.min.js',
     ],
     parserOptions: {
         // Allow the use of JS modules (import/export statements)
