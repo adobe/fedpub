@@ -190,7 +190,7 @@
     const shareableMetaImages = document.querySelectorAll('head meta[content *= "/default-meta-image.png"]'); 
     shareableMetaImages.forEach((el) => {
         // update the content to point to our default image under /hub/
-        el.setAttribute('content', `https://${location.host}/hub/default-meta-image.png`);    
+        el.setAttribute('content', `${window.location.origin}/hub/default-meta-image.png`);    
     });
   }
   /**
