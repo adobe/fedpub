@@ -186,11 +186,11 @@
   /**
    * Change default image to acom default stardand in added in /hub/
    */
-  function handleImageMetadata() {
+  function handleDefaultImageMetadata() {
     const shareableMetaImages = document.querySelectorAll('head meta[content *= "/default-meta-image.png"]'); 
     shareableMetaImages.forEach((el) => {
         // update the content to point to our default image under /hub/
-        el.setAttribute('content', `${location.host}/hub/default-meta-image.png`);
+        el.setAttribute('content', `${window.location.host}/hub/default-meta-image.png`);
     });
   }
   /**
@@ -200,7 +200,6 @@
     const $metaBlock = document.querySelector(`.${CONFIG.SELECTORS.METADATA}`);
     if (!$metaBlock) return;
     const md = [];
-    const sharedMetaImages = ["og:image", "og:image:secure_url", "twitter:image"];
     const config = readBlockConfig($metaBlock);
     Object.entries(config).forEach(([key, value]) => {
       switch (key.toLowerCase()) {
@@ -244,11 +243,6 @@
       } else {
         // add new meta tag
         $frag.appendChild(createTag('meta', m));
-      }
-      // check if property can be found in the sharedMetaImage that contains the og:image
-      if (sharedMetaImages.indexOf(m.property) !== -1) { 
-        // update the content to point to our default image under /hub/
-        $tag.setAttribute('content', window.location.host + '/hub/default-meta-image.png');
       }
     });
     if ($frag.childNodes.length) {
@@ -536,7 +530,7 @@
 
   async function decoratePage() {
     decorateTables();
-    handleImageMetadata();
+    handleDefaultImageMetadata();
     handleMetadata();
     decorateEmbeds();
     decorateButtons();
