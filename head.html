@@ -3,4 +3,13 @@
 <link id="favicon" rel="icon" type="image/svg+xml" href="/hub/icons/adobe.svg">
 <link rel="stylesheet" href="/hub/styles.css"/>
 <link rel="stylesheet" href="https://use.typekit.net/pnv6nym.css"/>
+<script>
+    function handleDefaultImageMetadata() {
+        const shareableMetaImages = document.querySelectorAll('head meta[content *= "/default-meta-image.png"]'); 
+        shareableMetaImages.forEach((el) => {
+            // update the content to point to our default image under /hub/
+            el.setAttribute('content', `${window.location.origin}/hub/default-meta-image.png`);    
+        });
+      }
+</script>
 <script src="/hub/scripts.js" defer></script>
