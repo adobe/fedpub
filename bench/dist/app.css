@@ -36,6 +36,14 @@ body {
   background: #fff;
   font-family: adobe-clean, sans-serif;
 }
+body > header {
+  /* Default navigation height set to avoid content jump */
+  height: 65px;
+}
+body > header.fedpub-header--fedsLoaded {
+  /* Remove the default header height and let FEDS handle it */
+  height: auto;
+}
 main {
   max-width: 800px;
   margin: auto;
