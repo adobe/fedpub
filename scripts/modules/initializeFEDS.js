@@ -1,4 +1,5 @@
 import CONFIG from './CONFIG.js';
+import isNonEmptyString from './lang/isNonEmptyString.js';
 import isStageEnvironment from './isStageEnvironment.js';
 import loadResource from './dom/loadResource.js';
 
@@ -37,15 +38,33 @@ function addEventListeners() {
 }
 
 /**
+ * Decide what FEDS experience to load based on the current cloud and category
+ * @return {String} The name of the FEDS experience to be used
+ */
+function getExperience() {
+    let experience = 'fedpub';
+
+    if (window.fedPub
+        && isNonEmptyString(window.fedPub.cloud)
+        && isNonEmptyString(window.fedPub.category)) {
+        experience += `/${window.fedPub.cloud}/${window.fedPub.category}`;
+    }
+
+    return experience;
+}
+
+/**
  * Defines the FEDS initialization configuration
  * and exposes it to the global namespace
  */
 export default function initializeFEDS() {
+    const experience = getExperience();
+
     // Define the FEDS configuration object
     window.fedsConfig = {
         locale: window.fedPub.locale,
         content: {
-            experience: 'acom', // TODO: use fedPub experience
+            experience,
         },
         privacy: {
             otDomainId: getOtDomainId(),
