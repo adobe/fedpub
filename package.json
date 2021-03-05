@@ -5,7 +5,7 @@
   "scripts": {
     "build:js": "./node_modules/.bin/eslint . && rollup --config",
     "watch:js": "onchange './scripts/**/*.js' -- npm run build:js",
-    "build:css": "lessc ./styles/main.less ./bench/dist/app.css && minify ./bench/dist/app.css > ./bench/dist/app.min.css",
+    "build:css": "lessc ./styles/main.less ./bench/dist/app.css && minify ./bench/dist/app.css > ./bench/dist/app.min.css && lessc ./styles/tagger.less ./tools/tagger/tagger.css",
     "watch:css": "onchange './styles/**/*.less' -- npm run build:css",
     "app:build": "npm run build:js && npm run build:css",
     "app:watch": "concurrently 'npm:watch:js' 'npm:watch:css'"
@@ -27,10 +27,10 @@
     "eslint-plugin-file-progress": "^1.1.1",
     "eslint-plugin-header": "3.1.0",
     "eslint-plugin-import": "2.22.1",
-    "rollup": "2.37.0",
-    "rollup-plugin-terser": "7.0.2",
     "less": "^4.1.0",
     "minify": "^6.0.1",
-    "onchange": "^7.1.0"
+    "onchange": "^7.1.0",
+    "rollup": "2.37.0",
+    "rollup-plugin-terser": "7.0.2"
   }
 }

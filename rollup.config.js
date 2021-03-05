@@ -1,13 +1,25 @@
 import { terser } from 'rollup-plugin-terser';
 
-export default {
+const files = [{
     input: './scripts/main.js',
-    output: {
-        file: './bench/dist/app.min.js',
-        format: 'iife',
-        sourcemap: false,
-    },
-    plugins: [
-        terser(),
-    ],
-};
+    output: './bench/dist/app.min.js',
+}, {
+    input: './scripts/tagger.js',
+    output: './tools/tagger/tagger.min.js',
+}];
+
+export default files.map((file) => {
+    const fileConfig = {
+        input: file.input,
+        output: {
+            file: file.output,
+            format: 'iife',
+            sourcemap: false,
+        },
+        plugins: [
+            terser(),
+        ],
+    };
+
+    return fileConfig;
+});
