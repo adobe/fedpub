@@ -1,3 +1,4 @@
+import CONFIG from './CONFIG.js';
 import isStageEnvironment from './isStageEnvironment.js';
 import loadResource from './dom/loadResource.js';
 
@@ -22,6 +23,20 @@ function getOtDomainId() {
 }
 
 /**
+ * Add FEDS-specific event listeners
+ */
+function addEventListeners() {
+    // Remove the default header spacing when the FEDS experience has loaded
+    window.addEventListener(CONFIG.EVENTS.FEDS_EXPERIENCE_LOADED, () => {
+        const header = document.querySelector('body > header');
+
+        if (header instanceof HTMLElement) {
+            header.classList.add(CONFIG.SELECTORS.HEADER_FEDS_LOADED);
+        }
+    });
+}
+
+/**
  * Defines the FEDS initialization configuration
  * and exposes it to the global namespace
  */
@@ -39,6 +54,9 @@ export default function initializeFEDS() {
 
     // Define the FEDS script path based on the current environment
     const fedsPath = `https://www.${!isStageEnvironment ? '' : 'stage.'}adobe.com/etc.clientlibs/globalnav/clientlibs/base/feds.js`;
+
+    // Attach FEDS-related event listeners
+    addEventListeners();
 
     // Load the FEDS library
     loadResource({
