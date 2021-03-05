@@ -30,6 +30,14 @@ main *:before,
 main *:after {
   box-sizing: border-box;
 }
+body > header {
+  /* Default navigation height set to avoid content jump */
+  height: 65px;
+}
+body > header.fedpub-header--fedsLoaded {
+  /* Remove the default header height and let FEDS handle it */
+  height: auto;
+}
 main > div > * {
   max-width: 600px;
   margin: auto;
