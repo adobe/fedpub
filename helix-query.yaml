@@ -16,18 +16,14 @@ indices:
         select: head > meta[property="og:title"]
         value: |
           attribute(el, 'content')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      teaser:
-        select: main > div:nth-of-type(1) > p:nth-of-type(4)
-        value: |
-          words(textContent(el), 0, 20)
       sourceHash:
         select: head > meta[name=x-source-hash
         value: |
           attribute(el, 'content')
+      date:
+        select: none
+        value: |
+          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
       external-path:
         select: head > meta[property="og:url"]
         value: |
