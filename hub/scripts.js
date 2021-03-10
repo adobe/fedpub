@@ -15,9 +15,13 @@
       NAMESPACE: 'fedpub',
       READY: 'fedpub--ready',
       METADATA: 'fedpub--metadata',
+      HEADER_FEDS_LOADED: 'fedpub-header--fedsLoaded',
       CTA: 'fedpub-cta',
       PRIMARY_CTA: 'fedpub-cta--primary',
       SECONDARY_CTA: 'fedpub-cta--secondary',
+    },
+    EVENTS: {
+      FEDS_EXPERIENCE_LOADED: 'feds.events.experience.loaded',
     },
   };
 
@@ -500,6 +504,14 @@
         otDomainId: getOtDomainId(),
       },
     };
+
+    window.addEventListener(CONFIG.EVENTS.FEDS_EXPERIENCE_LOADED, () => {
+      const header = document.querySelector('body > header');
+
+      if (header instanceof HTMLElement) {
+        header.classList.add(CONFIG.SELECTORS.HEADER_FEDS_LOADED);
+      }
+    });
 
     loadJS(`https://www.${!isStageEnvironment ? '' : 'stage.'}adobe.com/etc.clientlibs/globalnav/clientlibs/base/feds.js`, {
       id: 'feds-script',
