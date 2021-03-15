@@ -458,8 +458,26 @@
    * Initializes IMS library
    */
   function initializeIMS() {
+    function getClientId() {
+      let id = 'fedpub';
+      if (window.location.host.indexOf('adobe.com') !== -1) {
+        switch (window.fedPub.cloud) {
+          case 'creativecloud':
+            id = 'adobedotcom-cc';
+            break;
+          case 'documentcloud':
+            id = 'DocumentCloud1';
+            break;
+          default:
+            break;
+        }
+      }
+
+      return id;
+    }
+
     window.adobeid = {
-      client_id: 'fedpub',
+      client_id: getClientId(),
       scope: 'AdobeID,openid,gnav',
       locale: `${window.fedPub.language}_${window.fedPub.country.toUpperCase()}`,
     };
