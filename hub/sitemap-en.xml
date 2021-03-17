@@ -1,60 +1,408 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/small-aperture.html</loc>
+    <lastmod>2021-03-17T14:18:04.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/make-picture-look-like-painting.html</loc>
+    <lastmod>2021-03-17T14:15:41.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/make-photo-look-like-sketch.html</loc>
+    <lastmod>2021-03-17T14:12:32.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/create-filter-in-photoshop.html</loc>
+    <lastmod>2021-03-17T14:06:25.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/make-black-and-white-filter-in-photoshop.html</loc>
+    <lastmod>2021-03-17T13:59:48.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/iso-aperture.html</loc>
+    <lastmod>2021-03-17T13:54:53.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/make-photo-look-like-polaroid.html</loc>
+    <lastmod>2021-03-17T13:49:53.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/focus-peaking.html</loc>
+    <lastmod>2021-03-17T13:43:26.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/best-mac-photo-editing-software.html</loc>
+    <lastmod>2021-03-17T13:43:25.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/make-picture-look-like-drawing.html</loc>
+    <lastmod>2021-03-17T13:43:24.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-make-slideshow-on-tiktok.html</loc>
+    <lastmod>2021-03-17T05:14:10.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/guides/cost-to-start-a-youtube-channel.html</loc>
+    <lastmod>2021-03-17T05:12:19.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/guides/wedding-video-guide.html</loc>
+    <lastmod>2021-03-17T05:08:50.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/guides/make-youtube-trailer.html</loc>
+    <lastmod>2021-03-17T05:05:23.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/guides/make-short-film.html</loc>
+    <lastmod>2021-03-17T05:01:59.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/guides/video-collage-iphone.html</loc>
+    <lastmod>2021-03-17T04:58:27.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/guides/make-movie-trailer.html</loc>
+    <lastmod>2021-03-17T04:41:43.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/guides/make-movie-on-phone.html</loc>
+    <lastmod>2021-03-17T04:37:21.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/guides/make-a-good-video.html</loc>
+    <lastmod>2021-03-17T04:23:52.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-start-youtube-review-channel.html</loc>
+    <lastmod>2021-03-17T04:09:53.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-start-youtube-gaming-channel.html</loc>
+    <lastmod>2021-03-17T04:07:38.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-start-successful-youtube-channel.html</loc>
+    <lastmod>2021-03-17T04:04:49.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-start-second-youtube-channel.html</loc>
+    <lastmod>2021-03-17T03:55:55.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-start-family-youtube-channel.html</loc>
+    <lastmod>2021-03-17T03:53:20.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-start-beauty-youtube-channel.html</loc>
+    <lastmod>2021-03-17T03:51:23.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-make-youtube-video-on-phone.html</loc>
+    <lastmod>2021-03-17T03:41:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-make-video-slideshow.html</loc>
+    <lastmod>2021-03-17T03:13:54.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-make-video-outro.html</loc>
+    <lastmod>2021-03-17T03:01:40.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-make-video-logo.html</loc>
+    <lastmod>2021-03-17T03:00:06.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-make-slideshow-on-iphone.html</loc>
+    <lastmod>2021-03-17T02:23:43.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-make-photo-slideshow.html</loc>
+    <lastmod>2021-03-17T02:21:26.000Z</lastmod>
+  </url>
+  <url>
     <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-start-personal-youtube-channel.html</loc>
-    <lastmod>2021-03-16T07:17:48.000Z</lastmod>
+    <lastmod>2021-03-17T02:13:54.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-go-viral-on-youtube.html</loc>
+    <lastmod>2021-03-17T02:10:21.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-edit-videos-on-mac.html</loc>
+    <lastmod>2021-03-17T02:07:14.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-become-youtube-influencer.html</loc>
-    <lastmod>2021-03-16T04:33:24.000Z</lastmod>
+    <lastmod>2021-03-17T01:56:34.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/ideas/youtube-video-ideas-for-beginners.html</loc>
+    <lastmod>2021-03-17T01:32:57.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/ideas/what-types-of-videos-go-viral-on-youtube.html</loc>
+    <lastmod>2021-03-17T01:24:29.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/ideas/what-is-a-vlog.html</loc>
+    <lastmod>2021-03-17T01:17:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/camera-settings-night-photography.html</loc>
+    <lastmod>2021-03-17T00:59:19.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/camera-settings-travel-photography.html</loc>
+    <lastmod>2021-03-17T00:55:19.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/camera-settings-sunrise-photography.html</loc>
+    <lastmod>2021-03-17T00:53:19.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/how-to-create-double-exposure-portraits.html</loc>
+    <lastmod>2021-03-17T00:47:14.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/how-to-deblur-image.html</loc>
+    <lastmod>2021-03-17T00:44:36.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/how-to-make-gif-in-photoshop.html</loc>
+    <lastmod>2021-03-17T00:43:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/macro-photography-lens.html</loc>
+    <lastmod>2021-03-17T00:39:21.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/ideas/types-of-youtube-channels.html</loc>
+    <lastmod>2021-03-17T00:34:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/guide-to-shutter-speed-stop.html</loc>
+    <lastmod>2021-03-17T00:31:22.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/best-lens-for-photo-types.html</loc>
+    <lastmod>2021-03-17T00:30:38.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/how-to-use-manual-mode-camera.html</loc>
+    <lastmod>2021-03-17T00:29:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/iso-shutter-speed-impacts-exposure.html</loc>
+    <lastmod>2021-03-17T00:28:08.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/mom-daughter-photoshoot-ideas.html</loc>
+    <lastmod>2021-03-17T00:26:15.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/how-to-shoot-wide-angle-photos.html</loc>
+    <lastmod>2021-03-17T00:25:14.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/ideas/top-documentary-filmmaking-techniques.html</loc>
+    <lastmod>2021-03-17T00:25:04.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/christmas-photography-ideas.html</loc>
+    <lastmod>2021-03-17T00:23:21.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/model-photoshoot-ideas.html</loc>
+    <lastmod>2021-03-17T00:21:16.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/kids-photoshoot-ideas.html</loc>
+    <lastmod>2021-03-17T00:20:47.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/texture-photography-ideas.html</loc>
+    <lastmod>2021-03-17T00:18:29.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/ideas/pro-tips-wedding-videography.html</loc>
+    <lastmod>2021-03-17T00:15:37.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/camera-settings-for-rain-photography.html</loc>
+    <lastmod>2021-03-17T00:12:27.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/diffused-light-photography-camera-settings.html</loc>
+    <lastmod>2021-03-17T00:10:14.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/graduation-photoshoot-ideas.html</loc>
+    <lastmod>2021-03-17T00:08:20.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/ideas/professional-vlog-editing.html</loc>
+    <lastmod>2021-03-17T00:08:20.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/shadow-photography-camera-settings.html</loc>
+    <lastmod>2021-03-17T00:05:22.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/aesthetic-photoshoot-ideas.html</loc>
+    <lastmod>2021-03-17T00:04:11.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/diy-photoshoot-ideas.html</loc>
+    <lastmod>2021-03-17T00:03:14.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/guide-to-narrow-aperture.html</loc>
+    <lastmod>2021-03-17T00:01:07.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/how-to-use-lines-in-photography.html</loc>
+    <lastmod>2021-03-17T00:00:14.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/ideas/lifestyle-vlog-ideas.html</loc>
+    <lastmod>2021-03-17T00:00:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/how-to-use-photo-reflectors.html</loc>
+    <lastmod>2021-03-16T23:59:37.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/learn-about-hdr-camera-settings.html</loc>
+    <lastmod>2021-03-16T23:58:51.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/maternity-photoshoot-ideas.html</loc>
+    <lastmod>2021-03-16T23:57:22.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/guide-to-high-f-stop.html</loc>
+    <lastmod>2021-03-16T23:54:31.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/how-to-adjust-aperture-f-stop.html</loc>
+    <lastmod>2021-03-16T23:53:01.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/macro-photography-ideas.html</loc>
+    <lastmod>2021-03-16T23:49:37.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/manual-or-automatic-dslr-aperture.html</loc>
+    <lastmod>2021-03-16T23:47:45.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/relationship-aperture-and-focal-length.html</loc>
+    <lastmod>2021-03-16T23:46:57.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/the-beauty-of-85mm-photography.html</loc>
+    <lastmod>2021-03-16T23:45:14.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/creativecloud/video/hub/ideas/fashion-youtube-video-ideas.html</loc>
-    <lastmod>2021-03-16T02:11:42.000Z</lastmod>
+    <lastmod>2021-03-16T23:45:02.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/understanding-light-and-shadow-photography.html</loc>
+    <lastmod>2021-03-16T23:29:27.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/what-is-color-contrast.html</loc>
+    <lastmod>2021-03-16T23:20:38.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/what-is-double-exposure-film.html</loc>
+    <lastmod>2021-03-16T23:19:52.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/what-is-exposure-control.html</loc>
+    <lastmod>2021-03-16T23:14:37.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/what-is-hdr-photography.html</loc>
+    <lastmod>2021-03-16T23:12:01.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/when-to-use-hdr-iphone.html</loc>
+    <lastmod>2021-03-16T23:02:14.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/when-to-use-wide-aperture-settings.html</loc>
+    <lastmod>2021-03-16T22:49:25.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/creativecloud/video/hub/ideas/how-to-make-wedding-slideshow.html</loc>
+    <lastmod>2021-03-16T15:51:43.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/how-to/how-to-amend-contract.html</loc>
+    <lastmod>2021-03-16T07:18:02.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-write-bill-of-sale-truck.html</loc>
+    <lastmod>2021-03-16T06:59:55.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-write-bill-of-sale-for-car.html</loc>
+    <lastmod>2021-03-16T06:55:25.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-create-invoice-for-painting.html</loc>
+    <lastmod>2021-03-16T06:49:35.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/debit-note-vs-credit-note.html</loc>
+    <lastmod>2021-03-16T05:48:45.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/how-to/who-signs-invoices.html</loc>
+    <lastmod>2021-03-16T02:07:55.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/how-to/what-is-personal-identification-on-bill-of-sale.html</loc>
+    <lastmod>2021-03-16T02:04:59.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/how-to/making-donation-invoice.html</loc>
+    <lastmod>2021-03-16T01:32:00.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/creativecloud/video/hub/ideas/best-video-montage-ideas.html</loc>
     <lastmod>2021-03-16T01:22:22.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/ideas/how-to-start-youtube-review-channel.html</loc>
-    <lastmod>2021-03-15T23:01:07.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/how-to/how-to-write-invoice-for-tutoring.html</loc>
+    <lastmod>2021-03-15T23:11:30.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/ideas/lifestyle-vlog-ideas.html</loc>
-    <lastmod>2021-03-15T22:57:42.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/how-to/how-to-write-invoice-for-freelance-work.html</loc>
+    <lastmod>2021-03-15T23:08:56.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/ideas/professional-vlog-editing.html</loc>
-    <lastmod>2021-03-15T22:52:52.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/how-to/how-to-write-business-proposal-for-investors.html</loc>
+    <lastmod>2021-03-15T23:05:51.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/ideas/pro-tips-wedding-videography.html</loc>
-    <lastmod>2021-03-15T22:51:23.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/how-to/how-to-write-bill-of-sale-for-motorcycle.html</loc>
+    <lastmod>2021-03-15T23:00:56.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/ideas/top-documentary-filmmaking-techniques.html</loc>
-    <lastmod>2021-03-15T22:50:04.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/how-to/how-to-win-bids-as-freelancer.html</loc>
+    <lastmod>2021-03-15T22:58:41.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/ideas/types-of-youtube-channels.html</loc>
-    <lastmod>2021-03-15T22:46:41.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/ideas/what-types-of-videos-go-viral-on-youtube.html</loc>
-    <lastmod>2021-03-15T22:44:46.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/ideas/youtube-video-ideas-for-beginners.html</loc>
-    <lastmod>2021-03-15T22:42:46.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-start-youtube-gaming-channel.html</loc>
-    <lastmod>2021-03-15T22:31:43.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/guides/cost-to-start-a-youtube-channel.html</loc>
-    <lastmod>2021-03-15T22:25:58.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/how-to/how-to-make-invoice-in-google-docs.html</loc>
+    <lastmod>2021-03-15T22:54:45.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/creativecloud/video/hub/guides/diy-wedding-video-tips.html</loc>
@@ -65,96 +413,88 @@
     <lastmod>2021-03-15T22:15:11.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-edit-videos-on-mac.html</loc>
-    <lastmod>2021-03-15T22:14:21.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/guides/make-a-good-video.html</loc>
-    <lastmod>2021-03-15T22:00:34.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-make-photo-slideshow.html</loc>
-    <lastmod>2021-03-15T21:25:40.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-make-slideshow-on-iphone.html</loc>
-    <lastmod>2021-03-15T21:17:48.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-make-slideshow-on-tiktok.html</loc>
-    <lastmod>2021-03-15T21:15:30.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-make-video-logo.html</loc>
-    <lastmod>2021-03-15T21:09:36.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-make-video-outro.html</loc>
-    <lastmod>2021-03-15T21:07:28.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-make-video-slideshow.html</loc>
-    <lastmod>2021-03-15T21:04:28.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-make-youtube-video-on-phone.html</loc>
-    <lastmod>2021-03-15T20:51:50.000Z</lastmod>
-  </url>
-  <url>
     <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-start-beauty-youtube-channel.html</loc>
     <lastmod>2021-03-15T20:43:01.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-start-second-youtube-channel.html</loc>
-    <lastmod>2021-03-15T20:26:39.000Z</lastmod>
+    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-start-beauty-youtube-channel-acapt-s-macbook-pro.html</loc>
+    <lastmod>2021-03-15T20:43:01.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-start-successful-youtube-channel.html</loc>
-    <lastmod>2021-03-15T20:21:25.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/how-to/how-to-create-invoice-for-flooring-installation.html</loc>
+    <lastmod>2021-03-15T20:18:44.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-write-commercial-script.html</loc>
     <lastmod>2021-03-15T20:18:22.000Z</lastmod>
   </url>
   <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/how-to/four-tips-for-easy-invoicing.html</loc>
+    <lastmod>2021-03-15T20:05:42.000Z</lastmod>
+  </url>
+  <url>
     <loc>https://www.adobe.com/creativecloud/video/hub/guides/low-budget-movie.html</loc>
     <lastmod>2021-03-15T20:05:27.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/guides/make-movie-on-phone.html</loc>
-    <lastmod>2021-03-15T19:55:05.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/how-to/best-way-to-invoice-customers.html</loc>
+    <lastmod>2021-03-15T20:02:25.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/guides/make-movie-trailer.html</loc>
-    <lastmod>2021-03-15T19:21:11.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/features/font-size-and-style-legal-documents.html</loc>
+    <lastmod>2021-03-15T19:44:32.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/guides/make-short-film.html</loc>
-    <lastmod>2021-03-15T19:18:47.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-combine-pdfs-chromebook.html</loc>
+    <lastmod>2021-03-15T18:29:46.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/guides/make-youtube-trailer.html</loc>
-    <lastmod>2021-03-15T19:16:12.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-merge-pdfs-ipad.html</loc>
+    <lastmod>2021-03-15T18:28:09.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/guides/video-collage-iphone.html</loc>
-    <lastmod>2021-03-15T19:13:48.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-combine-pdfs-iphone.html</loc>
+    <lastmod>2021-03-15T18:16:28.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/guides/wedding-video-guide.html</loc>
-    <lastmod>2021-03-15T19:10:11.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-compress-pdfs-ipad.html</loc>
+    <lastmod>2021-03-15T18:15:45.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/where-to-get-bill-of-sale-form.html</loc>
+    <lastmod>2021-03-15T17:10:08.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/when-to-invoice-customer.html</loc>
+    <lastmod>2021-03-15T17:03:58.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/beach-photoshoot-ideas.html</loc>
     <lastmod>2021-03-15T16:57:52.000Z</lastmod>
   </url>
   <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/what-is-unilateral-contract.html</loc>
+    <lastmod>2021-03-15T16:57:37.000Z</lastmod>
+  </url>
+  <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/best-camera-lenses-for-portraits.html</loc>
     <lastmod>2021-03-15T16:53:01.000Z</lastmod>
   </url>
   <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/what-is-rider-in-contract.html</loc>
+    <lastmod>2021-03-15T16:49:57.000Z</lastmod>
+  </url>
+  <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/best-friends-photoshoot-ideas.html</loc>
     <lastmod>2021-03-15T16:46:39.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/what-is-recurring-invoicing.html</loc>
+    <lastmod>2021-03-15T16:45:06.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/what-is-pro-forma-invoice.html</loc>
+    <lastmod>2021-03-15T16:41:27.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/camera-settings-astrophotography.html</loc>
@@ -169,8 +509,216 @@
     <lastmod>2021-03-15T16:26:31.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/shadow-photography-camera-settings.html</loc>
-    <lastmod>2021-03-13T04:11:52.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/what-is-option-contract-in-real-estate.html</loc>
+    <lastmod>2021-03-15T16:25:44.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/what-is-land-contract.html</loc>
+    <lastmod>2021-03-15T16:06:25.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/what-is-invoice-number.html</loc>
+    <lastmod>2021-03-15T16:01:14.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/what-is-executory-contract.html</loc>
+    <lastmod>2021-03-15T15:55:25.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/what-is-dealer-invoice.html</loc>
+    <lastmod>2021-03-15T15:17:56.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/what-is-contract-for-deed.html</loc>
+    <lastmod>2021-03-15T15:09:35.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/does-bill-of-sale-need-to-be-notarized.html</loc>
+    <lastmod>2021-03-15T15:01:18.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-create-invoice-for-accounting-services.html</loc>
+    <lastmod>2021-03-15T14:45:49.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/what-is-contract-amendment.html</loc>
+    <lastmod>2021-03-15T14:20:52.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/what-is-contract-addendum.html</loc>
+    <lastmod>2021-03-15T13:54:53.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/what-is-clause-in-contract.html</loc>
+    <lastmod>2021-03-15T13:50:29.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/what-is-bilateral-contract.html</loc>
+    <lastmod>2021-03-15T13:44:09.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/what-is-annuity-contract.html</loc>
+    <lastmod>2021-03-15T13:33:28.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/types-of-invoices.html</loc>
+    <lastmod>2021-03-15T13:28:09.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/statement-vs-invoice.html</loc>
+    <lastmod>2021-03-15T13:21:44.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/pros-cons-of-contract-for-deed.html</loc>
+    <lastmod>2021-03-15T13:17:28.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/land-contract-pros-and-cons.html</loc>
+    <lastmod>2021-03-15T13:13:15.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/is-receipt-a-bill-of-sale.html</loc>
+    <lastmod>2021-03-15T13:09:58.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/is-purchase-order-a-contract.html</loc>
+    <lastmod>2021-03-15T13:06:16.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/is-invoice-a-contract.html</loc>
+    <lastmod>2021-03-15T13:02:32.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/invoice-vs-receipt.html</loc>
+    <lastmod>2021-03-15T12:56:29.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/invoice-vs-purchase-order.html</loc>
+    <lastmod>2021-03-15T12:48:05.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/invoice-vs-bill.html</loc>
+    <lastmod>2021-03-15T12:32:30.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/invoice-factoring-vs-invoice-discounting.html</loc>
+    <lastmod>2021-03-15T12:25:29.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/invoice-factoring-vs-financing.html</loc>
+    <lastmod>2021-03-15T10:24:28.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-write-business-trip-proposal.html</loc>
+    <lastmod>2021-03-15T10:21:44.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-write-bill-of-sale-land-or-real-estate.html</loc>
+    <lastmod>2021-03-15T10:09:33.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-write-bill-of-sale-for-trailer.html</loc>
+    <lastmod>2021-03-15T10:07:36.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-write-bill-of-sale-for-mobile-home.html</loc>
+    <lastmod>2021-03-15T10:03:21.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-write-bill-of-sale-for-dirt-bike.html</loc>
+    <lastmod>2021-03-15T09:58:53.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-write-bill-of-sale-for-boat.html</loc>
+    <lastmod>2021-03-15T09:44:23.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-write-bill-of-sale-for-atv.html</loc>
+    <lastmod>2021-03-15T09:41:25.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-write-bid-proposal-for-cleaning-business.html</loc>
+    <lastmod>2021-03-15T09:33:25.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-send-invoice-through-email.html</loc>
+    <lastmod>2021-03-15T09:29:47.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-send-invoice.html</loc>
+    <lastmod>2021-03-15T09:24:37.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-make-hourly-invoice-template.html</loc>
+    <lastmod>2021-03-15T09:21:58.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-handwrite-bill-of-sale.html</loc>
+    <lastmod>2021-03-15T09:08:19.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-create-small-business-invoice.html</loc>
+    <lastmod>2021-03-15T09:05:16.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-create-invoice-for-shipping-services.html</loc>
+    <lastmod>2021-03-15T09:01:16.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-create-invoice-for-roofing-services.html</loc>
+    <lastmod>2021-03-15T08:58:32.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-create-invoice-for-photography.html</loc>
+    <lastmod>2021-03-15T08:55:03.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-create-invoice-for-painting.html</loc>
+    <lastmod>2021-03-15T08:49:17.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-create-invoice-for-graphic-design.html</loc>
+    <lastmod>2021-03-15T08:09:47.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-create-invoice-for-electrical-work.html</loc>
+    <lastmod>2021-03-15T08:04:58.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-create-invoice-for-contract-work.html</loc>
+    <lastmod>2021-03-15T08:00:59.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-create-invoice-for-consulting-services.html</loc>
+    <lastmod>2021-03-15T07:57:05.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-create-invoice-for-construction-work.html</loc>
+    <lastmod>2021-03-15T07:54:39.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-create-invoice-for-cleaning-services.html</loc>
+    <lastmod>2021-03-15T07:50:43.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-create-invoice-for-catering-services.html</loc>
+    <lastmod>2021-03-15T07:40:45.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-create-invoice-for-auto-repair.html</loc>
+    <lastmod>2021-03-15T07:35:58.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-create-construction-bid-proposal.html</loc>
+    <lastmod>2021-03-15T07:19:53.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-long-is-bill-of-sale-good-for.html</loc>
+    <lastmod>2021-03-15T07:03:41.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/do-invoices-have-to-be-signed.html</loc>
+    <lastmod>2021-03-15T06:58:26.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/replace-background-for-meme.html</loc>
@@ -179,6 +727,14 @@
   <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/reflection-photography-camera-settings.html</loc>
     <lastmod>2021-03-13T03:16:37.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-combine-pdfs-android.html</loc>
+    <lastmod>2021-03-13T02:47:41.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-combine-pdfs-windows-10.html</loc>
+    <lastmod>2021-03-13T02:42:48.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/photographing-water-drops.html</loc>
@@ -233,10 +789,6 @@
     <lastmod>2021-03-13T00:09:00.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/camera-settings-night-photography.html</loc>
-    <lastmod>2021-03-13T00:01:27.000Z</lastmod>
-  </url>
-  <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/camera-settings-northern-lights.html</loc>
     <lastmod>2021-03-12T23:57:42.000Z</lastmod>
   </url>
@@ -253,32 +805,12 @@
     <lastmod>2021-03-12T23:48:27.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/camera-settings-travel-photography.html</loc>
-    <lastmod>2021-03-12T23:19:28.000Z</lastmod>
-  </url>
-  <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/camera-settings-sunny-day.html</loc>
     <lastmod>2021-03-12T23:13:39.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/camera-settings-sunrise-photography.html</loc>
-    <lastmod>2021-03-12T23:11:16.000Z</lastmod>
-  </url>
-  <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/camera-settings-sunset-photography.html</loc>
     <lastmod>2021-03-12T23:08:15.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/how-to-create-double-exposure-portraits.html</loc>
-    <lastmod>2021-03-12T22:47:19.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/how-to-deblur-image.html</loc>
-    <lastmod>2021-03-12T22:42:20.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/how-to-make-gif-in-photoshop.html</loc>
-    <lastmod>2021-03-12T22:37:03.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/engagement-photoshoot-ideas.html</loc>
@@ -287,10 +819,6 @@
   <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/sports-photography-lens.html</loc>
     <lastmod>2021-03-12T22:05:33.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/macro-photography-lens.html</loc>
-    <lastmod>2021-03-12T22:04:49.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/photoshoot-ideas.html</loc>
@@ -305,48 +833,36 @@
     <lastmod>2021-03-12T20:39:36.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/the-beauty-of-85mm-photography.html</loc>
-    <lastmod>2021-03-12T20:34:15.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/guide-to-shutter-speed-stop.html</loc>
-    <lastmod>2021-03-12T20:29:22.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/best-lens-for-photo-types.html</loc>
-    <lastmod>2021-03-12T20:23:25.000Z</lastmod>
-  </url>
-  <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/camera-settings-new-photographers.html</loc>
     <lastmod>2021-03-12T20:16:40.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/how-to-use-manual-mode-camera.html</loc>
-    <lastmod>2021-03-12T20:01:44.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/use-manual-camera-settings.html</loc>
     <lastmod>2021-03-12T20:01:14.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/iso-shutter-speed-impacts-exposure.html</loc>
-    <lastmod>2021-03-12T19:27:33.000Z</lastmod>
-  </url>
-  <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/best-aperture-for-portraits.html</loc>
     <lastmod>2021-03-12T18:33:11.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/what-is-color-contrast.html</loc>
-    <lastmod>2021-03-12T17:20:36.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/contract-addendum-vs-amendment.html</loc>
+    <lastmod>2021-03-12T18:16:16.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/diffused-light-photography-camera-settings.html</loc>
-    <lastmod>2021-03-12T04:36:33.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/commercial-invoice-vs-proforma-invoice.html</loc>
+    <lastmod>2021-03-12T17:55:12.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/camera-settings-for-rain-photography.html</loc>
-    <lastmod>2021-03-12T04:12:51.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/contract-rider-vs-addendum.html</loc>
+    <lastmod>2021-03-12T16:08:11.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/can-invoice-be-handwritten.html</loc>
+    <lastmod>2021-03-12T14:51:06.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/business-report-vs-business-proposal.html</loc>
+    <lastmod>2021-03-12T14:33:09.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/camera-settings-for-mountain-photography.html</loc>
@@ -357,56 +873,32 @@
     <lastmod>2021-03-12T03:07:07.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/how-to-use-photo-reflectors.html</loc>
-    <lastmod>2021-03-11T18:10:14.000Z</lastmod>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/what-is-triple-exposure.html</loc>
+    <lastmod>2021-03-11T18:11:02.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/how-to-use-lines-in-photography.html</loc>
-    <lastmod>2021-03-11T18:09:50.000Z</lastmod>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/when-to-use-large-aperture.html</loc>
+    <lastmod>2021-03-11T18:11:01.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/what-is-exposure-control.html</loc>
-    <lastmod>2021-03-11T17:59:29.000Z</lastmod>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/what-is-flash-exposure.html</loc>
+    <lastmod>2021-03-11T17:59:17.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/what-is-inside-exposure.html</loc>
     <lastmod>2021-03-11T17:58:06.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/guide-to-narrow-aperture.html</loc>
-    <lastmod>2021-03-11T17:51:53.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/aesthetic-photoshoot-ideas.html</loc>
-    <lastmod>2021-03-11T17:45:46.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/mom-daughter-photoshoot-ideas.html</loc>
-    <lastmod>2021-03-11T17:41:53.000Z</lastmod>
+    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/what-is-equivalent-exposure.html</loc>
+    <lastmod>2021-03-11T17:47:17.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/learn-about-flash-sync-speed.html</loc>
-    <lastmod>2021-03-11T17:20:56.000Z</lastmod>
+    <lastmod>2021-03-11T17:06:30.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/best-aperture-settings-for-landscapes.html</loc>
     <lastmod>2021-03-11T17:05:10.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/macro-photography-ideas.html</loc>
-    <lastmod>2021-03-11T09:25:46.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/maternity-photoshoot-ideas.html</loc>
-    <lastmod>2021-03-11T06:37:29.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/graduation-photoshoot-ideas.html</loc>
-    <lastmod>2021-03-11T06:15:26.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/diy-photoshoot-ideas.html</loc>
-    <lastmod>2021-03-11T06:05:01.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/couple-photoshoot-ideas.html</loc>
@@ -425,22 +917,6 @@
     <lastmod>2021-03-11T03:04:14.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/what-is-equivalent-exposure.html</loc>
-    <lastmod>2021-03-10T23:59:21.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/understanding-light-and-shadow-photography.html</loc>
-    <lastmod>2021-03-10T23:49:19.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/what-is-double-exposure-film.html</loc>
-    <lastmod>2021-03-10T23:38:39.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/what-is-flash-exposure.html</loc>
-    <lastmod>2021-03-10T23:27:36.000Z</lastmod>
-  </url>
-  <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/what-to-know-about-exposure-sports.html</loc>
     <lastmod>2021-03-10T23:24:31.000Z</lastmod>
   </url>
@@ -449,44 +925,32 @@
     <lastmod>2021-03-10T23:22:30.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/what-is-triple-exposure.html</loc>
-    <lastmod>2021-03-10T23:21:12.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/learn-about-hdr-camera-settings.html</loc>
-    <lastmod>2021-03-10T21:34:32.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/when-to-use-large-aperture.html</loc>
-    <lastmod>2021-03-10T21:18:43.000Z</lastmod>
-  </url>
-  <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/when-to-use-low-iso-settings.html</loc>
     <lastmod>2021-03-10T20:33:39.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/when-to-use-hdr-iphone.html</loc>
-    <lastmod>2021-03-10T20:21:48.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/features/what-is-progress-billing.html</loc>
+    <lastmod>2021-03-10T12:45:15.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/how-to-shoot-wide-angle-photos.html</loc>
-    <lastmod>2021-03-10T20:14:01.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/how-to/can-you-invoice-yourself.html</loc>
+    <lastmod>2021-03-10T12:44:32.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/what-is-hdr-photography.html</loc>
-    <lastmod>2021-03-10T20:07:13.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/binding-vs-non-binding-contract.html</loc>
+    <lastmod>2021-03-10T12:42:42.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/ideas/what-is-a-vlog.html</loc>
-    <lastmod>2021-03-10T12:36:10.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-combine-pdfs-pc.html</loc>
+    <lastmod>2021-03-10T12:40:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-combine-pdfs-mac.html</loc>
+    <lastmod>2021-03-10T12:39:48.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/creativecloud/video/hub/guides/make-a-how-to-video.html</loc>
     <lastmod>2021-03-10T12:35:55.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/when-to-use-wide-aperture-settings.html</loc>
-    <lastmod>2021-03-10T12:34:56.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/tips-on-wide-angle-lens-aperture.html</loc>
@@ -497,55 +961,31 @@
     <lastmod>2021-03-10T12:34:43.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/relationship-aperture-and-focal-length.html</loc>
-    <lastmod>2021-03-10T12:34:34.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/manual-or-automatic-dslr-aperture.html</loc>
-    <lastmod>2021-03-10T12:34:28.000Z</lastmod>
-  </url>
-  <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/how-to-create-a-meme.html</loc>
     <lastmod>2021-03-10T12:34:23.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/how-to-adjust-aperture-f-stop.html</loc>
-    <lastmod>2021-03-10T12:34:11.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/guide-to-high-f-stop.html</loc>
-    <lastmod>2021-03-10T12:33:28.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/guide-to-aperture-vs-iris.html</loc>
     <lastmod>2021-03-10T12:33:10.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-go-viral-on-youtube.html</loc>
-    <lastmod>2021-03-10T00:54:04.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/texture-photography-ideas.html</loc>
-    <lastmod>2021-03-10T00:36:16.000Z</lastmod>
-  </url>
-  <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/mother-son-photoshoot-ideas.html</loc>
     <lastmod>2021-03-10T00:34:25.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/model-photoshoot-ideas.html</loc>
-    <lastmod>2021-03-10T00:34:02.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/kids-photoshoot-ideas.html</loc>
-    <lastmod>2021-03-10T00:33:18.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/dog-photoshoot-ideas.html</loc>
     <lastmod>2021-03-10T00:31:09.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/creativecloud/photography/hub/guides/christmas-photography-ideas.html</loc>
-    <lastmod>2021-03-10T00:30:45.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-write-bill-of-sale-used-car.html</loc>
+    <lastmod>2021-03-09T23:23:24.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-write-bill-of-sale-aircraft.html</loc>
+    <lastmod>2021-03-09T23:14:20.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-create-invoice-for-massage-therapy.html</loc>
+    <lastmod>2021-03-09T23:08:12.000Z</lastmod>
   </url>
 </urlset>
