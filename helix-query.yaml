@@ -8,6 +8,7 @@ indices:
       - '**/*.(docx|md)'
     exclude:
       - '**/Document.*'
+      - '_documentation/**'
       - '_draft/**'
       - 'bench/**'
     target: https://adobe.sharepoint.com/:x:/r/sites/FedsPublishing/Shared%20Documents/fedPub/query-index.xlsx?d=w7ac51c005c7a4125a09b53fdc4090056&csf=1&web=1&e=ceRKOE
