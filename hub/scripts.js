@@ -546,7 +546,7 @@
           property: 'global',
           environment: !isStageEnvironment ? 'production' : 'stage',
         },
-        target: true,
+        target: false,
         audienceManager: true,
       },
     };
