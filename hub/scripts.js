@@ -415,8 +415,14 @@
    * Page details are updated based on these values.
    */
   function handlePageDetails() {
-    const paths = window.location.pathname.replace('/bench' && '_draft', '')
+    const paths = window.location.pathname.replace('/bench', '')
       .split('/').filter(isNonEmptyString);
+
+    if (paths.indexOf('_draft')) {
+      const draftPosition = paths.indexOf('_draft');
+      paths.slice(0, draftPosition);
+    }
+
     // Identify hub placement in order to split paths
     const hubPosition = paths.indexOf('hub');
     const pageDetails = paths.slice(0, hubPosition);
