@@ -419,7 +419,7 @@
     let paths;
 
     if (path.indexOf('_draft')) {
-      paths = path.replace('/bench' && '_draft', '')
+      paths = path.replace('/bench', '').replace('_draft', '')
       .split('/').filter(isNonEmptyString);
     } else {
       paths = path.replace('/bench', '')
