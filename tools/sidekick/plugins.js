@@ -38,7 +38,11 @@
           const host = location.host === config.innerHost ? config.host : config.innerHost;
           url = new URL(`https://${host}${location.pathname}`);
         }
-        window.open(url.toString(), `hlx-sk-preview-${window.btoa(location.href)}`);
+        if (evt.metaKey || evt.which === 2) {
+          window.open(url.toString());
+        } else {
+          window.location.href = url.toString();
+        }
       },
     },
   });
