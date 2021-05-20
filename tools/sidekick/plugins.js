@@ -20,7 +20,7 @@
   sk.add({
     id: 'preview',
     override: true,
-    condition: (s) => s.isEditor() || s.location.host === s.config.host,
+    condition: (s) => s.isEditor() || s.isHelix(),
     button: {
       action: (evt) => {
         const { config, location } = sk;
@@ -44,6 +44,7 @@
           window.location.href = url.toString();
         }
       },
+      isPressed: () => sk.isInner(),
     },
   });
 
