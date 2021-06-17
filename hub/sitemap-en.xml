@@ -1,8 +1,180 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/templates/how-to-social-media-plan-template.html</loc>
+    <lastmod>2021-06-16T22:23:01.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/templates/how-to-marketing-proposal-template.html</loc>
+    <lastmod>2021-06-16T22:22:25.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-pdf-to-xml.html</loc>
+    <lastmod>2021-06-16T22:06:41.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-visio-to-pdf.html</loc>
+    <lastmod>2021-06-16T22:06:10.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-rtf-to-pdf.html</loc>
+    <lastmod>2021-06-16T22:04:54.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/convert-outlook-email-to-pdf.html</loc>
+    <lastmod>2021-06-16T21:42:41.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-batch-convert-to-pdf.html</loc>
+    <lastmod>2021-06-16T21:41:54.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-notepad-to-pdf.html</loc>
+    <lastmod>2021-06-16T21:40:37.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/convert-illustrator-to-pdf.html</loc>
+    <lastmod>2021-06-16T21:38:54.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-share-pdf-on-adroid.html</loc>
+    <lastmod>2021-06-16T21:02:12.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/share-a-pdf-on-facebook-messenger.html</loc>
+    <lastmod>2021-06-16T21:00:52.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-write-in-a-pdf.html</loc>
+    <lastmod>2021-06-16T21:00:04.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-share-pdf-on-iphone.html</loc>
+    <lastmod>2021-06-16T20:59:35.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/redact-pdf-android.html</loc>
+    <lastmod>2021-06-16T20:56:34.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-rotate-pdf-chromebook.html</loc>
+    <lastmod>2021-06-16T20:55:57.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/convert-a-pdf-to-chrome.html</loc>
+    <lastmod>2021-06-15T23:27:38.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/convert-gmail-email-to-a-pdf.html</loc>
+    <lastmod>2021-06-15T23:26:56.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/split-a-pdf-on-an-ipad.html</loc>
+    <lastmod>2021-06-15T23:26:17.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-write-on-pdf-pc.html</loc>
+    <lastmod>2021-06-15T23:25:31.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-pdf-to-webpage.html</loc>
+    <lastmod>2021-06-15T23:24:55.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-redact-pdf-on-mac.html</loc>
+    <lastmod>2021-06-15T23:23:40.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-redact-pdf-on-windows-10.html</loc>
+    <lastmod>2021-06-15T23:21:22.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-create-fillable-pdf-on-chromebook.html</loc>
+    <lastmod>2021-06-15T23:20:44.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-create-fillable-pdf-on-android.html</loc>
+    <lastmod>2021-06-15T23:20:05.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-png-to-pdf.html</loc>
+    <lastmod>2021-06-15T23:19:12.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-pdf-to-html.html</loc>
+    <lastmod>2021-06-15T23:18:28.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/the-simple-way-to-convert-pdf-to-rtf.html</loc>
+    <lastmod>2021-06-15T23:18:01.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/convert-pdf-to-jpg-on-mobile-phone.html</loc>
+    <lastmod>2021-06-15T23:17:23.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/create-fillable-pdf-on-windows10.html</loc>
+    <lastmod>2021-06-15T23:10:25.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/reorder-pdf-pages-on-chromebook.html</loc>
+    <lastmod>2021-06-15T23:06:41.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-imessage-to-pdf.html</loc>
+    <lastmod>2021-06-15T20:57:23.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-export-linkedin-profile-to-pdf.html</loc>
+    <lastmod>2021-06-15T20:56:17.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-split-a-pdf-on-windows-10.html</loc>
+    <lastmod>2021-06-15T20:53:15.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-split-a-pdf-on-a-chromebook.html</loc>
+    <lastmod>2021-06-15T20:52:39.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-split-a-pdf-on-a-pc.html</loc>
+    <lastmod>2021-06-15T20:51:48.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-split-a-pdf-on-an-android.html</loc>
+    <lastmod>2021-06-15T20:36:18.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/create-fillable-pdf-on-ipad.html</loc>
+    <lastmod>2021-06-15T20:33:29.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/what-is-proposal-software.html</loc>
+    <lastmod>2021-06-15T17:30:24.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/what-is-invoice-software.html</loc>
+    <lastmod>2021-06-15T17:06:18.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/what-is-quote-software.html</loc>
+    <lastmod>2021-06-15T08:07:24.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/what-is-work-order-software.html</loc>
+    <lastmod>2021-06-15T08:03:51.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/what-is-po-software.html</loc>
+    <lastmod>2021-06-15T06:42:33.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-split-a-pdf-on-an-iphone.html</loc>
+    <lastmod>2021-06-14T09:38:22.000Z</lastmod>
+  </url>
   <url>
     <loc>https://www.adobe.com/creativecloud/design/hub/guides/colors-that-go-well-with-olive-green.html</loc>
-    <lastmod>2021-06-11T23:11:50.000Z</lastmod>
+    <lastmod>2021-06-11T23:12:39.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/creativecloud/design/hub/guides/colors-that-go-well-with-blue.html</loc>
@@ -65,28 +237,12 @@
     <lastmod>2021-06-11T05:05:20.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-export-linkedin-profile-to-pdf.html</loc>
-    <lastmod>2021-06-11T04:40:09.000Z</lastmod>
-  </url>
-  <url>
     <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-cite-a-pdf.html</loc>
     <lastmod>2021-06-11T04:12:29.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-imessage-to-pdf.html</loc>
-    <lastmod>2021-06-11T04:11:12.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/create-fillable-pdf-on-ipad.html</loc>
-    <lastmod>2021-06-10T22:54:33.000Z</lastmod>
-  </url>
-  <url>
     <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/reorder-pdf-pages-on-mac.html</loc>
     <lastmod>2021-06-10T22:50:02.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/reorder-pdf-pages-on-chromebook.html</loc>
-    <lastmod>2021-06-10T22:45:09.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-split-a-pdf-on-a-mac.html</loc>
@@ -97,7 +253,87 @@
     <lastmod>2021-06-10T22:24:06.000Z</lastmod>
   </url>
   <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-edit-pdfs-on-iphone.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-make-pdfs-smaller.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/guide-to-convert-pdfs-to-photos.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-pdf-to-ai.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/localnav-on-draft-test.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
+  </url>
+  <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/features/flip-picture-app.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-openoffice-to-pdf.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-odt-to-pdf.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-odg-to-pdf.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/steps-to-convert-eps-to-pdf.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-psd-to-pdf.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/steps-to-convert-gif-to-pdf.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/steps-to-convert-tiff-to-pdf.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/steps-to-convert-xps-to-pdf.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-cad-to-pdf.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-bmp-to-pdf.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-dwf-to-pdf.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-dwg-to-pdf.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-email-to-pdf.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-dxf-to-pdf.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/what-should-you-look-out-for-in-listing-agreement.html</loc>
     <lastmod>2021-06-09T00:00:00.000Z</lastmod>
   </url>
   <url>
@@ -109,120 +345,64 @@
     <lastmod>2021-06-09T00:00:00.000Z</lastmod>
   </url>
   <url>
+    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-write-real-estate-purchase-agreement.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
+  </url>
+  <url>
     <loc>https://www.adobe.com/creativecloud/video/hub/features/4k-video-converter.html</loc>
     <lastmod>2021-06-09T00:00:00.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-write-in-a-pdf.html</loc>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-pdf-to-rtf.html</loc>
     <lastmod>2021-06-09T00:00:00.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/templates/how-to-social-media-plan-template.html</loc>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-pdf-to-pdfa.html</loc>
     <lastmod>2021-06-09T00:00:00.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/templates/how-to-marketing-proposal-template.html</loc>
-    <lastmod>2021-06-08T21:53:12.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-indesign-to-pdf.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/create-fillable-pdf-on-windows10.html</loc>
-    <lastmod>2021-06-08T16:00:07.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-pdf-to-csv.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/convert-pdf-to-jpg-on-mobile-phone.html</loc>
-    <lastmod>2021-06-08T15:50:56.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-web-page-to-pdf.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/the-simple-way-to-convert-pdf-to-rtf.html</loc>
-    <lastmod>2021-06-08T15:48:54.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-prn-to-pdf.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-pdf-to-html.html</loc>
-    <lastmod>2021-06-08T15:45:27.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-png-to-pdf.html</loc>
-    <lastmod>2021-06-08T15:38:24.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-create-fillable-pdf-on-android.html</loc>
-    <lastmod>2021-06-01T10:23:03.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-create-fillable-pdf-on-chromebook.html</loc>
-    <lastmod>2021-06-01T10:15:42.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-redact-pdf-on-windows-10.html</loc>
-    <lastmod>2021-06-01T10:15:42.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-create-fillable-pdf-on-iphone.html</loc>
-    <lastmod>2021-06-01T10:15:41.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-redact-pdf-on-mac.html</loc>
-    <lastmod>2021-06-01T10:15:41.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-create-fillable-pdf-on-mac.html</loc>
-    <lastmod>2021-06-01T10:15:41.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-pdf-to-webpage.html</loc>
-    <lastmod>2021-05-28T21:36:54.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-write-on-pdf-pc.html</loc>
-    <lastmod>2021-05-28T21:35:57.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/split-a-pdf-on-an-ipad.html</loc>
-    <lastmod>2021-05-28T21:34:54.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/convert-gmail-email-to-a-pdf.html</loc>
-    <lastmod>2021-05-28T20:23:14.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/convert-a-pdf-to-chrome.html</loc>
-    <lastmod>2021-05-28T20:19:31.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-rotate-pdf-chromebook.html</loc>
-    <lastmod>2021-05-25T20:58:21.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/redact-pdf-android.html</loc>
-    <lastmod>2021-05-25T20:36:11.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-search-pdf-on-chromebook.html</loc>
-    <lastmod>2021-05-25T20:23:24.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-search-pdf-on-mac.html</loc>
-    <lastmod>2021-05-25T20:17:43.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-export-to-pdf.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-remove-highlights-from-pdf.html</loc>
-    <lastmod>2021-05-25T16:58:51.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-share-pdf-on-iphone.html</loc>
-    <lastmod>2021-05-25T16:45:22.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/share-a-pdf-on-facebook-messenger.html</loc>
-    <lastmod>2021-05-25T16:39:42.000Z</lastmod>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-highlight-a-pdf.html</loc>
-    <lastmod>2021-05-25T16:38:19.000Z</lastmod>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-share-pdf-on-adroid.html</loc>
-    <lastmod>2021-05-25T16:28:12.000Z</lastmod>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-search-pdf-on-mac.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-search-pdf-on-chromebook.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-create-fillable-pdf-on-iphone.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-create-fillable-pdf-on-mac.html</loc>
+    <lastmod>2021-06-09T00:00:00.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/documentcloud/sign/hub/how-to/make-a-pdf-invoice.html</loc>
@@ -271,42 +451,6 @@
   <url>
     <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-make-a-video-on-iphone.html</loc>
     <lastmod>2021-05-24T09:00:29.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/convert-illustrator-to-pdf.html</loc>
-    <lastmod>2021-05-18T21:22:00.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-export-to-pdf.html</loc>
-    <lastmod>2021-05-18T20:54:10.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-prn-to-pdf.html</loc>
-    <lastmod>2021-05-18T20:52:03.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-web-page-to-pdf.html</loc>
-    <lastmod>2021-05-18T20:51:12.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/convert-outlook-email-to-pdf.html</loc>
-    <lastmod>2021-05-18T20:47:40.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-batch-convert-to-pdf.html</loc>
-    <lastmod>2021-05-18T20:46:45.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-indesign-to-pdf.html</loc>
-    <lastmod>2021-05-18T20:43:39.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-notepad-to-pdf.html</loc>
-    <lastmod>2021-05-18T20:42:47.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-pdf-to-csv.html</loc>
-    <lastmod>2021-05-18T20:41:51.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/documentcloud/sign/hub/features/what-is-a-timesheet.html</loc>
@@ -391,26 +535,6 @@
   <url>
     <loc>https://www.adobe.com/creativecloud/video/hub/guides/how-to-crop-videos-on-phones.html</loc>
     <lastmod>2021-05-11T22:15:18.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-rtf-to-pdf.html</loc>
-    <lastmod>2021-05-11T18:10:53.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-pdf-to-pdfa.html</loc>
-    <lastmod>2021-05-11T17:52:41.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-visio-to-pdf.html</loc>
-    <lastmod>2021-05-11T17:47:29.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-pdf-to-xml.html</loc>
-    <lastmod>2021-05-11T16:59:54.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-pdf-to-rtf.html</loc>
-    <lastmod>2021-05-11T16:54:02.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/creativecloud/video/hub/features/how-to-play-mp4-video.html</loc>
@@ -621,14 +745,6 @@
     <lastmod>2021-04-29T16:42:16.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/what-should-you-look-out-for-in-listing-agreement.html</loc>
-    <lastmod>2021-04-28T09:18:26.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/how-to-write-real-estate-purchase-agreement.html</loc>
-    <lastmod>2021-04-28T09:11:16.000Z</lastmod>
-  </url>
-  <url>
     <loc>https://www.adobe.com/documentcloud/sign/hub/document-types/should-you-sign-buyer-s-agent-agreement.html</loc>
     <lastmod>2021-04-28T09:11:15.000Z</lastmod>
   </url>
@@ -753,64 +869,8 @@
     <lastmod>2021-04-27T19:38:22.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-dxf-to-pdf.html</loc>
-    <lastmod>2021-04-26T18:17:06.000Z</lastmod>
-  </url>
-  <url>
     <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-autocad-to-pdf.html</loc>
     <lastmod>2021-04-26T18:16:11.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-email-to-pdf.html</loc>
-    <lastmod>2021-04-26T18:06:29.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-bmp-to-pdf.html</loc>
-    <lastmod>2021-04-26T17:48:00.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-dwf-to-pdf.html</loc>
-    <lastmod>2021-04-26T17:46:42.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-dwg-to-pdf.html</loc>
-    <lastmod>2021-04-26T17:44:24.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-cad-to-pdf.html</loc>
-    <lastmod>2021-04-26T17:24:01.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/steps-to-convert-gif-to-pdf.html</loc>
-    <lastmod>2021-04-23T18:11:47.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/steps-to-convert-tiff-to-pdf.html</loc>
-    <lastmod>2021-04-23T18:02:28.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/steps-to-convert-xps-to-pdf.html</loc>
-    <lastmod>2021-04-23T17:46:08.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-psd-to-pdf.html</loc>
-    <lastmod>2021-04-23T17:41:34.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/steps-to-convert-eps-to-pdf.html</loc>
-    <lastmod>2021-04-23T17:38:29.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-odg-to-pdf.html</loc>
-    <lastmod>2021-04-23T17:35:39.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-odt-to-pdf.html</loc>
-    <lastmod>2021-04-23T17:34:17.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-openoffice-to-pdf.html</loc>
-    <lastmod>2021-04-23T17:32:47.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-rotate-pdfs-on-iphone.html</loc>
@@ -1113,10 +1173,6 @@
     <lastmod>2021-04-08T18:57:19.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/localnav-on-draft-test.html</loc>
-    <lastmod>2021-04-08T15:08:02.000Z</lastmod>
-  </url>
-  <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/sharpen-image-high-pass-filter.html</loc>
     <lastmod>2021-04-08T10:04:11.000Z</lastmod>
   </url>
@@ -1291,14 +1347,6 @@
   <url>
     <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-ai-to-pdf.html</loc>
     <lastmod>2021-03-31T19:08:03.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-convert-pdf-to-ai.html</loc>
-    <lastmod>2021-03-31T19:00:43.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/guide-to-convert-pdfs-to-photos.html</loc>
-    <lastmod>2021-03-31T18:36:08.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/creativecloud/photography/hub/guides/wide-aperture.html</loc>
@@ -1791,14 +1839,6 @@
   <url>
     <loc>https://www.adobe.com/documentcloud/sign/hub/how-to/making-donation-invoice.html</loc>
     <lastmod>2021-03-19T09:18:19.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-make-pdfs-smaller.html</loc>
-    <lastmod>2021-03-19T00:41:01.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-edit-pdfs-on-iphone.html</loc>
-    <lastmod>2021-03-19T00:32:01.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.adobe.com/documentcloud/acrobat/hub/how-to/how-to-edit-pdfs-on-ipad.html</loc>
