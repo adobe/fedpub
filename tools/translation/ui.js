@@ -24,6 +24,7 @@ import {
 import {
   fetchTracker,
   getTrackerURL,
+  purge,
 } from './tracker.js';
 
 import {
@@ -215,12 +216,15 @@ function drawTracker() {
 
   const sendPanel = document.getElementById('send');
   const refreshPanel = document.getElementById('refresh');
+  const reloadPanel = document.getElementById('reload');
   if (!taskFoundInGLaaS) {
     // show the send button only if task has not been found in GLaaS
     sendPanel.classList.remove('hidden');
+    reloadPanel.classList.remove('hidden');
     refreshPanel.classList.add('hidden');
   } else {
     sendPanel.classList.add('hidden');
+    reloadPanel.classList.add('hidden');
     refreshPanel.classList.remove('hidden');
   }
 }
@@ -235,6 +239,22 @@ async function sendTracker() {
   loadingON('Status updated! Updating UI.');
   drawTracker();
   loadingOFF();
+}
+
+async function reloadTracker() {
+  const url = await getTrackerURL();
+  loadingON(`Purging tracker`);
+  await purge(url);
+  let res;
+  do {
+    loadingON('Waiting for tracker to be available');
+    res = await fetch(url);
+  } while(!res.ok);
+
+  loadingON('Reloading tracker');
+  tracker = await fetchTracker(url);
+  await refresh();
+
 }
 
 async function refresh() {
@@ -256,7 +276,7 @@ async function save(task) {
     const confirm = window.confirm(`File ${dest} exists already. Are you sure you want to overwrite the current production version ?`);
     if (!confirm) return;
   }
-  loadingON(`Donwloading ${dest} file from GLaaS`);
+  loadingON(`Downloading ${dest} file from GLaaS`);
   const file = await getFileFromGLaaS(task);
 
   loadingON(`Saving ${dest} file to Sharepoint`);
@@ -280,6 +300,7 @@ async function saveAll(locale) {
 function setListeners() {
   document.querySelector('#send button').addEventListener('click', sendTracker);
   document.querySelector('#refresh button').addEventListener('click', refresh);
+  document.querySelector('#reload button').addEventListener('click', reloadTracker);
 }
 
 async function init() {

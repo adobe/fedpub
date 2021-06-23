@@ -42,6 +42,10 @@ async function getTrackerURL() {
   return trackerURL;
 }
 
+async function purge(url) {
+  await fetch(url, { method: 'POST', headers: { 'X-Method-Override': 'HLXPURGE' }});
+}
+
 async function fetchTracker(url) {
   const tracker = {
     locales: [],
@@ -55,7 +59,6 @@ async function fetchTracker(url) {
   if (json && json.data) {
     json.data.forEach((t) => {
       if (t.URL) {
-        // const locales = [];
         locales.forEach((lObj) => {
           const l = lObj.name;
           if (t[l]) {
@@ -106,4 +109,5 @@ async function fetchTracker(url) {
 export {
   fetchTracker,
   getTrackerURL,
+  purge,
 };
