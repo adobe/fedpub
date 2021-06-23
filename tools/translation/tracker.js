@@ -60,7 +60,10 @@ async function fetchTracker(url) {
           const l = lObj.name;
           if (t[l]) {
             const u = t.URL;
-            const path = new URL(u).pathname;
+            let path = new URL(u).pathname;
+            if (path.slice(-5) === '.html') {
+              path = path.slice(0, -5);
+            }
             const task = {
               URL: u,
               locale: l,

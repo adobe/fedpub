@@ -155,17 +155,16 @@ async function getFiles(tracker, locale) {
 
   const files = [];
   await asyncForEach(tracker[locale], async (t) => {
-    const file = await getFile(tracker, t.URL);
+    const doc = tracker.docs[t.URL];
+    // only add files that exists
+    if (doc && doc.sp && doc.sp.status === 200) {
+      const file = await getFile(tracker, t.URL);
 
-    // eslint-disable-next-line no-underscore-dangle
-    file.path = t.filePath;
-    file.URL = t.URL;
+      file.path = t.filePath;
+      file.URL = t.URL;
 
-    if (!file) {
-      throw new Error(`Could not find file for ${t.URL}.`);
+      files.push(file);
     }
-
-    files.push(file);
   });
 
   return files;

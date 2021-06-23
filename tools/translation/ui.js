@@ -110,15 +110,18 @@ function drawTracker() {
   tracker.urls.forEach((url) => {
     $tr = createTag('tr', { class: 'row' });
     $th = createTag('th', { class: 'row' });
-    $th.innerHTML = `<a href="${url}" target="_new">${url}</a>`;
+    const u = new URL(url);
+    $th.innerHTML = `<a href="${url}" target="_new">${u.pathname}</a>`;
     $tr.appendChild($th);
 
     $th = createTag('th');
     $th.innerHTML = 'Connect to Sharepoint';
     const doc = tracker.docs[url];
+    let hasSourceFile = false;
     if (doc && doc.sp) {
       if (doc.sp.status === 200) {
         $th.innerHTML = `${doc.filePath}`;
+        hasSourceFile = true;
       } else {
         $th.innerHTML = 'Source file not found!';
       }
@@ -164,7 +167,13 @@ function drawTracker() {
             $td.innerHTML = task.glaas.status;
           }
         } else if (glaas.accessToken) {
-          $td.innerHTML = 'Ready for translation';
+          if (task.sp) {
+            if (hasSourceFile) {
+              $td.innerHTML = 'Ready for translation';
+            } else {
+              $td.innerHTML = 'No source';
+            }
+          }
         } else {
           $td.innerHTML = 'Connect to GLaaS first';
         }
@@ -261,7 +270,11 @@ async function save(task) {
 }
 
 async function saveAll(locale) {
-  return asyncForEach(tracker[locale], async (task) => save(task));
+  return asyncForEach(tracker[locale], async (task) => {
+    if (task.glaas) {
+      await save(task);
+    }
+  });
 }
 
 function setListeners() {
