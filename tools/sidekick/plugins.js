@@ -60,4 +60,18 @@
       },
     },
   });
+
+  // TRANSLATE --------------------------------------------------------------------
+
+  sk.add({
+    id: 'translate',
+    condition: (s) => s.isEditor() && s.location.href.includes('.xlsx'),
+    button: {
+      text: 'Translate from tracker',
+      action: () => {
+        const { config } = sk;
+        window.open(`https://${config.host || config.innerHost}/tools/translation/?sp=${encodeURI(window.location.href)}`, 'hlx-sidekick-spark-translation');
+      },
+    },
+  });
 })();
