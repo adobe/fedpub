@@ -62,11 +62,11 @@ function setError(msg) {
 
 function setTrackerURL(url) {
   const u = new URL(url);
-  document.getElementById('trackerURL').innerHTML = u.pathname.slice(0, -5);
+  document.getElementById('trackerURL').innerHTML = `${u.pathname.slice(0, -5)}.xlsx`;
 }
 
 async function preview(task, locale) {
-  loadingON('Donwloading file from GLaaS');
+  loadingON('Downloading file from GLaaS');
   const file = await getFileFromGLaaS(task);
 
   const trackerURL = await getTrackerURL();

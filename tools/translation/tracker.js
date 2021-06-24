@@ -22,14 +22,16 @@ async function getTrackerURL() {
   trackerURL = location.searchParams.get('tracker');
   if (!trackerURL) {
     const sp = location.searchParams.get('sp');
+    const owner = location.searchParams.get('owner');
+    const repo = location.searchParams.get('repo');
+    const ref = location.searchParams.get('ref');
     if (sp) {
-      const lnk = `${location.origin}/hlx_${btoa(sp).replace(/\+/, '-').replace(/\//, '_')}.lnk`;
-      const resp = await fetch(`${lnk}?hlx_report=true`);
+      const url = `https://admin.hlx3.page/preview/${owner}/${repo}/${ref}?editUrl=${sp}`;
+      const resp = await fetch(url);
       if (resp.ok) {
-        const { webUrl } = await resp.json();
-        if (webUrl) {
-          const u = new URL(webUrl);
-          trackerURL = `${location.origin}${u.pathname === '/index' ? '/' : u.pathname}`;
+        const { webPath } = await resp.json();
+        if (webPath) {
+          trackerURL = `${location.origin}${webPath}`;
         }
       }
     }

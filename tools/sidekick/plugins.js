@@ -65,12 +65,12 @@
 
   sk.add({
     id: 'translate',
-    condition: (s) => s.isEditor() && s.location.href.includes('.xlsx'),
+    condition: (s) => s.isEditor() && s.location.href.includes('/:x'),
     button: {
       text: 'Translate from tracker',
       action: () => {
         const { config } = sk;
-        window.open(`https://${config.host || config.innerHost}/tools/translation/?sp=${encodeURI(window.location.href)}`, 'hlx-sidekick-spark-translation');
+        window.open(`${config.pluginHost ? config.pluginHost : `http://${config.innerHost}` }/tools/translation/?sp=${encodeURIComponent(window.location.href)}&owner=${config.owner}&repo=${config.repo}&ref=${config.ref}`, 'hlx-sidekick-spark-translation');
       },
     },
   });
