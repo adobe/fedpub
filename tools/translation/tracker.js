@@ -11,52 +11,64 @@
  */
 /* eslint-disable no-underscore-dangle */
 /* global window, document, fetch, btoa */
-import { locales, getPathForLocale } from './config.js';
+import { locales, getPathForLocale, admin } from './config.js';
 
-let trackerURL;
+let config;
 
-async function getTrackerURL() {
-  if (trackerURL) return trackerURL;
+async function init() {
+  if (config) return config;
 
   const location = new URL(document.location.href);
-  trackerURL = location.searchParams.get('tracker');
-  if (!trackerURL) {
-    const sp = location.searchParams.get('sp');
-    const owner = location.searchParams.get('owner');
-    const repo = location.searchParams.get('repo');
-    const ref = location.searchParams.get('ref');
-    if (sp) {
-      const url = `https://admin.hlx3.page/preview/${owner}/${repo}/${ref}?editUrl=${sp}`;
-      const resp = await fetch(url);
-      if (resp.ok) {
-        const { webPath } = await resp.json();
-        if (webPath) {
-          trackerURL = `${location.origin}${webPath}`;
+  const sp = location.searchParams.get('sp');
+  const owner = location.searchParams.get('owner');
+  const repo = location.searchParams.get('repo');
+  const ref = location.searchParams.get('ref');
+  if (sp && owner && repo && ref) {
+    const url = `${admin.api.preview.baseURI}/${owner}/${repo}/${ref}?editUrl=${sp}`;
+    const resp = await fetch(url);
+    if (resp.ok) {
+      const json = await resp.json();
+      if (json && json.webPath) {
+        config = {
+          url: `${location.origin}${json.webPath}`,
+          path: json.webPath,
+          sp,
+          owner,
+          repo,
+          ref
         }
       }
     }
   }
 
-  if (!trackerURL) {
+  if (!config) {
     throw new Error('Cannot find a valid tracker URL');
   }
 
-  return trackerURL;
+  return config;
 }
 
-async function purge(url) {
-  await fetch(url, { method: 'POST', headers: { 'X-Method-Override': 'HLXPURGE' }});
+async function purge() {
+  if (!config) {
+    throw new Error('Init the tracker first');
+  }
+  const url = `${admin.api.preview.baseURI}/${config.owner}/${config.repo}/${config.ref}${config.path}`;
+  await fetch(url, { method: 'POST' });
 }
 
-async function fetchTracker(url) {
+async function compute() {
+  if (!config) {
+    throw new Error('Init the tracker first');
+  }
+
   const tracker = {
     locales: [],
     urls: [],
-    url,
+    url: config.url,
     docs: {},
   };
 
-  const resp = await fetch(url, { cache: 'no-store' });
+  const resp = await fetch(config.url, { cache: 'no-store' });
   const json = await resp.json();
   if (json && json.data) {
     json.data.forEach((t) => {
@@ -109,7 +121,7 @@ async function fetchTracker(url) {
 }
 
 export {
-  fetchTracker,
-  getTrackerURL,
+  compute,
+  init,
   purge,
 };

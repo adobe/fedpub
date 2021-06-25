@@ -22,9 +22,9 @@ import {
 } from './sharepoint.js';
 
 import {
-  fetchTracker,
-  getTrackerURL,
-  purge,
+  compute as computeTracker,
+  init as initTracker,
+  purge as purgeTracker,
 } from './tracker.js';
 
 import {
@@ -54,10 +54,10 @@ function loadingOFF() {
   loading.classList.add('hidden');
 }
 
-function setError(msg) {
+function setError(msg, error) {
   // TODO UI
   // eslint-disable-next-line no-console
-  console.error(msg);
+  console.error(msg, error);
 }
 
 function setTrackerURL(url) {
@@ -69,8 +69,8 @@ async function preview(task, locale) {
   loadingON('Downloading file from GLaaS');
   const file = await getFileFromGLaaS(task);
 
-  const trackerURL = await getTrackerURL();
-  const u = new URL(trackerURL);
+  const config = await initTracker();
+  const u = new URL(config.url);
   const dest = `${u.pathname.slice(0, -5)}_preview/${getPathForLocale(locale)}${task.filePath}`.toLowerCase();
 
   loadingON('Saving file to Sharepoint');
@@ -220,11 +220,11 @@ function drawTracker() {
   if (!taskFoundInGLaaS) {
     // show the send button only if task has not been found in GLaaS
     sendPanel.classList.remove('hidden');
-    reloadPanel.classList.remove('hidden');
+    // reloadPanel.classList.remove('hidden');
     refreshPanel.classList.add('hidden');
   } else {
     sendPanel.classList.add('hidden');
-    reloadPanel.classList.add('hidden');
+    // reloadPanel.classList.add('hidden');
     refreshPanel.classList.remove('hidden');
   }
 }
@@ -242,17 +242,17 @@ async function sendTracker() {
 }
 
 async function reloadTracker() {
-  const url = await getTrackerURL();
+  const config = await initTracker();
   loadingON(`Purging tracker`);
-  await purge(url);
+  await purgeTracker();
   let res;
   do {
     loadingON('Waiting for tracker to be available');
-    res = await fetch(url);
+    res = await fetch(config.url);
   } while(!res.ok);
 
   loadingON('Reloading tracker');
-  tracker = await fetchTracker(url);
+  tracker = await computeTracker();
   await refresh();
 
 }
@@ -306,16 +306,16 @@ function setListeners() {
 async function init() {
   loadingON('Initializing the application');
   setListeners();
-  let trackerURL;
+  let config;
   try {
-    trackerURL = await getTrackerURL();
+    config = await initTracker();
   } catch (err) {
-    setError('Could not find a valid tracker URL', 'error');
+    setError('Could not find a valid tracker URL', err);
     return;
   }
-  loadingON(`Fetching the tracker ${trackerURL}`);
-  setTrackerURL(trackerURL);
-  tracker = await fetchTracker(trackerURL);
+  loadingON(`Fetching the tracker ${config.url}`);
+  setTrackerURL(config.url);
+  tracker = await computeTracker();
   loadingON('Tracker loaded.');
   drawTracker();
   loadingON('Connecting now to Sharepoint...');

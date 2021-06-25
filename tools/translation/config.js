@@ -120,9 +120,19 @@ const sp = {
   },
 };
 
+const adminServerURL = 'https://admin.hlx3.page';
+const admin = {
+  api: {
+    preview: {
+      baseURI: `${adminServerURL}/preview`,
+    }
+  }
+}
+
 export {
   locales,
   glaas,
   sp,
   getPathForLocale,
+  admin,
 };
