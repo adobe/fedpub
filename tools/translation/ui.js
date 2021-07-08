@@ -60,9 +60,9 @@ function setError(msg, error) {
   console.error(msg, error);
 }
 
-function setTrackerURL(url) {
-  const u = new URL(url);
-  document.getElementById('trackerURL').innerHTML = `${u.pathname.slice(0, -5)}.xlsx`;
+function setTrackerURL(config) {
+  const u = new URL(config.url);
+  document.getElementById('trackerURL').innerHTML = `<a href="${config.sp}">${u.pathname.slice(0, -5)}.xlsx</a>`;
 }
 
 async function preview(task, locale) {
@@ -314,7 +314,7 @@ async function init() {
     return;
   }
   loadingON(`Fetching the tracker ${config.url}`);
-  setTrackerURL(config.url);
+  setTrackerURL(config);
   tracker = await computeTracker();
   loadingON('Tracker loaded.');
   drawTracker();
