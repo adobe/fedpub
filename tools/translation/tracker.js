@@ -52,8 +52,10 @@ async function purge() {
   if (!config) {
     throw new Error('Init the tracker first');
   }
-  const url = `${admin.api.preview.baseURI}/${config.owner}/${config.repo}/${config.ref}${config.path}`;
-  await fetch(url, { method: 'POST' });
+  // const url = `${admin.api.preview.baseURI}/${config.owner}/${config.repo}/${config.ref}${config.path}`;
+  // return fetch(url, { method: 'POST' });
+
+  return fetch(config.url, { method: 'PURGE' });
 }
 
 async function compute() {
@@ -75,7 +77,7 @@ async function compute() {
       if (t.URL) {
         locales.forEach((lObj) => {
           const l = lObj.name;
-          if (t[l]) {
+          if (t[l] && t[l].toLowerCase() === 'y') {
             const u = t.URL;
             let path = new URL(u).pathname;
             if (path.slice(-5) === '.html') {

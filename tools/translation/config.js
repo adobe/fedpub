@@ -22,6 +22,12 @@ const locales = [{
 }, {
   name: 'es-ES',
   path: 'es',
+}, {
+  name: 'it-IT',
+  path: 'it',
+}, {
+  name: 'ru-RU',
+  path: 'ru',
 }];
 
 function getPathForLocale(locale) {

@@ -220,11 +220,11 @@ function drawTracker() {
   if (!taskFoundInGLaaS) {
     // show the send button only if task has not been found in GLaaS
     sendPanel.classList.remove('hidden');
-    // reloadPanel.classList.remove('hidden');
+    reloadPanel.classList.remove('hidden');
     refreshPanel.classList.add('hidden');
   } else {
     sendPanel.classList.add('hidden');
-    // reloadPanel.classList.add('hidden');
+    reloadPanel.classList.add('hidden');
     refreshPanel.classList.remove('hidden');
   }
 }
@@ -324,6 +324,7 @@ async function init() {
     await updateTrackerWithSPStatus(tracker, () => {
       loadingON('Status updated! Updating UI.');
       drawTracker();
+      loadingOFF();
     });
   });
   loadingON('Connecting now to GLaaS...');
@@ -332,6 +333,7 @@ async function init() {
     await updateTrackerWithGLaaSStatus(tracker, () => {
       loadingON('Status updated! Updating UI.');
       drawTracker();
+      loadingOFF();
     });
   });
   loadingON('Application loaded.');
