@@ -10,6 +10,9 @@
  * governing permissions and limitations under the License.
  */
 /* global window */
+
+import ENV from './env.stage.js';
+
 const locales = [{
   name: 'fr-FR',
   path: 'fr',
@@ -25,13 +28,13 @@ function getPathForLocale(locale) {
   return locales.find((l) => l.name === locale).path;
 }
 
-const glaasProduct = 'Helix';
-const glaasProject = 'test';
+const glaasProduct = ENV.glass.product;
+const glaasProject = ENV.glass.project;
 
 const location = new URL(window.location.href);
 
 const glaas = {
-  url: 'https://glaas-stage.corp.adobe.com',
+  url: ENV.glass.url,
   authorizeURI: '/api/common/sweb/oauth/authorize',
   clientId: '657acbf5-bf11-4698-827b-f17f4e7a388d',
   redirectURI: encodeURI(`${location.origin}/tools/translation/glaas.html`),
@@ -43,9 +46,7 @@ const glaas = {
       create: {
         uri: `/api/l10n/v1.1/tasks/${glaasProduct}/${glaasProject}/create`,
         payload: {
-          workflowName: 'Machine Translation',
-          // workflowName: 'Human Translation',
-          contentSource: 'Adhoc',
+          workflowName: ENV.glass.workflowName,
         },
       },
       get: {
@@ -71,14 +72,14 @@ const glaas = {
 
 const graphURL = 'https://graph.microsoft.com/v1.0';
 
-const spSiteRootAPI = 'https://graph.microsoft.com/v1.0/me'; // private repo for testing
-const spRootFolders = '/helix/fedpub';
+const spSiteRootAPI = ENV.sp.site;
+const spRootFolders = ENV.sp.rootFolders;
 
 const sp = {
   clientApp: {
     auth: {
-      clientId: '52c587ca-af13-485f-ae9d-da3d2a6efe8f',
-      authority: 'https://login.microsoftonline.com/fa7b1b5a-7b34-4387-94ae-d2c178decee1',
+      clientId: ENV.sp.clientId,
+      authority: ENV.sp.authority,
     },
   },
   login: {
