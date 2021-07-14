@@ -267,7 +267,7 @@ async function refresh() {
   loadingOFF();
 }
 
-async function save(task) {
+async function save(task, doRefresh=true) {
   const dest = `${task.localeFilePath}`.toLowerCase();
 
   if (task.sp && task.sp.status === 200) {
@@ -284,17 +284,21 @@ async function save(task) {
 
   loadingON(`File ${dest} is now in Sharepoint`);
 
-  loadingOFF();
-  refresh();
+  if (doRefresh) {
+    loadingOFF();
+    await refresh();
+  }
   // window.open(`${u.origin}${dest.slice(0, -5)}`);
 }
 
 async function saveAll(locale) {
-  return asyncForEach(tracker[locale], async (task) => {
+  await asyncForEach(tracker[locale], async (task) => {
     if (task.glaas) {
-      await save(task);
+      await save(task, false);
     }
   });
+  loadingOFF();
+  await refresh();
 }
 
 function setListeners() {
