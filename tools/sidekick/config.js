@@ -16,48 +16,40 @@ window.hlx.initSidekick({
   host: 'www.adobe.com',
   byocdn: true,
   plugins: [
-    // PREVIEW ----------------------------------------------------------------------
+    // "hide" all button for demo feature only
     {
-      id: 'preview',
-      override: true,
-      condition: (sk) => sk.isEditor() || sk.isHelix(),
+      id: 'edit',
+      condition: false,
       button: {
-        action: (evt, sk) => {
-          const { config, location } = sk;
-          let url;
-          if (sk.isEditor()) {
-            url = new URL('https://adobeioruntime.net/api/v1/web/helix/helix-services/content-proxy@2.7.0');
-            url.search = new URLSearchParams([
-              ['owner', config.owner],
-              ['repo', config.repo],
-              ['ref', config.ref || 'main'],
-              ['path', '/'],
-              ['lookup', location.href],
-            ]).toString();
-          } else {
-            const host = location.host === config.innerHost ? config.host : config.innerHost;
-            url = new URL(`https://${host}${location.pathname}`);
-          }
-          if (evt.metaKey || evt.which === 2) {
-            window.open(url.toString());
-          } else {
-            window.location.href = url.toString();
-          }
-        },
-        isPressed: (sk) => sk.isInner(),
+        action: () => {},
       },
     },
-    // TAGGER -----------------------------------------------------------------------
+    {
+      id: 'preview',
+      condition: false,
+      button: {
+        action: () => {},
+      },
+    },
+    {
+      id: 'live',
+      condition: false,
+      button: {
+        action: () => {},
+      },
+    },
+    {
+      id: 'prod',
+      condition: false,
+      button: {
+        action: () => {},
+      },
+    },
     {
       id: 'tagger',
-      condition: (sk) => sk.isEditor()
-        && (sk.location.search.includes('.docx&') || sk.location.search.includes('.md&')),
+      condition: false,
       button: {
-        text: 'Tagger',
-        action: (_, sk) => {
-          const { config } = sk;
-          window.open(`https://${config.innerHost}/tools/tagger/`, 'hlx-sidekick-tagger');
-        },
+        action: () => {},
       },
     },
     // TRANSLATE
