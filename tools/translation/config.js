@@ -53,6 +53,7 @@ const glaas = {
         uri: `/api/l10n/v1.1/tasks/${glaasProduct}/${glaasProject}/create`,
         payload: {
           workflowName: ENV.glass.workflowName,
+          contentSource: 'Adhoc'
         },
       },
       get: {
