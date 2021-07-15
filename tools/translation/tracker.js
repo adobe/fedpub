@@ -24,7 +24,7 @@ async function init() {
   const repo = location.searchParams.get('repo');
   const ref = location.searchParams.get('ref');
   if (sp && owner && repo && ref) {
-    const url = `${admin.api.preview.baseURI}/${owner}/${repo}/${ref}?editUrl=${sp}`;
+    const url = `${admin.api.preview.baseURI}/${owner}/${repo}/${ref}/?editUrl=${encodeURIComponent(sp)}`;
     const resp = await fetch(url);
     if (resp.ok) {
       const json = await resp.json();
