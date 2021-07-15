@@ -11,7 +11,7 @@
  */
 /* global window */
 
-import ENV from './env.stage.js';
+import ENV from './env.prod.js';
 
 const locales = [{
   name: 'fr-FR',

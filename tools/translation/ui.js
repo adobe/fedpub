@@ -105,6 +105,7 @@ function drawTracker() {
   });
   $table.appendChild($tr);
 
+  let connectedToGLaaS = false;
   let taskFoundInGLaaS = false;
   let canSaveAll = false;
 
@@ -135,6 +136,7 @@ function drawTracker() {
       const task = tracker[locale].find((t) => t.URL === url);
       if (task) {
         if (task.glaas && task.glaas.status) {
+          connectedToGLaaS = true;
           taskFoundInGLaaS = true;
           if (task.glaas.status === 'COMPLETED') {
             $td.innerHTML = '';
@@ -168,6 +170,7 @@ function drawTracker() {
             $td.innerHTML = task.glaas.status;
           }
         } else if (glaas.accessToken) {
+          connectedToGLaaS = true;
           if (task.sp) {
             if (hasSourceFile) {
               $td.innerHTML = 'Ready for translation';
@@ -219,7 +222,9 @@ function drawTracker() {
   const reloadPanel = document.getElementById('reload');
   if (!taskFoundInGLaaS) {
     // show the send button only if task has not been found in GLaaS
-    sendPanel.classList.remove('hidden');
+    if (connectedToGLaaS) {
+      sendPanel.classList.remove('hidden');
+    }
     reloadPanel.classList.remove('hidden');
     refreshPanel.classList.add('hidden');
   } else {
