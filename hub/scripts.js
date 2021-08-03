@@ -218,7 +218,7 @@
             property: 'og:description',
             content: value,
           });
-        // adding cloud to medatada table, value will be used
+        // adding cloud to metadata table, value will be used
         // to load the correct feds cloud based navigation
         case 'cloud':
             md.push({
