@@ -218,6 +218,13 @@
             property: 'og:description',
             content: value,
           });
+        // adding cloud to medatada table, value will be used
+        // to load the correct feds cloud based navigation
+        case 'cloud':
+            md.push({
+              property: 'og:cloud',
+              content: value,
+            });
           // description to fall through to default
           // eslint-disable-next-line no-fallthrough
         default:
