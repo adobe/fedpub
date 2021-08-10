@@ -73,7 +73,7 @@ async function saveFile(dirHandle, task, locale) {
 
   const writable = await fileHandle.createWritable();
   // eslint-disable-next-line no-underscore-dangle
-  const response = await fetch(`${glaas.url}${glaas.api.tasks.assets.baseURI}/${task._assetPath}`, {
+  const response = await fetch(`${glaas.url}${glaasl.localeApi(locale).tasks.assets.baseURI}/${task._assetPath}`, {
     headers: {
       'X-GLaaS-ClientId': glaas.clientId,
       'X-GLaaS-AuthToken': glaas.accessToken,

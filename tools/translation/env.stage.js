@@ -1,12 +1,21 @@
 
 export default {
-  glass: {
-    product: 'Marcomm',
-    project: 'Adhoc',
+  glaas: {
     url: 'https://glaas-stage.corp.adobe.com',
     clientId: '657acbf5-bf11-4698-827b-f17f4e7a388d',
-    // workflowName: 'Machine Translation',
-    workflowName: 'Human Translation',
+    workflows: {
+      Standard: {
+        product: 'Marcomm',
+        project: 'Adhoc',
+        workflowName: 'Human Translation',
+      },
+      HybridMT: {
+        product: 'WCMS_FASTLANE',
+        project: 'FASTLANE',
+        workflowName: 'Human Translation',
+        
+      }
+    }
   },
   sp: {
     site: 'https://graph.microsoft.com/v1.0/me', // private repo for testing

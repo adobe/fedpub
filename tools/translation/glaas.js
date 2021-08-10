@@ -74,12 +74,12 @@ async function createHandoff(tracker, locale) {
   const files = await getFiles(tracker, locale);
 
   const payload = {
-    ...glaas.api.tasks.create.payload,
+    ...glaas.localeApi(locale).tasks.create.payload,
     name: handoffName,
     targetLocales: [locale],
   };
 
-  let response = await fetch(`${glaas.url}${glaas.api.tasks.create.uri}`, {
+  let response = await fetch(`${glaas.url}${glaas.localeApi(locale).tasks.create.uri}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -98,7 +98,7 @@ async function createHandoff(tracker, locale) {
     formData.append(`file${index > 0 ? index : ''}`, file, file.path.replace(/\//gm, '_'));
   });
 
-  response = await fetch(`${glaas.url}${glaas.api.tasks.assets.baseURI}/${handoffName}/assets?targetLanguages=${locale}`, {
+  response = await fetch(`${glaas.url}${glaas.localeApi(locale).tasks.assets.baseURI}/${handoffName}/assets?targetLanguages=${locale}`, {
     method: 'POST',
     headers: {
       'X-GLaaS-ClientId': glaas.clientId,
@@ -112,7 +112,7 @@ async function createHandoff(tracker, locale) {
 
   const data = new URLSearchParams();
   data.append('newStatus', 'CREATED');
-  response = await fetch(`${glaas.url}${glaas.api.tasks.updateStatus.baseURI}/${handoffName}/${locale}/updateStatus`, {
+  response = await fetch(`${glaas.url}${glaas.localeApi(locale).tasks.updateStatus.baseURI}/${handoffName}/${locale}/updateStatus`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -135,7 +135,7 @@ async function updateTracker(tracker, callback) {
   await asyncForEach(tracker.locales, async (locale) => {
     const handoffName = computeHandoffName(tracker.url, locale);
 
-    const response = await fetch(`${glaas.url}${glaas.api.tasks.get.baseURI}/${handoffName}`, {
+    const response = await fetch(`${glaas.url}${glaas.localeApi(locale).tasks.get.baseURI}/${handoffName}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -170,7 +170,7 @@ async function updateTracker(tracker, callback) {
 
 async function getFile(task) {
   // eslint-disable-next-line no-underscore-dangle
-  const response = await fetch(`${glaas.url}${glaas.api.tasks.assets.baseURI}/${task.glaas.assetPath}`, {
+  const response = await fetch(`${glaas.url}${glaas.localeApi(locale).tasks.assets.baseURI}/${task.glaas.assetPath}`, {
     headers: {
       'X-GLaaS-ClientId': glaas.clientId,
       'X-GLaaS-AuthToken': glaas.accessToken,

@@ -14,6 +14,7 @@
 
 import { glaas, getPathForLocale } from './config.js';
 import { asyncForEach, createTag } from './utils.js';
+import { getWorkflowForLocale } from './config.js';
 
 import {
   saveFile,
@@ -98,9 +99,11 @@ function drawTracker() {
   $th.innerHTML = 'Source file';
   $tr.appendChild($th);
 
-  tracker.locales.forEach((e) => {
+  tracker.locales.forEach((loc) => {
     $th = createTag('th', { class: 'header' });
-    $th.innerHTML = e;
+    const wf = getWorkflowForLocale(loc);
+    $th.innerHTML = `${loc} (${wf.name})`;
+
     $tr.appendChild($th);
   });
   $table.appendChild($tr);
@@ -143,7 +146,7 @@ function drawTracker() {
             const $download = createTag('button', { type: 'button' });
             $download.innerHTML = 'Download';
             $download.addEventListener('click', () => {
-              window.open(`${glaas.url}${glaas.api.tasks.assets.baseURI}/${task.glaas.assetPath}`);
+              window.open(`${glaas.url}${glaas.localeApi(locale).tasks.assets.baseURI}/${task.glaas.assetPath}`);
             });
             $td.appendChild($download);
             const $preview = createTag('button', { type: 'button' });
