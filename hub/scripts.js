@@ -428,6 +428,7 @@
     // Identify hub placement in order to split paths
     const hubPosition = paths.indexOf('hub');
     const pageDetails = paths.slice(0, hubPosition);
+    const cloudValueMetadata = document.head.querySelector('meta[name="cloud"]');
 
     let localeDetails = localeMAP[pageDetails[0]];
     let locale;
@@ -441,7 +442,7 @@
       localeDetails = localeMAP[locale];
     }
 
-    const cloud = pageDetails.shift();
+    const cloud = cloudValueMetadata ? cloudValueMetadata.getAttribute('content') : pageDetails.shift();
     const category = pageDetails.shift();
 
     window.fedPub = {
