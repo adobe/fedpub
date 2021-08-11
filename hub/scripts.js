@@ -422,10 +422,8 @@
    * Page details are updated based on these values.
    */
   function handlePageDetails() {
-    let paths = window.location.pathname.replace('/bench', '').replace('/_draft', '')
-      .split('/').filter(isNonEmptyString);
-    
-    paths.toLowerCase();
+    const paths = window.location.pathname.replace('/bench', '').replace('/_draft', '')
+      .toLocaleString().toLowerCase().split('/').filter(isNonEmptyString);
 
     // Identify hub placement in order to split paths
     const hubPosition = paths.indexOf('hub');
@@ -437,7 +435,7 @@
 
     if (typeof localeDetails === 'object') {
       // Locale is part of the URL
-      locale = pageDetails.shift().toLowerCase();
+      locale = pageDetails.shift();
     } else {
       // Locale is not part of URL or unsupported
       locale = 'en';
