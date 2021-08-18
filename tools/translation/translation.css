@@ -70,8 +70,6 @@ main .tracker tr.row .tools {
 }
 
 main .tracker tr.row:hover .tools {
-  display: flex;
-  align-items: center;
   background-color: var(--hlx-sk-color);
 }
 
@@ -86,7 +84,6 @@ main .tracker tr.row:hover a.button,
 main .tracker tr.row:hover button {
   border-color: currentColor;
   color: currentColor;
-  margin-top: 0;
 }
 
 a.button,
