@@ -89,7 +89,7 @@ window.hlx.initSidekick({
           document.querySelectorAll('main a').forEach((a) => {
             const targetURL = new URL(a.href);
             const isTargetLocale = targetURL.pathname.split('/')[1].length === 2;
-            const isTargetExternal = currentURL.hostname.indexOf(targetURL.hostname) !== 0;
+            const isTargetExternal = sk.config.host !== targetURL.host;
             promises.push(new Promise((resolve) => {
               return fetch(a.href).then((res) => {
                 a.classList.add('sk-linkchecker');
