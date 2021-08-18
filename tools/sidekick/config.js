@@ -16,42 +16,6 @@ window.hlx.initSidekick({
   host: 'www.adobe.com',
   byocdn: true,
   plugins: [
-    // "hide" all button for demo feature only
-    {
-      id: 'edit',
-      condition: false,
-      button: {
-        action: () => {},
-      },
-    },
-    {
-      id: 'preview',
-      condition: false,
-      button: {
-        action: () => {},
-      },
-    },
-    {
-      id: 'live',
-      condition: false,
-      button: {
-        action: () => {},
-      },
-    },
-    {
-      id: 'prod',
-      condition: false,
-      button: {
-        action: () => {},
-      },
-    },
-    {
-      id: 'tagger',
-      condition: false,
-      button: {
-        action: () => {},
-      },
-    },
     // TRANSLATE
     {
       id: 'translate',
@@ -61,6 +25,94 @@ window.hlx.initSidekick({
         action: (_, sk) => {
           const { config } = sk;
           window.open(`${config.pluginHost ? config.pluginHost : `http://${config.innerHost}` }/tools/translation/?sp=${encodeURIComponent(window.location.href)}&owner=${config.owner}&repo=${config.repo}&ref=${config.ref}`, 'hlx-sidekick-spark-translation');
+        },
+      },
+    },
+    // link checker
+    {
+      id: 'linkchecker',
+      condition: (s) => !s.isEditor(),
+      button: {
+        text: 'Linkchecker',
+        action: (_, sk) => {
+          // clean up
+          document.querySelectorAll('.sk-linkchecker span').forEach(e => {
+            e.parentNode.classList.remove('sk-linkchecker');
+            e.parentNode.classList.remove('sk-linkchecker-ok');
+            e.parentNode.classList.remove('sk-linkchecker-localediff');
+            e.parentNode.classList.remove('sk-linkchecker-brokenlink');
+            e.remove()
+          });
+
+          // init
+          const addStyle = (css) => {
+            const style = document.createElement('style');
+            document.head.appendChild(style);
+            style.appendChild(document.createTextNode(css));
+          };
+
+          addStyle(`
+            a.sk-linkchecker {
+              padding: 2px;
+              border: 5px solid;
+            }
+
+            a.sk-linkchecker-ok {
+              border-color: green;
+            }
+
+            a.sk-linkchecker-ok span {
+              color: green;
+            }
+            
+            a.sk-linkchecker-localediff {
+              border-color: orange;
+            }
+
+            a.sk-linkchecker-localediff span {
+              color: orange;
+            }
+
+            a.sk-linkchecker-brokenlink {
+              border-color: red;
+            }
+
+            a.sk-linkchecker-brokenlink span {
+              color: red;
+            }
+          `);
+
+          const currentURL = new URL(window.location.href);
+          const isCurrentLocale = currentURL.pathname.split('/')[1].length === 2;
+
+          const promises = [];
+          document.querySelectorAll('main a').forEach((a) => {
+            const targetURL = new URL(a.href);
+            const isTargetLocale = targetURL.pathname.split('/')[1].length === 2;
+            const isTargetExternal = currentURL.hostname.indexOf(targetURL.hostname) !== 0;
+            promises.push(new Promise((resolve) => {
+              return fetch(a.href).then((res) => {
+                a.classList.add('sk-linkchecker');
+                if (res.status === 200) {
+                  if (isTargetExternal || (isCurrentLocale && isTargetLocale) || (!isCurrentLocale && !isTargetLocale)) {
+                    a.classList.add('sk-linkchecker-ok');
+                    if (isTargetExternal) {
+                      a.innerHTML = `${a.innerHTML} <span>(External link)<span>`
+                    }
+                  } else {
+                    a.classList.add('sk-linkchecker-localediff');
+                    a.innerHTML = `${a.innerHTML} <span>(Link valid but locale does not match)<span>`
+                  }
+                } else {
+                  a.classList.add('sk-linkchecker-brokenlink');
+                  a.innerHTML = `${a.innerHTML} <span>(Broken link)<span>`
+                }
+                resolve();
+              });
+            }));
+          });
+
+          Promise.all(promises);
         },
       },
     }
