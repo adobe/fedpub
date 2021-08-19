@@ -81,6 +81,13 @@ async function preview(task, locale) {
   window.open(`${u.origin}${dest.slice(0, -5)}`);
 }
 
+async function view(task, locale) {
+  const config = await initTracker();
+  const u = new URL(config.url);
+  const dest = `/${getPathForLocale(locale)}${task.filePath}`.toLowerCase();
+  window.open(`${u.origin}${dest.slice(0, -5)}`);
+}
+
 function drawTracker() {
   if (!tracker) {
     return;
@@ -159,15 +166,25 @@ function drawTracker() {
             if (task.sp) {
               canSaveAll = true;
               const $saveToLocalSP = createTag('button', { type: 'button' });
+              let $view;
               if (task.sp.status !== 200) {
-                $saveToLocalSP.innerHTML = 'Create in Sharepoint';
+                $saveToLocalSP.innerHTML = 'Create';
               } else {
-                $saveToLocalSP.innerHTML = 'Overwrite version in Sharepoint';
+                $saveToLocalSP.innerHTML = 'Overwrite';
+
+                $view = createTag('button', { type: 'button' });
+                $view.innerHTML = 'View';
+                $view.addEventListener('click', () => {
+                  view(task, locale);
+                });
               }
               $saveToLocalSP.addEventListener('click', () => {
                 save(task);
               });
               $td.appendChild($saveToLocalSP);
+              if ($view) {
+                $td.appendChild($view);
+              }
             }
           } else {
             $td.innerHTML = task.glaas.status;
