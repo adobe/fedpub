@@ -168,7 +168,7 @@ async function updateTracker(tracker, callback) {
   if (callback) await callback();
 }
 
-async function getFile(task) {
+async function getFile(task, locale) {
   // eslint-disable-next-line no-underscore-dangle
   const response = await fetch(`${glaas.url}${glaas.localeApi(locale).tasks.assets.baseURI}/${task.glaas.assetPath}`, {
     headers: {

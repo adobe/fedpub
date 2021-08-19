@@ -68,7 +68,7 @@ function setTrackerURL(config) {
 
 async function preview(task, locale) {
   loadingON('Downloading file from GLaaS');
-  const file = await getFileFromGLaaS(task);
+  const file = await getFileFromGLaaS(task, locale);
 
   const config = await initTracker();
   const u = new URL(config.url);
@@ -275,7 +275,7 @@ async function refresh() {
   loadingOFF();
 }
 
-async function save(task, doRefresh=true) {
+async function save(task, doRefresh=true, locale) {
   const dest = `${task.localeFilePath}`.toLowerCase();
 
   if (task.sp && task.sp.status === 200) {
@@ -285,7 +285,7 @@ async function save(task, doRefresh=true) {
     if (!confirm) return;
   }
   loadingON(`Downloading ${dest} file from GLaaS`);
-  const file = await getFileFromGLaaS(task);
+  const file = await getFileFromGLaaS(task, locale);
 
   loadingON(`Saving ${dest} file to Sharepoint`);
   await saveFile(file, dest);
@@ -302,7 +302,7 @@ async function save(task, doRefresh=true) {
 async function saveAll(locale) {
   await asyncForEach(tracker[locale], async (task) => {
     if (task.glaas) {
-      await save(task, false);
+      await save(task, false, locale);
     }
   });
   loadingOFF();
