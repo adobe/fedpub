@@ -77,7 +77,7 @@ async function compute() {
       if (t.URL) {
         locales.forEach((lObj) => {
           const l = lObj.name;
-          if (t[l] && t[l].toLowerCase() === 'y') {
+          if (t[l] && `${t[l]}`.toLowerCase() === 'y') {
             const u = t.URL;
             let path = new URL(u).pathname;
             if (path.slice(-5) === '.html') {
