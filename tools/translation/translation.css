@@ -27,6 +27,7 @@ main .tracker th {
 main .tracker td {
   height: 50px;
   padding: 5px;
+  white-space: pre;
 }
 
 main .tracker tr th.row::before {
