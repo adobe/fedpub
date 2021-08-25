@@ -3,4 +3,7 @@
   <sitemap>
     <loc>https://www.adobe.com/hub/sitemap-en.xml</loc>
   </sitemap>
+  <sitemap>
+    <loc>https://www.adobe.com/hub/sitemap-kr.xml</loc>
+  </sitemap>
 </sitemapindex>
