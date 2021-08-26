@@ -12,9 +12,7 @@
 (() => {
   const CONFIG = {
     SELECTORS: {
-      NAMESPACE: 'fedpub',
       READY: 'fedpub--ready',
-      METADATA: 'fedpub--metadata',
       HEADER_FEDS_LOADED: 'fedpub-header--fedsLoaded',
       CTA: 'fedpub-cta',
       PRIMARY_CTA: 'fedpub-cta--primary',
@@ -118,28 +116,6 @@
   }
 
   /**
-   * Transforms a given string to a safe class name to be used in HTML
-   * @param {String} str The string to be transformed into a class name
-   * @return {String} Safe class name to be used as part of HTML templates
-   * @example
-   * // returns 'quote-component'
-   * toClassName('Quote component');
-   * // returns 'quote-component'
-   * toClassName('Quote #$% component');
-   */
-  function toClassName(str) {
-    // Stop execution if a valid string is not provided
-    if (!isNonEmptyString(str)) {
-      return undefined;
-    }
-
-    // Make the string lower case;
-    // then transform all the special characters to '-';
-    // a longer sequence of special characters will be replaced by a single '-'
-    return str.toLowerCase().replace(/[^0-9a-z]{1,}/gi, '-');
-  }
-
-  /**
    * Creates and returns an element based on a provided tag name and attributes
    * @param {String} tagName The tag name of the desired element
    * @param {Object} attributes Object containing key/value pairs
@@ -165,171 +141,6 @@
     }
 
     return element;
-  }
-
-  /**
-   * Reads key/value pairs from a block.
-   * @param {HTMLElement} $block The block
-   * @returns {Object} The configuration
-   */
-  function readBlockConfig($block) {
-    const config = {};
-    $block.querySelectorAll(':scope>div').forEach(($row) => {
-      if ($row.children && $row.children[1]) {
-        const name = toClassName($row.children[0].textContent);
-        const $a = $row.children[1].querySelector('a');
-        let value = '';
-        if ($a) value = $a.href;
-        else value = $row.children[1].textContent;
-        config[name] = value;
-      }
-    });
-    return config;
-  }
-
-  /**
-   * Moves the metadata from the document into META tags.
-   */
-  function handleMetadata() {
-    const $metaBlock = document.querySelector(`.${CONFIG.SELECTORS.METADATA}`);
-    if (!$metaBlock) return;
-    const md = [];
-    const config = readBlockConfig($metaBlock);
-    Object.entries(config).forEach(([key, value]) => {
-      switch (key.toLowerCase()) {
-        case 'tags':
-          value
-            .split(',') // split comma-separated tags
-            .filter((tag) => tag !== '') // remove empty values
-            .map((tag) => tag.trim()) // remove whitespace
-            .forEach((content) => md.push({
-              property: 'article:tag',
-              content,
-            }));
-          break;
-        case 'title':
-          md.push({
-            property: 'og:title',
-            content: value,
-          });
-          break;
-        case 'description':
-          md.push({
-            property: 'og:description',
-            content: value,
-          });
-          // description to fall through to default
-          // eslint-disable-next-line no-fallthrough
-        default:
-          md.push({
-            name: key,
-            content: value,
-          });
-      }
-    });
-    const $tags = Array.from(document.head.querySelectorAll('meta'));
-    const $frag = document.createDocumentFragment();
-    md.forEach((m) => {
-      const $tag = $tags.find((t) => t.getAttribute('name') === m.name || t.getAttribute('property') === m.property);
-      if ($tag) {
-        // update existing meta tag
-        $tag.setAttribute('content', m.content);
-      } else {
-        // add new meta tag
-        $frag.appendChild(createTag('meta', m));
-      }
-    });
-    if ($frag.childNodes.length) {
-      document.head.appendChild($frag);
-    }
-    $metaBlock.remove();
-  }
-
-  /**
-   * Converts tables that have a single `th` element with text content inside
-   * to a namespaced `div` wrapper that acts like a pseudo-component
-   */
-  function decorateTables() {
-    const tables = document.querySelectorAll('main table');
-
-    tables.forEach((table) => {
-      // Remove all empty `th` elements
-      const emptyTableHeadings = table.querySelectorAll('thead th:empty');
-
-      emptyTableHeadings.forEach((emptyTableHeading) => {
-        emptyTableHeading.remove();
-      });
-      // Initialize table conversion only if there is just one authored `th` element
-      const tableHeading = table.querySelector('thead th:only-child');
-
-      if (tableHeading instanceof HTMLElement) {
-        const sectionName = tableHeading.textContent;
-
-        if (isNonEmptyString(sectionName)) {
-          // Turn the `th` string into a valid HTML class name
-          const sectionIdentifier = toClassName(sectionName);
-
-          // Add a starting performance marker
-          const startMarkerName = `start-tableConversion--${sectionIdentifier}`;
-          window.performance.mark(startMarkerName);
-
-          // Create a specific class name for the component
-          const sectionClass = `${CONFIG.SELECTORS.NAMESPACE}--${sectionIdentifier}`;
-          // Create a placeholder element
-          // where all the transformed table markup will be added
-          const sectionMarkup = createTag('div', {
-            class: sectionClass,
-          });
-
-          // Identify all the rows of the table
-          const tableRows = table.querySelectorAll('tbody tr');
-
-          tableRows.forEach((tableRow) => {
-            // For each row, create a `div` element
-            const sectionRow = createTag('div', {
-              class: `${sectionClass}-row`,
-            });
-
-            // Identify all the columns of the row
-            const rowColumns = tableRow.querySelectorAll('td');
-
-            rowColumns.forEach((rowColumn) => {
-              // Get the column's content
-              const sectionEntryContent = rowColumn.innerHTML;
-
-              if (isNonEmptyString(sectionEntryContent)) {
-                // For each column that has content, create a `div` element
-                const sectionEntry = createTag('div', {
-                  class: `${sectionClass}-entry`,
-                });
-
-                // Append the column content to the previously created `div` element
-                sectionEntry.innerHTML = rowColumn.innerHTML;
-                // Append the transformed column to its row
-                sectionRow.appendChild(sectionEntry);
-              }
-            });
-
-            // If the row has been populated with at least one element,
-            // coming from inner-columns, append the transformed row to the section `div`
-            if (sectionRow.hasChildNodes()) {
-              sectionMarkup.appendChild(sectionRow);
-            }
-          });
-
-          // If the section has been populated with at least one element,
-          // replace the original table with the transformed markup
-          if (sectionMarkup.hasChildNodes()) {
-            // Replace the table with the transformed markup
-            // (we can be sure the table's parent exists based on the initial selector)
-            table.parentNode.replaceChild(sectionMarkup, table);
-          }
-
-          // Measure the time, in ms, required for the table transformation
-          window.performance.measure(`tableConversionTime--${sectionIdentifier}`, startMarkerName);
-        }
-      }
-    });
   }
 
   /**
@@ -561,8 +372,6 @@
   }
 
   async function decoratePage() {
-    decorateTables();
-    handleMetadata();
     decorateEmbeds();
     decorateButtons();
     markPageAsReady();
