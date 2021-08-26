@@ -532,6 +532,9 @@
       }
     });
 
+    document.querySelector('body > header').innerHTML = '<div><div id="feds-header"></div></div>';
+    document.querySelector('body > footer').innerHTML = '<div id="feds-footer"></div>';
+
     loadJS(`https://www.${!isStageEnvironment ? '' : 'stage.'}adobe.com/etc.clientlibs/globalnav/clientlibs/base/feds.js`, {
       id: 'feds-script',
     });
