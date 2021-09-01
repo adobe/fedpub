@@ -11,12 +11,7 @@
  */
 /* global window */
 
-import ENV from './env.stage.js';
-
-// HybridMT workflow languages (for now): 
-// French , German , Japanese , , Italian , Spanish,  , Russian
-// SChinese
-//  Braz. Port.
+import ENV from './env.prod.js';
 
 const locales = [{
   name: 'fr-FR',
