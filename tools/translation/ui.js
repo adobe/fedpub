@@ -63,7 +63,7 @@ function setError(msg, error) {
 
 function setTrackerURL(config) {
   const u = new URL(config.url);
-  document.getElementById('trackerURL').innerHTML = `<a href="${config.sp}">${u.pathname.slice(0, -5)}.xlsx</a>`;
+  document.getElementById('trackerURL').innerHTML = `<a href="${config.sp}">${config.name}</a>`;
 }
 
 async function preview(task, locale) {

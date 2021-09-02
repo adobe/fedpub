@@ -15,8 +15,12 @@ import { glaas } from './config.js';
 import { asyncForEach } from './utils.js';
 import { getFiles } from './sharepoint.js';
 
-function computeHandoffName(url, locale) {
-  const tn = `${new URL(url).pathname}_${locale}`;
+function computeHandoffName(url, name, locale) {
+  const u = new URL(url);
+  const { pathname } = u;
+  const i = pathname.lastIndexOf('/');
+  const root = pathname.substring(0, i);
+  const tn = `${root}/${name}/${locale}`;
   return tn.replace(/\//gm, '.');
 }
 
@@ -68,7 +72,7 @@ async function connect(callback) {
 }
 
 async function createHandoff(tracker, locale) {
-  const handoffName = computeHandoffName(tracker.url, locale);
+  const handoffName = computeHandoffName(tracker.url, tracker.name, locale);
 
   // TODO check if all files are available first
   const files = await getFiles(tracker, locale);
@@ -133,7 +137,7 @@ async function updateTracker(tracker, callback) {
   }
 
   await asyncForEach(tracker.locales, async (locale) => {
-    const handoffName = computeHandoffName(tracker.url, locale);
+    const handoffName = computeHandoffName(tracker.url, tracker.name, locale);
 
     const response = await fetch(`${glaas.url}${glaas.localeApi(locale).tasks.get.baseURI}/${handoffName}`, {
       method: 'GET',

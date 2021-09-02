@@ -29,9 +29,13 @@ async function init() {
     if (resp.ok) {
       const json = await resp.json();
       if (json && json.webPath) {
+        // compute the "real" filename, fallback to url last segment.
+        const str = json.source && json.source.sourceLocation ? json.source.sourceLocation : json.webPath;
+        const name = str.substring(str.lastIndexOf('/') + 1, str.lastIndexOf('.'));
         config = {
           url: `${location.origin}${json.webPath}`,
           path: json.webPath,
+          name,
           sp,
           owner,
           repo,
@@ -68,6 +72,7 @@ async function compute() {
     urls: [],
     url: config.url,
     docs: {},
+    name: config.name,
   };
 
   const resp = await fetch(config.url, { cache: 'no-store' });

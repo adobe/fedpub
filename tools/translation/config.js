@@ -24,11 +24,15 @@ const locales = [{
 }, {
   name: 'es-ES',
   path: 'es',
-  workflow: 'HybridMT',
+  workflow: 'Standard',
 }, {
   name: 'it-IT',
   path: 'it',
-  workflow: 'HybridMT',
+  workflow: 'Standard',
+},{
+  name: 'en-GB',
+  path: 'uk',
+  workflow: 'AltLang',
 }, {
   name: 'ru-RU',
   path: 'ru',
@@ -49,10 +53,6 @@ const locales = [{
   name: 'ko-KR',
   path: 'kr',
   workflow: 'Standard',
-},{
-  name: 'en-GB',
-  path: 'uk',
-  workflow: 'AltLang',
 }];
 
 function getPathForLocale(locale) {
