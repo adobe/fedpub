@@ -11,7 +11,7 @@
  */
 /* global window */
 
-import ENV from './env.prod.js';
+import ENV from './env.stage.js';
 
 const locales = [{
   name: 'fr-FR',
@@ -48,6 +48,11 @@ const locales = [{
 }, {
   name: 'ko-KR',
   path: 'kr',
+  workflow: 'Standard',
+},{
+  name: 'en-GB',
+  path: 'uk',
+  workflow: 'AltLang',
 }];
 
 function getPathForLocale(locale) {

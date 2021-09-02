@@ -7,15 +7,17 @@ export default {
       Standard: {
         product: 'Marcomm',
         project: 'Adhoc',
-        // workflowName: 'Human Translation',
-        workflowName: 'Machine Translation',
+        workflowName: 'Human Translation',
       },
       HybridMT: {
         product: 'WCMS',
         project: 'WCMS_FASTLANE',
-        // workflowName: 'Human Translation',
+        workflowName: 'Human Translation',
+      },
+      AltLang: {
+        product: 'WCMS',
+        project: 'WCMS_FASTLANE',
         workflowName: 'Machine Translation',
-        
       }
     }
   },

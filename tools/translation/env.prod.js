@@ -13,6 +13,11 @@ export default {
         product: 'WCMS_FASTLANE',
         project: 'FASTLANE',
         workflowName: 'Human Translation',
+      },
+      AltLang: {
+        product: 'WCMS_FASTLANE',
+        project: 'FASTLANE',
+        workflowName: 'Machine Translation',
       }
     }
   },
