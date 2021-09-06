@@ -37,9 +37,9 @@ import {
 let tracker;
 const status = document.getElementById('status');
 const loading = document.getElementById('loading');
-const STATUS_LEVELS = ['error', 'info'];
+const STATUS_LEVELS = ['level-0', 'level-4'];
 
-function setStatus(msg, level = 'info') {
+function setStatus(msg, level = 'level-4') {
   status.classList.remove(STATUS_LEVELS.filter((l) => l !== level));
   status.classList.add(level);
   status.innerHTML = msg;
@@ -56,6 +56,7 @@ function loadingOFF() {
 
 function setError(msg, error) {
   // TODO UI
+  setStatus(msg, 'level-0');
   // eslint-disable-next-line no-console
   console.error(msg, error);
 }
@@ -330,9 +331,11 @@ function setListeners() {
   document.querySelector('#send button').addEventListener('click', sendTracker);
   document.querySelector('#refresh button').addEventListener('click', refresh);
   document.querySelector('#reload button').addEventListener('click', reloadTracker);
+  document.querySelector('#loading').addEventListener('click', loadingOFF);
 }
 
 async function init() {
+  setListeners();
   loadingON('Initializing the application');
   try {
     await getConfig();
@@ -342,7 +345,6 @@ async function init() {
   }
   loadingON('Config loaded');
   loadingON('Initialiating the tracker');
-  setListeners();
   let trackerConfig;
   try {
     trackerConfig = await initTracker();
