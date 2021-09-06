@@ -11,12 +11,14 @@
  */
 /* global fetch, Headers */
 import { asyncForEach } from './utils.js';
-import { sp } from './config.js';
+import { getConfig } from './config.js';
 import { PublicClientApplication } from './lib/msal-browser-2.14.2.js';
 
 let accessToken;
 
 async function connect(callback) {
+  const sp = (await getConfig()).sp;
+
   const publicClientApplication = new PublicClientApplication(sp.clientApp);
 
   await publicClientApplication.loginPopup(sp.login);
@@ -71,6 +73,8 @@ const BATCH_REQUEST_LIMIT = 20;
 async function computeStatus(trackerObjects) {
   let cur = 0;
   const allResquests = [];
+
+  const sp = (await getConfig()).sp;
 
   while (cur < trackerObjects.length) {
     const payload = {
@@ -173,6 +177,8 @@ async function getFiles(tracker, locale) {
 async function createFolder(folder) {
   validateConnnection();
 
+  const sp = (await getConfig()).sp;
+
   const options = getRequestOption();
   options.headers.append('Accept', 'application/json');
   options.headers.append('Content-Type', 'application/json');
@@ -195,6 +201,8 @@ async function saveFile(file, dest) {
   await createFolder(folder);
 
   // start upload session
+
+  const sp = (await getConfig()).sp;
 
   const payload = {
     ...sp.api.file.createUploadSession.payload,

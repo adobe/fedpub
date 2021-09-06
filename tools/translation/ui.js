@@ -12,9 +12,8 @@
 /* eslint-disable no-use-before-define */
 /*  global window, document */
 
-import { glaas, getPathForLocale } from './config.js';
+import { getPathForLocale, getWorkflowForLocale, getConfig } from './config.js';
 import { asyncForEach, createTag } from './utils.js';
-import { getWorkflowForLocale } from './config.js';
 
 import {
   saveFile,
@@ -61,18 +60,18 @@ function setError(msg, error) {
   console.error(msg, error);
 }
 
-function setTrackerURL(config) {
-  const u = new URL(config.url);
-  document.getElementById('trackerURL').innerHTML = `<a href="${config.sp}">${config.name}</a>`;
+function setTrackerURL(trackerConfig) {
+  const u = new URL(trackerConfig.url);
+  document.getElementById('trackerURL').innerHTML = `<a href="${trackerConfig.sp}">${trackerConfig.name}</a>`;
 }
 
 async function preview(task, locale) {
   loadingON('Downloading file from GLaaS');
   const file = await getFileFromGLaaS(task, locale);
 
-  const config = await initTracker();
-  const u = new URL(config.url);
-  const dest = `${u.pathname.slice(0, -5)}_preview/${getPathForLocale(locale)}${task.filePath}`.toLowerCase();
+  const trackerConfig = await initTracker();
+  const u = new URL(trackerConfig.url);
+  const dest = `${u.pathname.slice(0, -5)}_preview/${await getPathForLocale(locale)}${task.filePath}`.toLowerCase();
 
   loadingON('Saving file to Sharepoint');
   await saveFile(file, dest);
@@ -82,13 +81,13 @@ async function preview(task, locale) {
 }
 
 async function view(task, locale) {
-  const config = await initTracker();
-  const u = new URL(config.url);
-  const dest = `/${getPathForLocale(locale)}${task.filePath}`.toLowerCase();
+  const trackerConfig = await initTracker();
+  const u = new URL(trackerConfig.url);
+  const dest = `/${await getPathForLocale(locale)}${task.filePath}`.toLowerCase();
   window.open(`${u.origin}${dest.slice(0, -5)}`);
 }
 
-function drawTracker() {
+async function drawTracker() {
   if (!tracker) {
     return;
   }
@@ -106,9 +105,9 @@ function drawTracker() {
   $th.innerHTML = 'Source file';
   $tr.appendChild($th);
 
-  tracker.locales.forEach((loc) => {
+  await asyncForEach(tracker.locales, async (loc) => {
     $th = createTag('th', { class: 'header' });
-    const wf = getWorkflowForLocale(loc);
+    const wf = await getWorkflowForLocale(loc);
     $th.innerHTML = `${loc} (${wf.name})`;
 
     $tr.appendChild($th);
@@ -119,7 +118,7 @@ function drawTracker() {
   let taskFoundInGLaaS = false;
   let canSaveAll = false;
 
-  tracker.urls.forEach((url) => {
+  await asyncForEach(tracker.urls, async (url) => {
     $tr = createTag('tr', { class: 'row' });
     $th = createTag('th', { class: 'row' });
     const u = new URL(url);
@@ -140,11 +139,12 @@ function drawTracker() {
     }
     $tr.appendChild($th);
 
-    tracker.locales.forEach((locale) => {
+    await asyncForEach(tracker.locales, async (locale) => {
       const $td = createTag('td');
       $td.innerHTML = 'N/A';
       const task = tracker[locale].find((t) => t.URL === url);
       if (task) {
+        const glaas = (await getConfig()).glaas;
         if (task.glaas && task.glaas.status) {
           connectedToGLaaS = true;
           taskFoundInGLaaS = true;
@@ -152,8 +152,8 @@ function drawTracker() {
             $td.innerHTML = '';
             const $download = createTag('button', { type: 'button' });
             $download.innerHTML = 'Download';
-            $download.addEventListener('click', () => {
-              window.open(`${glaas.url}${glaas.localeApi(locale).tasks.assets.baseURI}/${task.glaas.assetPath}`);
+            $download.addEventListener('click', async () => {
+              window.open(`${glaas.url}${(await glaas.localeApi(locale)).tasks.assets.baseURI}/${task.glaas.assetPath}`);
             });
             $td.appendChild($download);
             const $preview = createTag('button', { type: 'button' });
@@ -262,18 +262,18 @@ async function sendTracker() {
   loadingON('Handoffs created in GLaaS. Updating the tracker status with status from GLaaS...');
   await updateTrackerWithGLaaSStatus(tracker);
   loadingON('Status updated! Updating UI.');
-  drawTracker();
+  await drawTracker();
   loadingOFF();
 }
 
 async function reloadTracker() {
-  const config = await initTracker();
+  const trackerConfig = await initTracker();
   loadingON(`Purging tracker`);
   await purgeTracker();
   let res;
   do {
     loadingON('Waiting for tracker to be available');
-    res = await fetch(config.url);
+    res = await fetch(trackerConfig.url);
   } while(!res.ok);
 
   loadingON('Reloading tracker');
@@ -288,7 +288,7 @@ async function refresh() {
   loadingON('Updating the tracker status with status from GLaaS...');
   await updateTrackerWithGLaaSStatus(tracker);
   loadingON('Status updated! Updating UI.');
-  drawTracker();
+  await drawTracker();
   loadingOFF();
 }
 
@@ -334,34 +334,42 @@ function setListeners() {
 
 async function init() {
   loadingON('Initializing the application');
-  setListeners();
-  let config;
   try {
-    config = await initTracker();
+    await getConfig();
+  } catch(err) {
+    setError('Something is wrong with the application config', err);
+    return;
+  }
+  loadingON('Config loaded');
+  loadingON('Initialiating the tracker');
+  setListeners();
+  let trackerConfig;
+  try {
+    trackerConfig = await initTracker();
   } catch (err) {
     setError('Could not find a valid tracker URL', err);
     return;
   }
-  loadingON(`Fetching the tracker ${config.url}`);
-  setTrackerURL(config);
+  loadingON(`Fetching the tracker ${trackerConfig.url}`);
+  setTrackerURL(trackerConfig);
   tracker = await computeTracker();
   loadingON('Tracker loaded.');
-  drawTracker();
+  await drawTracker();
   loadingON('Connecting now to Sharepoint...');
   await connectToSP(async () => {
     loadingON('Connected to Sharepoint! Updating the tracker status with status from Sharepoint...');
-    await updateTrackerWithSPStatus(tracker, () => {
+    await updateTrackerWithSPStatus(tracker, async () => {
       loadingON('Status updated! Updating UI.');
-      drawTracker();
+      await drawTracker();
       loadingOFF();
     });
   });
   loadingON('Connecting now to GLaaS...');
   await connectToGLaaS(async () => {
     loadingON('Connected to GLaaS! Updating the tracker status with status from GLaaS...');
-    await updateTrackerWithGLaaSStatus(tracker, () => {
+    await updateTrackerWithGLaaSStatus(tracker, async () => {
       loadingON('Status updated! Updating UI.');
-      drawTracker();
+      await drawTracker();
       loadingOFF();
     });
   });

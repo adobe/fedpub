@@ -11,7 +11,7 @@
  */
 /* global fetch */
 import { asyncForEach } from './utils.js';
-import { glaas } from './config.js';
+import { getConfig } from './config.js';
 
 async function getFile(dirHandle, path) {
   let parentDirHandle = dirHandle;
@@ -71,9 +71,11 @@ async function saveFile(dirHandle, task, locale) {
     { create: true },
   );
 
+  const glaas = (await getConfig()).glaas;
+
   const writable = await fileHandle.createWritable();
   // eslint-disable-next-line no-underscore-dangle
-  const response = await fetch(`${glaas.url}${glaasl.localeApi(locale).tasks.assets.baseURI}/${task._assetPath}`, {
+  const response = await fetch(`${glaas.url}${await glaas.localeApi(locale).tasks.assets.baseURI}/${task._assetPath}`, {
     headers: {
       'X-GLaaS-ClientId': glaas.clientId,
       'X-GLaaS-AuthToken': glaas.accessToken,

@@ -11,172 +11,168 @@
  */
 /* global window */
 
-import ENV from './env.stage.js';
+const TRACKER_CONFIG = '/_draft/trackers/trackerconfig.json';
 
-const locales = [{
-  name: 'fr-FR',
-  path: 'fr',
-  workflow: 'HybridMT',
-}, {
-  name: 'de-DE',
-  path: 'de',
-  workflow: 'HybridMT',
-}, {
-  name: 'es-ES',
-  path: 'es',
-  workflow: 'Standard',
-}, {
-  name: 'it-IT',
-  path: 'it',
-  workflow: 'Standard',
-},{
-  name: 'en-GB',
-  path: 'uk',
-  workflow: 'AltLang',
-}, {
-  name: 'ru-RU',
-  path: 'ru',
-  workflow: 'HybridMT',
-}, {
-  name: 'jp-JP',
-  path: 'jp',
-  workflow: 'HybridMT',
-}, {
-  name: 'zh-Hans',
-  path: 'cn',
-  workflow: 'HybridMT',
-}, {
-  name: 'pt-BR',
-  path: 'br',
-  workflow: 'HybridMT',
-}, {
-  name: 'ko-KR',
-  path: 'kr',
-  workflow: 'Standard',
-}];
+let config;
 
-function getPathForLocale(locale) {
-  return locales.find((l) => l.name === locale).path;
-}
+async function getConfig() {
+  if (!config ) {
+    const res = await fetch(TRACKER_CONFIG);
+    if (!res.ok) {
+      throw new Error('Config not found!');
+    }
 
-function getWorkflowForLocale(locale) {
-  const l = locales.find((l) => l.name === locale);
-  const workflow = l && l.workflow ? l.workflow : 'Standard';
-  return { 
-    name: workflow,
-    ...ENV.glaas.workflows[workflow],
-  };
-}
-
-const location = new URL(window.location.href);
-
-const glaas = {
-  url: ENV.glaas.url,
-  authorizeURI: '/api/common/sweb/oauth/authorize',
-  clientId: '657acbf5-bf11-4698-827b-f17f4e7a388d',
-  redirectURI: encodeURI(`${location.origin}/tools/translation/glaas.html`),
-  accessToken: null,
-  api: {
-    session: {
-      check: {
-        uri: '/api/common/v1.0/checkSession',
+    const json = await res.json();
+    const g = json.glaas.data[0];
+    const sp = json.sp.data[0];
+    // reshape object for easy access
+    config = {
+      locales: json.locales.data,
+      glaas: {
+        ...g,
+        workflows: {}
       },
-    },
-  },
-  localeApi: (locale) => {
-    const workflow = getWorkflowForLocale(locale);
-    const { product, project, workflowName } = workflow;
-    return {
-      tasks: {
-        create: {
-          uri: `/api/l10n/v1.1/tasks/${product}/${project}/create`,
-          payload: {
-            workflowName: workflowName,
-            contentSource: 'Adhoc'
+      sp
+    };
+    json.workflows.data.forEach(w => {
+      config.glaas.workflows[w.name] = w;
+    });
+
+    const location = new URL(window.location.href);
+
+    config.glaas = {
+      ...config.glaas,
+      authorizeURI: '/api/common/sweb/oauth/authorize',
+      redirectURI: encodeURI(`${location.origin}/tools/translation/glaas.html`),
+      accessToken: null,
+      api: {
+        session: {
+          check: {
+            uri: '/api/common/v1.0/checkSession',
           },
         },
-        get: {
-          baseURI: `/api/l10n/v1.1/tasks/${product}/${project}`,
+      },
+      localeApi: async (locale) => {
+        const workflow = await getWorkflowForLocale(locale);
+        const { product, project, workflowName } = workflow;
+        return {
+          tasks: {
+            create: {
+              uri: `/api/l10n/v1.1/tasks/${product}/${project}/create`,
+              payload: {
+                workflowName: workflowName,
+                contentSource: 'Adhoc'
+              },
+            },
+            get: {
+              baseURI: `/api/l10n/v1.1/tasks/${product}/${project}`,
+            },
+            getAll: {
+              uri: `/api/l10n/v1.1/tasks/${product}/${project}`,
+            },
+            updateStatus: {
+              baseURI: `/api/l10n/v1.1/tasks/${product}/${project}`,
+            },
+            assets: {
+              baseURI: `/api/l10n/v1.1/tasks/${product}/${project}`,
+            },
+          }
+        };
+      }
+    };
+
+    const graphURL = 'https://graph.microsoft.com/v1.0';
+
+    config.sp = {
+      ...config.sp,
+      clientApp: {
+        auth: {
+          clientId: config.sp.clientId,
+          authority: config.sp.authority,
         },
-        getAll: {
-          uri: `/api/l10n/v1.1/tasks/${product}/${project}`,
+      },
+      login: {
+        redirectUri: '/tools/translation/spauth',
+      },
+      api: {
+        url: graphURL,
+        file: {
+          get: {
+            baseURI: `${config.sp.site}/drive/root:${config.sp.rootFolders}`,
+          },
+          download: {
+            baseURI: `${config.sp.site}/drive/items`,
+          },
+          upload: {
+            baseURI: `${config.sp.site}/drive/root:${config.sp.rootFolders}`,
+            method: 'PUT',
+          },
+          createUploadSession: {
+            baseURI: `${config.sp.site}/drive/root:${config.sp.rootFolders}`,
+            method: 'POST',
+            payload: {
+              '@microsoft.graph.conflictBehavior': 'replace',
+            },
+          },
         },
-        updateStatus: {
-          baseURI: `/api/l10n/v1.1/tasks/${product}/${project}`,
+        directory: {
+          create: {
+            baseURI: `${config.sp.site}/drive/root:${config.sp.rootFolders}`,
+            method: 'PATCH',
+            payload: {
+              folder: {},
+            },
+          },
         },
-        assets: {
-          baseURI: `/api/l10n/v1.1/tasks/${product}/${project}`,
+        batch: {
+          uri: `${graphURL}/$batch`,
         },
+      },
+    };
+
+    const adminServerURL = 'https://admin.hlx3.page';
+    config.admin = {
+      api: {
+        preview: {
+          baseURI: `${adminServerURL}/preview`,
+        }
       }
     };
   }
-};
 
-const graphURL = 'https://graph.microsoft.com/v1.0';
+  return config;
+}
 
-const spSiteRootAPI = ENV.sp.site;
-const spRootFolders = ENV.sp.rootFolders;
+async function getLocales() {
+  const config = await getConfig();
+  return config.locales;
+}
 
-const sp = {
-  clientApp: {
-    auth: {
-      clientId: ENV.sp.clientId,
-      authority: ENV.sp.authority,
-    },
-  },
-  login: {
-    redirectUri: '/tools/translation/spauth',
-  },
-  api: {
-    url: graphURL,
-    file: {
-      get: {
-        baseURI: `${spSiteRootAPI}/drive/root:${spRootFolders}`,
-      },
-      download: {
-        baseURI: `${spSiteRootAPI}/drive/items`,
-      },
-      upload: {
-        baseURI: `${spSiteRootAPI}/drive/root:${spRootFolders}`,
-        method: 'PUT',
-      },
-      createUploadSession: {
-        baseURI: `${spSiteRootAPI}/drive/root:${spRootFolders}`,
-        method: 'POST',
-        payload: {
-          '@microsoft.graph.conflictBehavior': 'replace',
-        },
-      },
-    },
-    directory: {
-      create: {
-        baseURI: `${spSiteRootAPI}/drive/root:${spRootFolders}`,
-        method: 'PATCH',
-        payload: {
-          folder: {},
-        },
-      },
-    },
-    batch: {
-      uri: `${graphURL}/$batch`,
-    },
-  },
-};
-
-const adminServerURL = 'https://admin.hlx3.page';
-const admin = {
-  api: {
-    preview: {
-      baseURI: `${adminServerURL}/preview`,
-    }
+async function getPathForLocale(locale) {
+  const config = await getConfig();
+  const l = config.locales.find((l) => l.locale === locale);
+  if (l) {
+    return l.path;
+  } else {
+    console.error(`Cannot find locale ${locale}`);
   }
+  return null;
+
+}
+
+async function getWorkflowForLocale(locale) {
+  const config = await getConfig();
+  const l = config.locales.find((l) => l.locale === locale);
+  const workflow = l && l.workflow ? l.workflow : 'Standard';
+  return { 
+    name: workflow,
+    ...config.glaas.workflows[workflow],
+  };
 }
 
 export {
-  locales,
-  glaas,
-  sp,
+  getLocales,
   getPathForLocale,
   getWorkflowForLocale,
-  admin,
+  getConfig,
 };

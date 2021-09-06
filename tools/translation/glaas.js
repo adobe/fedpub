@@ -11,7 +11,7 @@
  */
 /*  global fetch, FormData, window, localStorage */
 
-import { glaas } from './config.js';
+import { getConfig } from './config.js';
 import { asyncForEach } from './utils.js';
 import { getFiles } from './sharepoint.js';
 
@@ -25,6 +25,7 @@ function computeHandoffName(url, name, locale) {
 }
 
 async function validateSession(token) {
+  const glaas = (await getConfig()).glaas;
   const authToken = token || glaas.accessToken;
   // client must validate token
   const res = await fetch(`${glaas.url}${glaas.api.session.check.uri}`, {
@@ -52,6 +53,7 @@ async function connect(callback) {
       localStorage.removeItem(LOCALSTORAGE_ITEM);
     }
   }
+  const glaas = (await getConfig()).glaas;
   if (!token) {
     window.setGLaaSAccessToken = async (newToken) => {
       glaas.accessToken = newToken;
@@ -77,13 +79,15 @@ async function createHandoff(tracker, locale) {
   // TODO check if all files are available first
   const files = await getFiles(tracker, locale);
 
+  const glaas = (await getConfig()).glaas;
+
   const payload = {
     ...glaas.localeApi(locale).tasks.create.payload,
     name: handoffName,
     targetLocales: [locale],
   };
 
-  let response = await fetch(`${glaas.url}${glaas.localeApi(locale).tasks.create.uri}`, {
+  let response = await fetch(`${glaas.url}${(await glaas.localeApi(locale)).tasks.create.uri}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -102,7 +106,7 @@ async function createHandoff(tracker, locale) {
     formData.append(`file${index > 0 ? index : ''}`, file, file.path.replace(/\//gm, '_'));
   });
 
-  response = await fetch(`${glaas.url}${glaas.localeApi(locale).tasks.assets.baseURI}/${handoffName}/assets?targetLanguages=${locale}`, {
+  response = await fetch(`${glaas.url}${(await glaas.localeApi(locale)).tasks.assets.baseURI}/${handoffName}/assets?targetLanguages=${locale}`, {
     method: 'POST',
     headers: {
       'X-GLaaS-ClientId': glaas.clientId,
@@ -116,7 +120,7 @@ async function createHandoff(tracker, locale) {
 
   const data = new URLSearchParams();
   data.append('newStatus', 'CREATED');
-  response = await fetch(`${glaas.url}${glaas.localeApi(locale).tasks.updateStatus.baseURI}/${handoffName}/${locale}/updateStatus`, {
+  response = await fetch(`${glaas.url}${(await glaas.localeApi(locale)).tasks.updateStatus.baseURI}/${handoffName}/${locale}/updateStatus`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -138,8 +142,10 @@ async function updateTracker(tracker, callback) {
 
   await asyncForEach(tracker.locales, async (locale) => {
     const handoffName = computeHandoffName(tracker.url, tracker.name, locale);
+    
+    const glaas = (await getConfig()).glaas;
 
-    const response = await fetch(`${glaas.url}${glaas.localeApi(locale).tasks.get.baseURI}/${handoffName}`, {
+    const response = await fetch(`${glaas.url}${((await glaas.localeApi(locale))).tasks.get.baseURI}/${handoffName}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -173,8 +179,10 @@ async function updateTracker(tracker, callback) {
 }
 
 async function getFile(task, locale) {
+  const glaas = (await getConfig()).glaas;
+
   // eslint-disable-next-line no-underscore-dangle
-  const response = await fetch(`${glaas.url}${glaas.localeApi(locale).tasks.assets.baseURI}/${task.glaas.assetPath}`, {
+  const response = await fetch(`${glaas.url}${(await glaas.localeApi(locale)).tasks.assets.baseURI}/${task.glaas.assetPath}`, {
     headers: {
       'X-GLaaS-ClientId': glaas.clientId,
       'X-GLaaS-AuthToken': glaas.accessToken,

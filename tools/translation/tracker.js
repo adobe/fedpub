@@ -11,7 +11,8 @@
  */
 /* eslint-disable no-underscore-dangle */
 /* global window, document, fetch, btoa */
-import { locales, getPathForLocale, admin } from './config.js';
+import { asyncForEach } from './utils.js';
+import { getLocales, getPathForLocale, getConfig } from './config.js';
 
 let config;
 
@@ -24,6 +25,8 @@ async function init() {
   const repo = location.searchParams.get('repo');
   const ref = location.searchParams.get('ref');
   if (sp && owner && repo && ref) {
+    const admin = (await getConfig()).admin;
+
     const url = `${admin.api.preview.baseURI}/${owner}/${repo}/${ref}/?editUrl=${encodeURIComponent(sp)}`;
     const resp = await fetch(url);
     if (resp.ok) {
@@ -78,10 +81,11 @@ async function compute() {
   const resp = await fetch(config.url, { cache: 'no-store' });
   const json = await resp.json();
   if (json && json.data) {
-    json.data.forEach((t) => {
+    await asyncForEach(json.data, async (t) => {
       if (t.URL) {
-        locales.forEach((lObj) => {
-          const l = lObj.name;
+        const locales = await getLocales();
+        await asyncForEach(locales, async (lObj) => {
+          const l = lObj.locale;
           if (t[l] && `${t[l]}`.toLowerCase() === 'y') {
             const u = t.URL;
             let path = new URL(u).pathname;
@@ -93,8 +97,8 @@ async function compute() {
               locale: l,
               path,
               filePath: `${path}.docx`,
-              localePath: `/${getPathForLocale(l)}${path}`,
-              localeFilePath: `/${getPathForLocale(l)}${path}.docx`,
+              localePath: `/${await getPathForLocale(l)}${path}`,
+              localeFilePath: `/${await getPathForLocale(l)}${path}.docx`,
             };
 
             tracker[u] = tracker[u] || [];
