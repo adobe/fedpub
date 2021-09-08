@@ -31,9 +31,9 @@ async function init() {
     const resp = await fetch(url);
     if (resp.ok) {
       const json = await resp.json();
-      if (json && json.webPath) {
+      if (json?.webPath) {
         // compute the "real" filename, fallback to url last segment.
-        const str = json.source && json.source.sourceLocation ? json.source.sourceLocation : json.webPath;
+        const str = json?.source?.sourceLocation || json.webPath;
         const name = str.substring(str.lastIndexOf('/') + 1, str.lastIndexOf('.'));
         config = {
           url: `${location.origin}${json.webPath}`,
