@@ -34,6 +34,10 @@ Warning: edit the config carefuly, an invalid config might break the tool
 
 - The tool is opened in a new tab
 - End user will need to connect to GLaaS and Sharepoint (first time only and when authentication token expires)
+  
+  - Note: 2 popups must appear consecutively with OKTA authentication. If this is NOT the case, you need to allow the popups for the page (icon at the right of the address bar)
+  - Note 2: after 2 approval the Sharepoint authentication says you are not allowed to connect, just close the popup and reload the browser window (bug to be fixed).
+
 - The tool expose then the list of URLs and locales it computed from the tracker file. Review the list.
 - At this time, end user can still go back to the tracker and make some changes to it. Just hit the "Reload" button to get the latest updates (might require multiple reloads until the hlx3 migration is completed).
 - When ready to kick-off the translation tasks, hit the "Send to GLaaS" button.
