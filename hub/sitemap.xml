@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>https://www.adobe.com/hub/sitemap-en.xml</loc>
-  </sitemap>
-  <sitemap>
     <loc>https://www.adobe.com/hub/sitemap-de.xml</loc>
   </sitemap>
   <sitemap>
+    <loc>https://www.adobe.com/hub/sitemap-en.xml</loc>
+  </sitemap>
+  <sitemap>
     <loc>https://www.adobe.com/hub/sitemap-fr.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.adobe.com/hub/sitemap-it.xml</loc>
   </sitemap>
   <sitemap>
     <loc>https://www.adobe.com/hub/sitemap-kr.xml</loc>
