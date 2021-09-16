@@ -4,9 +4,9 @@ This Helix tool helps to go from a list of pages to a set of translation tasks i
 
 ## Pre-requisites
 
-- End user must have access to the FedsPub Sharepoint site
-- End user must have access to the GLaaS production system and have access to the corresponding project(s) - see configuration to know the list of projects
-- End user must be connected to Adobe VPN
+- End user must have access to the **FedsPub Sharepoint site**
+- End user must have access to the **GLaaS production system** and have access to the **corresponding project(s)** - see configuration to know the list of projects
+- End user must **be connected to Adobe VPN**
 
 ## Config
 
@@ -74,3 +74,12 @@ Setup recommendation:
   - `helix-sp`: update the site URL
   - `helix-locales` can stay the same
   - `helix-workflows`: the workflow names might slighty differ on stage - need to check with the GLaaS team to get access and find some testing product / project. Can be anything for testing. For development, it is also convienent to use "Machine Translation" workflow to get translated files quickly.
+
+  ### Redirect URLs
+
+  As part of the oAuth process, the third-party oAuth integrations requires to define the redirect URLs to allow the authentication. This is done:
+
+  - for Sharepoint: `Azure Active Directory > App registrations > Helix Tracker to Translation > Redirect URIs` - [direct link](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/Authentication/appId/52c587ca-af13-485f-ae9d-da3d2a6efe8f/isMSAApp/)
+  - for GLaaS: send a request to the GLaaS tech team (Anuj / Rajeev) with url like: `${hostname}/tools/translation/glaas.html`
+
+  Both are configured for localhost (on the staging environment only for GLaaS). If you are working with a branch and the hlx.page domain, this would need to be registered.
