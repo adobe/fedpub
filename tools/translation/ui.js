@@ -151,25 +151,12 @@ async function drawTracker() {
           taskFoundInGLaaS = true;
           if (task.glaas.status === 'COMPLETED') {
             $td.innerHTML = '';
-            const $download = createTag('button', { type: 'button' });
-            $download.innerHTML = 'Download';
-            $download.addEventListener('click', async () => {
-              window.open(`${glaas.url}${(await glaas.localeApi(locale)).tasks.assets.baseURI}/${task.glaas.assetPath}`);
-            });
-            $td.appendChild($download);
-            const $preview = createTag('button', { type: 'button' });
-            $preview.innerHTML = 'Preview';
-            $preview.addEventListener('click', () => {
-              preview(task, locale);
-            });
-            $td.appendChild($preview);
-
             if (task.sp) {
               canSaveAll = true;
               const $saveToLocalSP = createTag('button', { type: 'button' });
               let $view;
               if (task.sp.status !== 200) {
-                $saveToLocalSP.innerHTML = 'Create';
+                $saveToLocalSP.innerHTML = 'Save';
               } else {
                 $saveToLocalSP.innerHTML = 'Overwrite';
 
