@@ -404,30 +404,32 @@
       return;
     }
 
+    const content = document.querySelector(`.${CONFIG.SELECTORS.READY}`);
+    if (!(content instanceof HTMLElement)) {
+      // No content element
+      return;
+    }
+
     let promotionName = document.querySelector('head meta[name="promotion"]');
     if (!promotionName) {
       return;
     }
     promotionName = promotionName.getAttribute('content').toLowerCase();
 
-    try {
-      const { locale } = window.fedPub;
-      const promotion = await window.fetch(`${locale === 'en' ? '' : `/${locale}`}/promotions/hub/${promotionName}.plain.html`);
-      const promotionContent = await promotion.text();
-      if (!promotionContent.length || promotion.status !== 200) {
-        // No content in document
-        return;
-      }
-      const content = document.querySelector(`.${CONFIG.SELECTORS.READY}`);
-      if (!(content instanceof HTMLElement)) {
-        // No content element
-        return;
-      }
-      content.appendChild(document.createRange()
-        .createContextualFragment(promotionContent));
-    } catch (e) {
-      // Skip promotion
+    const { locale } = window.fedPub;
+    const response = await window.fetch(`${locale === 'en' ? '' : `/${locale}`}/promotions/hub/${promotionName}.plain.html`);
+    if (!response.ok) {
+      // No valid response
+      return;
     }
+    const promotionContent = await response.text();
+    if (!promotionContent.length) {
+      // No content in document
+      return;
+    }
+
+    content.appendChild(document.createRange()
+      .createContextualFragment(promotionContent));
   }
 
   // Attach a 'ready' class to the main `div` once transformations are complete
