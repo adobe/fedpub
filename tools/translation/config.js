@@ -48,7 +48,7 @@ async function getConfig() {
       api: {
         session: {
           check: {
-            uri: '/api/common/v1.0/checkSession',
+            uri: '/glaas/v1.0/checkSession',
           },
         },
       },
