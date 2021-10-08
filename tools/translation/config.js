@@ -42,13 +42,13 @@ async function getConfig() {
 
     config.glaas = {
       ...config.glaas,
-      authorizeURI: '/glaas/sweb/oauth/authorize',
+      authorizeURI: '/api/common/sweb/oauth/authorize',
       redirectURI: encodeURI(`${location.origin}/tools/translation/glaas.html`),
       accessToken: null,
       api: {
         session: {
           check: {
-            uri: '/glaas/v1.0/checkSession',
+            uri: '/api/common/v1.0/checkSession',
           },
         },
       },
