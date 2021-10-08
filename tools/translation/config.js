@@ -42,7 +42,7 @@ async function getConfig() {
 
     config.glaas = {
       ...config.glaas,
-      authorizeURI: '/api/common/sweb/oauth/authorize',
+      authorizeURI: '/glaas/sweb/oauth/authorize',
       redirectURI: encodeURI(`${location.origin}/tools/translation/glaas.html`),
       accessToken: null,
       api: {
