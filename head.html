@@ -1,7 +1,7 @@
 <script> 
-    if(!/\.html$/.test(window.location.href)) { 
-        const urlWithHtmlEnding = (window.location.href + '.html');
-        window.location.replace(urlWithHtmlEnding); 
+    if(!/\.html$/.test(window.location.pathname)) { 
+        const pathWithHtmlEnding = (window.location.pathname + '.html');
+        window.location.pathname = pathWithHtmlEnding 
     } 
 </script>
 <meta name="robots" content="follow, index">
