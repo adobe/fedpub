@@ -397,6 +397,41 @@
     });
   }
 
+  async function decoratePromotions() {
+    if (document.querySelector('main .promotion') instanceof HTMLElement) {
+      // A promotion has already been defined on the page.
+      // Do not inject another one.
+      return;
+    }
+
+    const content = document.querySelector(`.${CONFIG.SELECTORS.READY}`);
+    if (!(content instanceof HTMLElement)) {
+      // No content element
+      return;
+    }
+
+    let promotionName = document.querySelector('head meta[name="promotion"]');
+    if (!promotionName) {
+      return;
+    }
+    promotionName = promotionName.getAttribute('content').toLowerCase();
+
+    const { locale } = window.fedPub;
+    const response = await window.fetch(`${locale === 'en' ? '' : `/${locale}`}/promotions/hub/${promotionName}.plain.html`);
+    if (!response.ok) {
+      // No valid response
+      return;
+    }
+    const promotionContent = await response.text();
+    if (!promotionContent.length) {
+      // No content in document
+      return;
+    }
+
+    content.appendChild(document.createRange()
+      .createContextualFragment(promotionContent));
+  }
+
   // Attach a 'ready' class to the main `div` once transformations are complete
   function markPageAsReady() {
     const mainElement = document.querySelector('main');
@@ -563,6 +598,7 @@
     decorateEmbeds();
     decorateButtons();
     markPageAsReady();
+    decoratePromotions();
   }
 
   handlePageDetails();
