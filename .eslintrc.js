@@ -11,23 +11,24 @@
  */
 
 module.exports = {
-  root: true,
-  extends: '@adobe/helix',
-  rules: {
+    root: true,
+    extends: '@adobe/helix',
+    rules: {
     // allow reassigning param
-    'no-param-reassign': [2, { props: false }],
-    // Allow modules to load from a path containing '.js'
-    'import/extensions': [2, { js: 'always' }],
-  },
-  globals: {
-    document: true,
-    window: true,
-    HTMLElement: true,
-    HTMLLinkElement: true,
-    HTMLScriptElement: true,
-    NodeList: true,
-  },
-  parserOptions: {
-    sourceType: 'module',
-  },
+        'no-param-reassign': [2, { props: false }],
+        // Allow modules to load from a path containing '.js'
+        'import/extensions': [2, { js: 'always' }],
+        indent: ['error', 4],
+    },
+    globals: {
+        document: true,
+        window: true,
+        HTMLElement: true,
+        HTMLLinkElement: true,
+        HTMLScriptElement: true,
+        NodeList: true,
+    },
+    parserOptions: {
+        sourceType: 'module',
+    },
 };

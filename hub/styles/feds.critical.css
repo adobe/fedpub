@@ -1,0 +1,9 @@
+body > header {
+    /* Default navigation height set to avoid content jump */
+    height: 65px;
+}
+
+body.feds--loaded > header {
+    /* Remove the default header height and let FEDS handle it */
+    height: auto;
+}
