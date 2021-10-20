@@ -35,10 +35,9 @@ async function init() {
         // compute the "real" filename, fallback to url last segment.
         const str = json?.source?.sourceLocation || json.webPath;
         const name = str.substring(str.lastIndexOf('/') + 1, str.lastIndexOf('.'));
-        const path = json.webPath;
         config = {
           url: `${location.origin}${json.webPath}`,
-          path,
+          path: json.webPath,
           name,
           sp,
           owner,
