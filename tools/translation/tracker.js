@@ -81,6 +81,7 @@ async function compute() {
   const resp = await fetch(config.url, { cache: 'no-store' });
   const json = await resp.json();
   if (json && json.data) {
+    const draftRootPath = config.path.substring(0, config.path.lastIndexOf('.'));
     await asyncForEach(json.data, async (t) => {
       if (t.URL) {
         const locales = await getLocales();
@@ -92,13 +93,17 @@ async function compute() {
             if (path.slice(-5) === '.html') {
               path = path.slice(0, -5);
             }
+            const pathForLocale = await getPathForLocale(l);
+            
             const task = {
               URL: u,
               locale: l,
               path,
               filePath: `${path}.docx`,
-              localePath: `/${await getPathForLocale(l)}${path}`,
-              localeFilePath: `/${await getPathForLocale(l)}${path}.docx`,
+              localePath: `/${pathForLocale}${path}`,
+              localeFilePath: `/${pathForLocale}${path}.docx`,
+              draftLocalePath: `${draftRootPath}/${pathForLocale}${path}`,
+              draftLocaleFilePath: `${draftRootPath}/${pathForLocale}${path}.docx`,
             };
 
             tracker[u] = tracker[u] || [];
