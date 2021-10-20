@@ -469,19 +469,16 @@
       localeDetails = localeMAP[locale];
     }
 
-    const cloud = pageDetails.shift();
-    const category = pageDetails.shift();
-
     window.fedPub = {
       language: localeDetails.language,
       country: localeDetails.country,
       locale,
     };
+    
+    const cloudValueMetadata = document.head.querySelector('meta[name="cloud"]');
+    window.fedPub.cloud = cloudValueMetadata ? cloudValueMetadata.getAttribute('content') : pageDetails.shift();
 
-    if (isNonEmptyString(cloud)) {
-      window.fedPub.cloud = cloud;
-    }
-
+    const category = pageDetails[pageDetails.length - 1];
     if (isNonEmptyString(category)) {
       window.fedPub.category = category;
     }
