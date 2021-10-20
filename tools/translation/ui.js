@@ -84,8 +84,8 @@ async function preview(task, locale) {
 async function view(task, locale) {
   const trackerConfig = await initTracker();
   const u = new URL(trackerConfig.url);
-  const dest = `/${await getPathForLocale(locale)}${task.filePath}`.toLowerCase();
-  window.open(`${u.origin}${dest.slice(0, -5)}`);
+  const dest = task.draftLocalePath;
+  window.open(`${u.origin}${dest}`);
 }
 
 async function drawTracker() {
@@ -281,7 +281,7 @@ async function refresh() {
 }
 
 async function save(task, doRefresh=true, locale) {
-  const dest = `${task.localeFilePath}`.toLowerCase();
+  const dest = `${task.draftLocaleFilePath}`.toLowerCase();
 
   if (task.sp && task.sp.status === 200) {
     // file exists in Sharepoint, confirm overwrite
