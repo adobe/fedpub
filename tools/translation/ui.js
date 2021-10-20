@@ -264,9 +264,9 @@ async function reloadTracker() {
     res = await fetch(trackerConfig.url);
   } while(!res.ok);
 
-  loadingON('Reloading tracker');
-  tracker = await computeTracker();
-  await refresh();
+  loadingON('Reloading the application');
+  // full UI reload
+  window.location.reload();
 
 }
 
