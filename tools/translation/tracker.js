@@ -34,7 +34,15 @@ async function init() {
       if (json?.webPath) {
         // compute the "real" filename, fallback to url last segment.
         const str = json?.source?.sourceLocation || json.webPath;
-        const name = str.substring(str.lastIndexOf('/') + 1, str.lastIndexOf('.'));
+
+        // temp fix to get the real file name - waiting for API to return it
+        let name = str.substring(str.lastIndexOf('/') + 1, str.lastIndexOf('.'));
+        const index = sp.indexOf('file=');
+        if (index > -1) {
+          // extract real name from editURL
+          name = sp.substring(index+5, sp.indexOf('.xlsx', index));
+        }
+
         config = {
           url: `${location.origin}${json.webPath}`,
           path: json.webPath,
