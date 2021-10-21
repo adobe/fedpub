@@ -167,7 +167,7 @@ async function drawTracker() {
                 });
               }
               $saveToLocalSP.addEventListener('click', () => {
-                save(task);
+                save(task, true, locale);
               });
               $td.appendChild($saveToLocalSP);
               if ($view) {
@@ -290,18 +290,22 @@ async function save(task, doRefresh=true, locale) {
     if (!confirm) return;
   }
   loadingON(`Downloading ${dest} file from GLaaS`);
-  const file = await getFileFromGLaaS(task, locale);
+  try {
+    const file = await getFileFromGLaaS(task, locale);
 
-  loadingON(`Saving ${dest} file to Sharepoint`);
-  await saveFile(file, dest);
+    loadingON(`Saving ${dest} file to Sharepoint`);
+    await saveFile(file, dest);
 
-  loadingON(`File ${dest} is now in Sharepoint`);
+    loadingON(`File ${dest} is now in Sharepoint`);
 
-  if (doRefresh) {
-    loadingOFF();
-    await refresh();
+    if (doRefresh) {
+      loadingOFF();
+      await refresh();
+    }
+  } catch (err) {
+    setError('Could not save the file.', err);
+    return;
   }
-  // window.open(`${u.origin}${dest.slice(0, -5)}`);
 }
 
 async function saveAll(locale) {
