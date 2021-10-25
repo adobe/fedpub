@@ -15,6 +15,7 @@ window.hlx.initSidekick({
   project: 'FedPub',
   host: 'www.adobe.com',
   byocdn: true,
+  pushDownSelector: '#feds-header',
   plugins: [
     // PREVIEW ----------------------------------------------------------------------
     {
