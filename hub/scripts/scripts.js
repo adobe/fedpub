@@ -223,23 +223,25 @@ function handlePageDetails() {
         localeDetails = localeMAP[locale];
     }
 
-    const cloud = pageDetails.shift();
-    const category = pageDetails.shift();
-
     window.fedPub = {
         language: localeDetails.language,
         country: localeDetails.country,
         locale,
     };
+      
+    const cloudValueMetadata = document.head.querySelector('meta[name="cloud"]');
 
-    if (isNonEmptyString(cloud)) {
-        window.fedPub.cloud = cloud;
-    }
+    // Assumption, if there's a cloud attribute
+    // the URL is different and we don't need to shift the array
+    // Example 1: /sign/hub/how-to/best-way-to-invoice-customers.html (should have the 'cloud' metadata)
+    // Example 2: /it/documentcloud/sign/hub/document-types/invoice-vs-receipt.html (extract cloud from URL)
+    window.fedPub.cloud = cloudValueMetadata ? cloudValueMetadata.getAttribute('content') : pageDetails.shift();
 
+    const category = pageDetails[pageDetails.length - 1];
     if (isNonEmptyString(category)) {
         window.fedPub.category = category;
     }
-
+  
     /** Set details */
     document.querySelector('html').setAttribute('lang', window.fedPub.language);
 }

@@ -188,8 +188,12 @@ async function getFile(task, locale) {
             'X-GLaaS-AuthToken': glaas.accessToken,
         },
     });
-    // Stream the response into the file.
-    return response.blob();
+
+    if (response.ok) {
+        // Stream the response into the file.
+        return response.blob();
+    }
+    throw new Error(`Cannot download the file from GLaaS: ${task.glaas.assetPath}`);
 }
 
 export {
