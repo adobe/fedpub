@@ -293,7 +293,6 @@ function loadPrivacy() {
     // Part of code
     window.fedsConfig.privacy = {
         otDomainId: getOtDomainId(),
-        footerLinkSelector: '[data-feds-action="open-adchoices-modal"]',
     };
 
     const env = (getEnvironment() !== 'prod') ? `${getEnvironment()}.` : '';
