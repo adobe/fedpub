@@ -83,7 +83,7 @@ async function computeStatus(trackerObjects) {
 
     for (let i = 0; i < BATCH_REQUEST_LIMIT && cur < trackerObjects.length; cur += 1, i += 1) {
       const obj = trackerObjects[cur];
-      const filePath = obj.localeFilePath || obj.filePath;
+      const filePath = obj.draftLocaleFilePath || obj.filePath;
       payload.requests.push({
         id: cur,
         url: `${sp.api.file.get.baseURI}${filePath}`.replace(sp.api.url, ''),
