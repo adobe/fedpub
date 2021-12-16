@@ -84,8 +84,8 @@ async function preview(task, locale) {
 async function view(task, locale) {
   const trackerConfig = await initTracker();
   const u = new URL(trackerConfig.url);
-  const dest = `/${await getPathForLocale(locale)}${task.filePath}`.toLowerCase();
-  window.open(`${u.origin}${dest.slice(0, -5)}`);
+  const dest = task.draftLocalePath;
+  window.open(`${u.origin}${dest}`);
 }
 
 async function drawTracker() {
@@ -167,7 +167,7 @@ async function drawTracker() {
                 });
               }
               $saveToLocalSP.addEventListener('click', () => {
-                save(task);
+                save(task, true, locale);
               });
               $td.appendChild($saveToLocalSP);
               if ($view) {
@@ -264,9 +264,9 @@ async function reloadTracker() {
     res = await fetch(trackerConfig.url);
   } while(!res.ok);
 
-  loadingON('Reloading tracker');
-  tracker = await computeTracker();
-  await refresh();
+  loadingON('Reloading the application');
+  // full UI reload
+  window.location.reload();
 
 }
 
@@ -281,7 +281,7 @@ async function refresh() {
 }
 
 async function save(task, doRefresh=true, locale) {
-  const dest = `${task.localeFilePath}`.toLowerCase();
+  const dest = `${task.draftLocaleFilePath}`.toLowerCase();
 
   if (task.sp && task.sp.status === 200) {
     // file exists in Sharepoint, confirm overwrite
@@ -290,18 +290,22 @@ async function save(task, doRefresh=true, locale) {
     if (!confirm) return;
   }
   loadingON(`Downloading ${dest} file from GLaaS`);
-  const file = await getFileFromGLaaS(task, locale);
+  try {
+    const file = await getFileFromGLaaS(task, locale);
 
-  loadingON(`Saving ${dest} file to Sharepoint`);
-  await saveFile(file, dest);
+    loadingON(`Saving ${dest} file to Sharepoint`);
+    await saveFile(file, dest);
 
-  loadingON(`File ${dest} is now in Sharepoint`);
+    loadingON(`File ${dest} is now in Sharepoint`);
 
-  if (doRefresh) {
-    loadingOFF();
-    await refresh();
+    if (doRefresh) {
+      loadingOFF();
+      await refresh();
+    }
+  } catch (err) {
+    setError('Could not save the file.', err);
+    return;
   }
-  // window.open(`${u.origin}${dest.slice(0, -5)}`);
 }
 
 async function saveAll(locale) {
