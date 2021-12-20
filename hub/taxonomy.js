@@ -73,7 +73,7 @@ export default function getTaxonomy(locale = 'en') {
     return taxonomy;
   }
 
-  taxonomy = window.fetch(`${locale !== 'en' ? `/${locale}` : ''}/_taxonomy.json`)
+  taxonomy = window.fetch(`${locale !== 'en' ? `/${locale}` : ''}/taxonomy.json`)
     .then((response) => response.json())
     .then((json) => {
       if (json && json.data && !!json.data.length) {

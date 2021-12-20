@@ -27,7 +27,7 @@ window.hlx.initSidekick({
         text: 'Tagger',
         action: (_, sk) => {
           const { config } = sk;
-          window.open(`https://${config.innerHost}/tools/tagger/`, 'hlx-sidekick-tagger');
+          window.open(`https://${config.innerHost}/tools/tagger/index.html`, 'hlx-sidekick-tagger');
         },
       },
     },
