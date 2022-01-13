@@ -14,6 +14,7 @@
 window.hlx.initSidekick({
   project: 'FedPub',
   host: 'www.adobe.com',
+  outerHost: 'fedpub--adobe.hlx.live',
   byocdn: true,
   pushDownSelector: '#feds-header',
   hlx3: true,
