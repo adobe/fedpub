@@ -4,8 +4,6 @@ indices:
   blog:
     source: html
     fetch: https://{repo}-{owner}.project-helix.page/{path}
-    include:
-      - '**/*.(docx|md)'
     exclude:
       - '**/Document.*'
       - '_documentation/**'
