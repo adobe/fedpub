@@ -277,31 +277,6 @@ function loadIMS() {
     });
 }
 
-function loadPrivacy() {
-    function getOtDomainId() {
-        const domains = {
-            'adobe.com': '7a5eb705-95ed-4cc4-a11d-0cc5760e93db',
-            'hlx.page': '3a6a37fe-9e07-4aa9-8640-8f358a623271',
-        };
-
-        const currentDomain = Object.keys(domains)
-            .find((domain) => window.location.host.indexOf(domain) > -1);
-
-        return `${domains[currentDomain] || domains[Object.keys(domains)[0]]}`;
-    }
-
-    // Part of code
-    window.fedsConfig.privacy = {
-        otDomainId: getOtDomainId(),
-    };
-
-    const env = (getEnvironment() !== 'prod') ? `${getEnvironment()}.` : '';
-
-    loadJS({
-        path: `https://www.${env}adobe.com/etc/beagle/public/globalnav/adobe-privacy/latest/privacy.min.js`,
-    });
-}
-
 function loadLaunch() {
     window.marketingtech = {
         adobe: {
@@ -323,6 +298,18 @@ function loadLaunch() {
 }
 
 function loadFEDS() {
+    function getOtDomainId() {
+        const domains = {
+            'adobe.com': '7a5eb705-95ed-4cc4-a11d-0cc5760e93db',
+            'hlx.page': '3a6a37fe-9e07-4aa9-8640-8f358a623271',
+        };
+
+        const currentDomain = Object.keys(domains)
+            .find((domain) => window.location.host.indexOf(domain) > -1);
+
+        return `${domains[currentDomain] || domains[Object.keys(domains)[0]]}`;
+    }
+
     function getExperience() {
         let experience = 'fedpub';
         if (isNonEmptyString(window.fedPub.cloud) && isNonEmptyString(window.fedPub.category)) {
@@ -337,6 +324,10 @@ function loadFEDS() {
         content: {
             experience: getExperience(),
         },
+        privacy: {
+            otDomainId: getOtDomainId(),
+            footerLinkSelector: '[data-feds-action="open-adchoices-modal"]',
+        },
     };
     document.querySelector('body > header').innerHTML = '<div><div id="feds-header"></div></div>';
     document.querySelector('body > footer').innerHTML = '<div id="feds-footer"></div>';
@@ -347,9 +338,6 @@ function loadFEDS() {
 
         const params = new URLSearchParams(window.location.search);
         const timeout = 3000;
-        if (!params.has('skipGDPR')) {
-            setTimeout(loadPrivacy, timeout);
-        }
 
         if (!params.has('skipLaunch')) {
             setTimeout(loadLaunch, timeout);
