@@ -293,12 +293,13 @@ function loadPrivacy() {
     // Part of code
     window.fedsConfig.privacy = {
         otDomainId: getOtDomainId(),
+        footerLinkSelector: '[data-feds-action="open-adchoices-modal"]',
     };
 
     const env = (getEnvironment() !== 'prod') ? `${getEnvironment()}.` : '';
 
     loadJS({
-        path: `https://www.${env}adobe.com/etc/beagle/public/globalnav/adobe-privacy/latest/privacy.min.js`,
+        path: `https://www.${env}adobe.com/etc.clientlibs/globalnav/clientlibs/base/privacy-standalone.js`,
     });
 }
 
@@ -348,7 +349,7 @@ function loadFEDS() {
         const params = new URLSearchParams(window.location.search);
         const timeout = 3000;
         if (!params.has('skipGDPR')) {
-            setTimeout(loadPrivacy, timeout);
+            loadPrivacy();
         }
 
         if (!params.has('skipLaunch')) {
