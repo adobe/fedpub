@@ -1,0 +1,52 @@
+version: 1
+
+sitemaps:
+  seo:
+    origin: https://www.adobe.com
+    lastmod: YYYY-MM-DD
+    languages:
+      au:
+        source: /hub/query-index-au.json
+        destination: /hub/sitemap/sitemap-au.xml
+        hreflang: en
+        alternate: au/{path}
+      de:
+        source: /hub/query-index-de.json
+        destination: /hub/sitemap/sitemap-de.xml
+        hreflang: de
+        alternate: de/{path}
+      en:
+        source: /hub/query-index-en.json
+        destination: /hub/sitemap/sitemap-en.xml
+        hreflang: en
+        alternate: /{path}
+      es:
+        source: /hub/query-index-es.json
+        destination: /hub/sitemap/sitemap-es.xml
+        hreflang: es
+        alternate: es/{path}
+      fr:
+        source: /hub/query-index-fr.json
+        destination: /hub/sitemap/sitemap-fr.xml
+        hreflang: fr
+        alternate: fr/{path}
+      it:
+        source: /hub/query-index-it.json
+        destination: /hub/sitemap/sitemap-it.xml
+        hreflang: it
+        alternate: it/{path}
+      jp:
+        source: /hub/query-index-jp.json
+        destination: /hub/sitemap/sitemap-jp.xml
+        hreflang: jp
+        alternate: jp/{path}
+      kr:
+        source: /hub/query-index-kr.json
+        destination: /hub/sitemap/sitemap-kr.xml
+        hreflang: ko
+        alternate: kr/{path}
+      ru:
+        source: /hub/query-index-ru.json
+        destination: /hub/sitemap/sitemap-ru.xml
+        hreflang: ru
+        alternate: ru/{path}
