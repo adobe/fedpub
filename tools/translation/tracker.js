@@ -27,30 +27,28 @@ async function init() {
   if (sp && owner && repo && ref) {
     const admin = (await getConfig()).admin;
 
-    const url = `${admin.api.preview.baseURI}/${owner}/${repo}/${ref}/?editUrl=${encodeURIComponent(sp)}`;
+    const url = `${admin.api.status.baseURI}/${owner}/${repo}/${ref}/?editUrl=${encodeURIComponent(sp)}`;
     const resp = await fetch(url);
     if (resp.ok) {
       const json = await resp.json();
+
       if (json?.webPath) {
         // compute the "real" filename, fallback to url last segment.
         const str = json?.source?.sourceLocation || json.webPath;
 
-        // temp fix to get the real file name - waiting for API to return it
-        let name = str.substring(str.lastIndexOf('/') + 1, str.lastIndexOf('.'));
-        const index = sp.indexOf('file=');
-        if (index > -1) {
-          // extract real name from editURL
-          name = sp.substring(index+5, sp.indexOf('.xlsx', index));
-        }
-
         config = {
           url: `${location.origin}${json.webPath}`,
           path: json.webPath,
-          name,
+          name: json.edit.name,
           sp,
           owner,
           repo,
           ref
+        }
+
+        if (json.preview.status === 404) {
+          // file has never been previewed
+          await purge();
         }
       }
     }
@@ -67,10 +65,10 @@ async function purge() {
   if (!config) {
     throw new Error('Init the tracker first');
   }
-  // const url = `${admin.api.preview.baseURI}/${config.owner}/${config.repo}/${config.ref}${config.path}`;
-  // return fetch(url, { method: 'POST' });
+  const admin = (await getConfig()).admin;
+  const url = `${admin.api.preview.baseURI}/${config.owner}/${config.repo}/${config.ref}${config.path}`;
 
-  return fetch(config.url, { method: 'PURGE' });
+  return fetch(url, { method: 'POST' });
 }
 
 async function compute() {

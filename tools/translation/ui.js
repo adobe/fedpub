@@ -256,7 +256,7 @@ async function sendTracker() {
 
 async function reloadTracker() {
   const trackerConfig = await initTracker();
-  loadingON(`Purging tracker`);
+  loadingON(`Purging tracker file`);
   await purgeTracker();
   let res;
   do {

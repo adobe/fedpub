@@ -133,6 +133,9 @@ async function getConfig() {
     const adminServerURL = 'https://admin.hlx3.page';
     config.admin = {
       api: {
+        status: {
+          baseURI: `${adminServerURL}/status`,
+        },
         preview: {
           baseURI: `${adminServerURL}/preview`,
         }
