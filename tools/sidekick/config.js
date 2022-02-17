@@ -39,7 +39,7 @@ window.hlx.initSidekick({
         text: 'Translate from tracker',
         action: (_, sk) => {
           const { config } = sk;
-          window.open(`${config.pluginHost ? config.pluginHost : `http://${config.innerHost}` }/tools/translation/?sp=${encodeURIComponent(window.location.href)}&owner=${config.owner}&repo=${config.repo}&ref=${config.ref}`, 'hlx-sidekick-spark-translation');
+          window.open(`${config.pluginHost ? config.pluginHost : `http://${config.innerHost}` }/tools/translation/index.html?sp=${encodeURIComponent(window.location.href)}&owner=${config.owner}&repo=${config.repo}&ref=${config.ref}`, 'hlx-sidekick-spark-translation');
         },
       },
     },
