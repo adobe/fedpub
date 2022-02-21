@@ -3,7 +3,6 @@ version: 1
 indices:
   seo: &seo
     exclude:
-      - '**/Document.*'
       - '_documentation/**'
       - '_draft/**'
       - '_bench/**'
@@ -29,15 +28,6 @@ indices:
       - 'au/acrobat/**'
       - 'au/creativecloud/**'
       - 'au/sign/**'
-    exclude:
-      - 'de/**'
-      - 'en/**'
-      - 'es/**'
-      - 'fr/**'
-      - 'it/**'
-      - 'jp/**'
-      - 'kr/**'
-      - 'ru/**'
     target: '/hub/query-index-au.xlsx'
 
   seo-de:
@@ -46,15 +36,6 @@ indices:
       - 'de/acrobat/**'
       - 'de/creativecloud/**'
       - 'de/sign/**'
-    exclude:
-      - 'au/**'
-      - 'en/**'
-      - 'es/**'
-      - 'fr/**'
-      - 'it/**'
-      - 'jp/**'
-      - 'kr/**'
-      - 'ru/**'
     target: '/hub/query-index-de.xlsx'
 
   seo-en:
@@ -63,15 +44,6 @@ indices:
       - 'acrobat/**'
       - 'creativecloud/**'
       - 'sign/**'
-    exclude:
-      - 'au/**'
-      - 'de/**'
-      - 'es/**'
-      - 'fr/**'
-      - 'it/**'
-      - 'jp/**'
-      - 'kr/**'
-      - 'ru/**'
     target: '/hub/query-index-en.xlsx'
 
   seo-es:
@@ -80,15 +52,6 @@ indices:
       - 'es/acrobat/**'
       - 'es/creativecloud/**'
       - 'es/sign/**'
-    exclude:
-      - 'au/**'
-      - 'de/**'
-      - 'en/**'
-      - 'fr/**'
-      - 'it/**'
-      - 'jp/**'
-      - 'kr/**'
-      - 'ru/**'
     target: '/hub/query-index-es.xlsx'
 
   seo-fr:
@@ -97,15 +60,6 @@ indices:
       - 'fr/acrobat/**'
       - 'fr/creativecloud/**'
       - 'fr/sign/**'
-    exclude:
-      - 'au/**'
-      - 'de/**'
-      - 'en/**'
-      - 'es/**'
-      - 'it/**'
-      - 'jp/**'
-      - 'kr/**'
-      - 'ru/**'
     target: '/hub/query-index-fr.xlsx'
 
   seo-it:
@@ -114,15 +68,6 @@ indices:
       - 'it/acrobat/**'
       - 'it/creativecloud/**'
       - 'it/sign/**'
-    exclude:
-      - 'au/**'
-      - 'de/**'
-      - 'en/**'
-      - 'es/**'
-      - 'fr/**'
-      - 'jp/**'
-      - 'kr/**'
-      - 'ru/**'
     target: '/hub/query-index-it.xlsx'
 
   seo-jp:
@@ -131,15 +76,6 @@ indices:
       - 'jp/acrobat/**'
       - 'jp/creativecloud/**'
       - 'jp/sign/**'
-    exclude:
-      - 'au/**'
-      - 'de/**'
-      - 'en/**'
-      - 'es/**'
-      - 'fr/**'
-      - 'it/**'
-      - 'kr/**'
-      - 'ru/**'
     target: '/hub/query-index-jp.xlsx'
 
   seo-kr:
@@ -148,15 +84,6 @@ indices:
       - 'kr/acrobat/**'
       - 'kr/creativecloud/**'
       - 'kr/sign/**'
-    exclude:
-      - 'au/**'
-      - 'de/**'
-      - 'en/**'
-      - 'es/**'
-      - 'fr/**'
-      - 'it/**'
-      - 'jp/**'
-      - 'ru/**'
     target: '/hub/query-index-kr.xlsx'
 
   seo-ru:
@@ -165,13 +92,4 @@ indices:
       - 'ru/acrobat/**'
       - 'ru/creativecloud/**'
       - 'ru/sign/**'
-    exclude:
-      - 'au/**'
-      - 'de/**'
-      - 'en/**'
-      - 'es/**'
-      - 'fr/**'
-      - 'it/**'
-      - 'jp/**'
-      - 'kr/**'
     target: '/hub/query-index-ru.xlsx'
