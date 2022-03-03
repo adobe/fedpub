@@ -291,10 +291,13 @@ function loadLaunch() {
 
     const env = (getEnvironment() !== 'prod') ? `${getEnvironment()}.` : '';
 
-    loadJS({
-        path: `https://www.${env}adobe.com/marketingtech/main.no-promise.min.js`,
-        id: 'AdobeLaunch',
-    });
+    const params = new URLSearchParams(window.location.search);
+    if (!params.has('skipLaunch')) {
+        loadJS({
+            path: `https://www.${env}adobe.com/marketingtech/main.no-promise.min.js`,
+            id: 'AdobeLaunch',
+        });
+    }
 }
 
 function loadFEDS() {
@@ -335,13 +338,6 @@ function loadFEDS() {
     window.addEventListener('feds.events.experience.loaded', () => {
         // Part of FEDS
         document.querySelector('body').classList.add('feds--loaded');
-
-        const params = new URLSearchParams(window.location.search);
-        const timeout = 3000;
-
-        if (!params.has('skipLaunch')) {
-            setTimeout(loadLaunch, timeout);
-        }
     });
 
     const env = (getEnvironment() !== 'prod') ? `${getEnvironment()}.` : '';
@@ -392,6 +388,7 @@ function decoratePage() {
     setLCPTrigger();
     loadIMS();
     loadFEDS();
+    loadLaunch();
 }
 
 decoratePage();
