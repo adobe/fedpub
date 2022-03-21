@@ -278,26 +278,110 @@ function loadIMS() {
 }
 
 function loadLaunch() {
-    window.marketingtech = {
-        adobe: {
-            launch: {
-                property: 'global',
-                environment: 'production',
-            },
-            target: false,
-            audienceManager: true,
-        },
-    };
-
-    const env = (getEnvironment() !== 'prod') ? `${getEnvironment()}.` : '';
 
     const params = new URLSearchParams(window.location.search);
+
+    window.alloy_all = {
+        xdm: {
+            _adobe_corpnew: {
+                digitalData: {
+                    page: {
+                        pageInfo: {
+                            language: (
+                                window.fedPub && 
+                                (
+                                    window.fedPub.language
+                                    ? window.fedPub.language
+                                    : 'en'
+                                ) + (
+                                    window.fedPub.country
+                                    ? '-' + window.fedPub.country.toUpperCase()
+                                    : '-US'
+                                )
+                            ),
+                            legacyMarketSegment: 'COM',
+                        },
+                    },
+                },
+            },
+        },
+    };
+    window.alloy_deferred = {
+        xdm: {
+            _adobe_corpnew: {
+                digitalData: {
+                },
+            },
+        },
+        promises: [],
+    };
+    window.marketingtech = {
+        adobe: {
+            target: false,
+            audienceManager: true,
+            alloy: {
+                edgeConfigId: (
+                    // optimized datastream
+                    (getEnvironment() !== 'prod')
+                    ? '46815e4c-db87-4b73-907e-ee6e7db1c9e7:dev'
+                    : '46815e4c-db87-4b73-907e-ee6e7db1c9e7'
+                ),
+            },
+            launch: {
+                url: (
+                    // optimized launch property
+                    (getEnvironment() !== 'prod')
+                    ? 'https://assets.adobedtm.com/d4d114c60e50/cf25c910a920/launch-9e8f94c77339.min.js'
+                    : 'https://assets.adobedtm.com/d4d114c60e50/cf25c910a920/launch-1bba233684fa-development.js'
+                ),
+                load: (l) => {
+                    const delay = () => (
+                        setTimeout(l, 3500)
+                    );
+                    if (document.readyState === 'complete') {
+                        delay();
+                    } else {
+                        window.addEventListener('load', delay);
+                    }
+                },
+            },
+        },
+    };
     if (!params.has('skipLaunch')) {
         loadJS({
-            path: `https://www.${env}adobe.com/marketingtech/main.no-promise.min.js`,
+            path: `https://www.${
+                (getEnvironment() !== 'prod')
+                ? `${getEnvironment()}.` 
+                : ''
+            }adobe.com/marketingtech/${(
+                (getEnvironment() !== 'prod') 
+                ? 'main.alloy.js' 
+                : 'main.alloy.min.js'
+            )}`,
             id: 'AdobeLaunch',
         });
     }
+
+    // window.marketingtech = {
+    //     adobe: {
+    //         launch: {
+    //             property: 'global',
+    //             environment: 'production',
+    //         },
+    //         target: false,
+    //         audienceManager: true,
+    //     },
+    // };
+
+    // const env = (getEnvironment() !== 'prod') ? `${getEnvironment()}.` : '';
+
+    // const params = new URLSearchParams(window.location.search);
+    // if (!params.has('skipLaunch')) {
+    //     loadJS({
+    //         path: `https://www.${env}adobe.com/marketingtech/main.no-promise.min.js`,
+    //         id: 'AdobeLaunch',
+    //     });
+    // }
 }
 
 function loadFEDS() {
