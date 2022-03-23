@@ -278,26 +278,117 @@ function loadIMS() {
 }
 
 function loadLaunch() {
-    window.marketingtech = {
-        adobe: {
-            launch: {
-                property: 'global',
-                environment: 'production',
-            },
-            target: false,
-            audienceManager: true,
-        },
-    };
-
-    const env = (getEnvironment() !== 'prod') ? `${getEnvironment()}.` : '';
 
     const params = new URLSearchParams(window.location.search);
-    if (!params.has('skipLaunch')) {
-        loadJS({
-            path: `https://www.${env}adobe.com/marketingtech/main.no-promise.min.js`,
-            id: 'AdobeLaunch',
-        });
+    const skipLaunch = params.has('skipLaunch');
+    const environment = getEnvironment();
+    const isProd = environment !== 'prod';
+    const env = isProd ? `${environment}.` : '';
+
+    // alloy optimized implementation
+    if (params.get('alloy') === 'on') {
+
+        const languageLocale = window.fedPub && (
+            (
+                window.fedPub.language
+                ? window.fedPub.language
+                : 'en'
+            ) + (
+                window.fedPub.country
+                ? '-' + window.fedPub.country.toUpperCase()
+                : '-US'
+            )
+        );
+        // optimized datastream
+        const edgeConfigId = (
+            isProd
+            ? '46815e4c-db87-4b73-907e-ee6e7db1c9e7:dev'
+            : '46815e4c-db87-4b73-907e-ee6e7db1c9e7'
+        );
+        // optimized launch property
+        const launchUrl = (
+            isProd
+            ? 'https://assets.adobedtm.com/d4d114c60e50/cf25c910a920/launch-9e8f94c77339.min.js'
+            : 'https://assets.adobedtm.com/d4d114c60e50/cf25c910a920/launch-1bba233684fa-development.js'
+        );
+        const bootstrapScript = (isProd ? 'main.alloy.js' : 'main.alloy.min.js');
+
+        window.alloy_all = {
+            xdm: {
+                _adobe_corpnew: {
+                    digitalData: {
+                        page: {
+                            pageInfo: {
+                                language: languageLocale,
+                                legacyMarketSegment: 'COM',
+                            },
+                        },
+                    },
+                },
+            },
+        };
+        window.alloy_deferred = {
+            xdm: {
+                _adobe_corpnew: {
+                    digitalData: {
+                    },
+                },
+            },
+            promises: [],
+        };
+        window.marketingtech = {
+            adobe: {
+                target: false,
+                audienceManager: true,
+                alloy: {
+                    edgeConfigId: edgeConfigId,
+                },
+                launch: {
+                    url: launchUrl,
+                    load: (l) => {
+                        const delay = () => (
+                            setTimeout(l, 3500)
+                        );
+                        if (document.readyState === 'complete') {
+                            delay();
+                        } else {
+                            window.addEventListener('load', delay);
+                        }
+                    },
+                },
+            },
+        };
+
+        if (!skipLaunch) {
+            loadJS({
+                path: `https://www.${env}adobe.com/marketingtech/${bootstrapScript}`,
+                id: 'AdobeLaunch',
+            });
+        }
+
+    // legacy martech implementation 
+    } else {
+
+        window.marketingtech = {
+            adobe: {
+                launch: {
+                    property: 'global',
+                    environment: 'production',
+                },
+                target: false,
+                audienceManager: true,
+            },
+        };
+
+        if (!skipLaunch) {
+            loadJS({
+                path: `https://www.${env}adobe.com/marketingtech/main.no-promise.min.js`,
+                id: 'AdobeLaunch',
+            });
+        }
+
     }
+    
 }
 
 function loadFEDS() {
