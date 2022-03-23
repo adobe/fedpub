@@ -280,9 +280,38 @@ function loadIMS() {
 function loadLaunch() {
 
     const params = new URLSearchParams(window.location.search);
+    const skipLaunch = params.has('skipLaunch');
+    const environment = getEnvironment();
+    const isProd = environment !== 'prod';
+    const env = isProd ? `${environment}.` : '';
 
     // alloy optimized implementation
     if (params.get('alloy') === 'on') {
+
+        const languageLocale = window.fedPub && (
+            (
+                window.fedPub.language
+                ? window.fedPub.language
+                : 'en'
+            ) + (
+                window.fedPub.country
+                ? '-' + window.fedPub.country.toUpperCase()
+                : '-US'
+            )
+        );
+        // optimized datastream
+        const edgeConfigId = (
+            isProd
+            ? '46815e4c-db87-4b73-907e-ee6e7db1c9e7:dev'
+            : '46815e4c-db87-4b73-907e-ee6e7db1c9e7'
+        );
+        // optimized launch property
+        const launchUrl = (
+            isProd
+            ? 'https://assets.adobedtm.com/d4d114c60e50/cf25c910a920/launch-9e8f94c77339.min.js'
+            : 'https://assets.adobedtm.com/d4d114c60e50/cf25c910a920/launch-1bba233684fa-development.js'
+        );
+        const bootstrapScript = (isProd ? 'main.alloy.js' : 'main.alloy.min.js');
 
         window.alloy_all = {
             xdm: {
@@ -290,18 +319,7 @@ function loadLaunch() {
                     digitalData: {
                         page: {
                             pageInfo: {
-                                language: (
-                                    window.fedPub && 
-                                    (
-                                        window.fedPub.language
-                                        ? window.fedPub.language
-                                        : 'en'
-                                    ) + (
-                                        window.fedPub.country
-                                        ? '-' + window.fedPub.country.toUpperCase()
-                                        : '-US'
-                                    )
-                                ),
+                                language: languageLocale,
                                 legacyMarketSegment: 'COM',
                             },
                         },
@@ -323,20 +341,10 @@ function loadLaunch() {
                 target: false,
                 audienceManager: true,
                 alloy: {
-                    edgeConfigId: (
-                        // optimized datastream
-                        (getEnvironment() !== 'prod')
-                        ? '46815e4c-db87-4b73-907e-ee6e7db1c9e7:dev'
-                        : '46815e4c-db87-4b73-907e-ee6e7db1c9e7'
-                    ),
+                    edgeConfigId: edgeConfigId,
                 },
                 launch: {
-                    url: (
-                        // optimized launch property
-                        (getEnvironment() !== 'prod')
-                        ? 'https://assets.adobedtm.com/d4d114c60e50/cf25c910a920/launch-9e8f94c77339.min.js'
-                        : 'https://assets.adobedtm.com/d4d114c60e50/cf25c910a920/launch-1bba233684fa-development.js'
-                    ),
+                    url: launchUrl,
                     load: (l) => {
                         const delay = () => (
                             setTimeout(l, 3500)
@@ -351,17 +359,9 @@ function loadLaunch() {
             },
         };
 
-        if (!params.has('skipLaunch')) {
+        if (!skipLaunch) {
             loadJS({
-                path: `https://www.${
-                    (getEnvironment() !== 'prod')
-                    ? `${getEnvironment()}.` 
-                    : ''
-                }adobe.com/marketingtech/${(
-                    (getEnvironment() !== 'prod') 
-                    ? 'main.alloy.js' 
-                    : 'main.alloy.min.js'
-                )}`,
+                path: `https://www.${env}adobe.com/marketingtech/${bootstrapScript}`,
                 id: 'AdobeLaunch',
             });
         }
@@ -379,15 +379,14 @@ function loadLaunch() {
                 audienceManager: true,
             },
         };
-    
-        const env = (getEnvironment() !== 'prod') ? `${getEnvironment()}.` : '';
-        if (!params.has('skipLaunch')) {
+
+        if (!skipLaunch) {
             loadJS({
                 path: `https://www.${env}adobe.com/marketingtech/main.no-promise.min.js`,
                 id: 'AdobeLaunch',
             });
         }
-        
+
     }
     
 }
