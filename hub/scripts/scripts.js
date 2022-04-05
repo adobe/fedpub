@@ -282,11 +282,13 @@ function loadLaunch() {
     const params = new URLSearchParams(window.location.search);
     const skipLaunch = params.has('skipLaunch');
     const environment = getEnvironment();
-    const isProd = environment !== 'prod';
-    const env = isProd ? `${environment}.` : '';
+    const isDev = environment !== 'prod';
+    const env = isDev ? `${environment}.` : '';
+    // const useAlloy = params.get('alloy') === 'on';
+    const useAlloy = true;
 
     // alloy optimized implementation
-    if (params.get('alloy') === 'on') {
+    if (useAlloy) {
 
         const languageLocale = window.fedPub && (
             (
@@ -301,17 +303,17 @@ function loadLaunch() {
         );
         // optimized datastream
         const edgeConfigId = (
-            isProd
+            isDev
             ? '46815e4c-db87-4b73-907e-ee6e7db1c9e7:dev'
             : '46815e4c-db87-4b73-907e-ee6e7db1c9e7'
         );
         // optimized launch property
         const launchUrl = (
-            isProd
+            isDev
             ? 'https://assets.adobedtm.com/d4d114c60e50/cf25c910a920/launch-9e8f94c77339.min.js'
             : 'https://assets.adobedtm.com/d4d114c60e50/cf25c910a920/launch-1bba233684fa-development.js'
         );
-        const bootstrapScript = (isProd ? 'main.alloy.js' : 'main.alloy.min.js');
+        const bootstrapScript = (isDev ? 'main.stage.alloy.js' : 'main.alloy.min.js');
 
         window.alloy_all = {
             xdm: {
