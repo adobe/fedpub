@@ -71,11 +71,11 @@ Setup recommendation:
 - clone `/_drafts/trackers/trackerconfig.xlsx` and update the sheets:
 
   - `helix-glaas`: use the `https://stage-glaas.corp.adobe.com` URL
-  - `helix-sp`: update the site URL
+  - `helix-sp`: update the site id in the site URL (see below)
   - `helix-locales` can stay the same
   - `helix-workflows`: the workflow names might slighty differ on stage - need to check with the GLaaS team to get access and find some testing product / project. Can be anything for testing. For development, it is also convienent to use "Machine Translation" workflow to get translated files quickly.
 
-  ### Redirect URLs
+### Redirect URLs
 
   As part of the oAuth process, the third-party oAuth integrations requires to define the redirect URLs to allow the authentication. This is done:
 
@@ -83,3 +83,15 @@ Setup recommendation:
   - for GLaaS: send a request to the GLaaS tech team (Anuj / Rajeev) with url like: `${hostname}/tools/translation/glaas.html`
 
   Both are configured for localhost (on the staging environment only for GLaaS). If you are working with a branch and the hlx.page domain, this would need to be registered.
+  
+### How to find the siteid
+
+- Open MS graph explorer: https://developer.microsoft.com/en-us/graph/graph-explorer
+- Authenticate with your Adobe credentials
+- Run the following GET request (`${your_site_name}` can be easily find when navigating your site in Sharepoint - `https://adobe.sharepoint.com/sites/${your_site_name}`):
+ 
+```
+GET https://graph.microsoft.com/v1.0/sites/adobe.sharepoint.com:/sites/${your_site_name}
+```
+
+Get the id from the result!
