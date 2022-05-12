@@ -14,12 +14,7 @@ export function checkAndAddMatch(matches, contender, maxMatches) {
   const collisions = matches
     // check for intersections
     .filter((match) => {
-      if (contender.end < match.start || contender.start > match.end) {
-        // no intersection with existing match
-        return false;
-      }
-      // contender starts or ends within existing match
-      return true;
+      return !(contender.end < match.start || contender.start > match.end);
     });
   if (collisions.length === 0 && matches.length < maxMatches) {
     // no intersecting existing matches, add contender if max not yet reached
