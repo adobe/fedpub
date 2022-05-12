@@ -123,7 +123,11 @@ function loadCSS(config = {}) {
     document.head.append(link);
 }
 
-function loadJS(config = {}) {
+/**
+ * loads a script by adding a script tag to the head.
+ * @param {Object} config Object containing configuration properties for the script element to be loaded
+ */
+export function loadJS(config = {}) {
     if (!config.path || document.querySelector(`head > script[src='${config.path}']`)) {
         return;
     }
@@ -228,7 +232,7 @@ function handlePageDetails() {
         country: localeDetails.country,
         locale,
     };
-      
+
     const cloudValueMetadata = document.head.querySelector('meta[name="cloud"]');
 
     // Assumption, if there's a cloud attribute
@@ -241,7 +245,7 @@ function handlePageDetails() {
     if (isNonEmptyString(category)) {
         window.fedPub.category = category;
     }
-  
+
     /** Set details */
     document.querySelector('html').setAttribute('lang', window.fedPub.language);
 }
@@ -368,7 +372,7 @@ function loadLaunch() {
             });
         }
 
-    // legacy martech implementation 
+    // legacy martech implementation
     } else {
 
         window.marketingtech = {
@@ -390,7 +394,7 @@ function loadLaunch() {
         }
 
     }
-    
+
 }
 
 function loadFEDS() {
@@ -474,6 +478,16 @@ function decoratePromotion() {
     document.querySelector('main > div').appendChild(promo);
 }
 
+/**
+ * loads everything that happens a lot later, without impacting
+ * the user experience.
+ */
+function loadDelayed() {
+    // eslint-disable-next-line import/no-cycle
+    window.setTimeout(() => import('./delayed.js'), 3000);
+    // load anything that can be postponed to the latest here
+}
+
 function decoratePage() {
     decoratePromotion();
     decorateBlocks();
@@ -482,6 +496,7 @@ function decoratePage() {
     loadIMS();
     loadFEDS();
     loadLaunch();
+    loadDelayed();
 }
 
 decoratePage();
