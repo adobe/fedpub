@@ -24,7 +24,7 @@
       "id": "linkchecker",
       "title": "Linkchecker",
       "event": "linkchecker",
-      "environments": [ "dev", "preview" ]
+      "environments": [ "dev", "preview", "prod" ]
     }
   ]
 }

@@ -485,7 +485,7 @@ function decoratePage() {
 }
 
 decoratePage();
-
+console.log(document.querySelector('helix-sidekick'));
 document.addEventListener('helix-sidekick-ready', () => {
-    import('../tools/sidekick/plugins.js');
+    import('../../tools/sidekick/plugins.js');
 }, { once: true });

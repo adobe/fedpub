@@ -11,12 +11,12 @@
  */
 /* globals fetch */
 
-export function translateFromTracker({ detail }) {
+function translateFromTracker({ detail }) {
     const { config, location } = detail.data;
     window.open(`https://main--fedpub--adobe.hlx.page/tools/translation/index.html?sp=${encodeURIComponent(location.href)}&owner=${config.owner}&repo=${config.repo}&ref=${config.ref}`, 'hlx-sidekick-spark-translation');
 }
 
-export function linkChecker({ detail }) {
+function linkChecker({ detail }) {
     const { config } = detail.data;
 
     // clean up
