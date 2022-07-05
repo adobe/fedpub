@@ -1,0 +1,30 @@
+{
+  "project": "FedPub",
+  "host": "www.adobe.com",
+  "byocdn": true,
+  "pushDownSelector": "#feds-header",
+  "plugins": [
+    {
+      "id": "tagger",
+      "title": "Tagger",
+      "url": "https://main--fedpub--adobe.hlx.page/tools/tagger/index.html",
+      "environments": [ "edit" ],
+      "exclude_paths": [ "/**" ],
+      "include_paths": [ "**.docx**" ]
+    },
+    {
+      "id": "translate",
+      "title": "Translate from tracker",
+      "event": "translate",
+      "environments": [ "edit" ],
+      "exclude_paths": [ "/**" ],
+      "include_paths": [ "**/:x**" ]
+    },
+    {
+      "id": "linkchecker",
+      "title": "Linkchecker",
+      "event": "linkchecker",
+      "environments": [ "dev", "preview", "prod" ]
+    }
+  ]
+}
