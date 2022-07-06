@@ -486,6 +486,10 @@ function decoratePage() {
 
 decoratePage();
 
-document.addEventListener('helix-sidekick-ready', () => {
-    import('../../tools/sidekick/plugins.js');
-});
+if (document.querySelector('helix-sidekick')) {
+    import('../tools/sidekick/plugins.js');
+} else {
+    document.addEventListener('helix-sidekick-ready', () => {
+        import('../tools/sidekick/plugins.js');
+    }, { once: true });
+}
