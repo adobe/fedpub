@@ -9,16 +9,16 @@
       "title": "Tagger",
       "url": "https://main--fedpub--adobe.hlx.page/tools/tagger/index.html",
       "environments": [ "edit" ],
-      "exclude_paths": [ "/**" ],
-      "include_paths": [ "**.docx**" ]
+      "excludePaths": [ "/**" ],
+      "includePaths": [ "**.docx**" ]
     },
     {
       "id": "translate",
       "title": "Translate from tracker",
       "event": "translate",
       "environments": [ "edit" ],
-      "exclude_paths": [ "/**" ],
-      "include_paths": [ "**/:x**" ]
+      "excludePaths": [ "/**" ],
+      "includePaths": [ "**/:x**" ]
     },
     {
       "id": "linkchecker",
