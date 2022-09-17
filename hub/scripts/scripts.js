@@ -487,9 +487,9 @@ function decoratePage() {
 decoratePage();
 
 if (document.querySelector('helix-sidekick')) {
-    import('../../tools/sidekick/plugins.js');
+    import('./plugins.js');
 } else {
     document.addEventListener('helix-sidekick-ready', () => {
-        import('../../tools/sidekick/plugins.js');
+        import('./plugins.js');
     }, { once: true });
 }
