@@ -4,6 +4,11 @@
 <head>
     <title>adobe.com: Page not found</title>
     <script type="text/javascript">
+        if (window.location.pathname.endsWith('.html')) {
+          // redirect from .html to extensionless URL
+          window.location.replace(window.location.pathname.split('.html')[0]);
+        }
+
         window.isErrorPage = true;
         window.errorCode = '404';
     </script>
