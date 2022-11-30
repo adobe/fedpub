@@ -1,4 +1,6 @@
 .DS_Store
-.hlx/
-logs/
-node_modules/
+.hlx/*
+logs/*
+node_modules/*
+
+helix-importer-ui

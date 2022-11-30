@@ -12,7 +12,8 @@
 
 module.exports = {
     root: true,
-    extends: '@adobe/helix',
+    extends: 'airbnb-base',
+    parser: '@babel/eslint-parser',
     rules: {
     // allow reassigning param
         'no-param-reassign': [2, { props: false }],
@@ -29,6 +30,8 @@ module.exports = {
         NodeList: true,
     },
     parserOptions: {
+        allowImportExportEverywhere: true,
         sourceType: 'module',
+        requireConfigFile: false,
     },
 };
