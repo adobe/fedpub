@@ -9,6 +9,22 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
+
+import {
+    sampleRUM,
+    // buildBlock,
+    loadHeader,
+    loadFooter,
+    decorateButtons,
+    decorateIcons,
+    decorateSections,
+    decorateBlocks,
+    decorateTemplateAndTheme,
+    waitForLCP,
+    loadBlocks,
+    loadCSS,
+  } from './lib-franklin.js';
+
 const localeMAP = {
     ae_ar: { country: 'ae', language: 'ar' },
     ae_en: { country: 'ae', language: 'en' },
@@ -83,14 +99,8 @@ const localeMAP = {
     uk: { country: 'uk', language: 'en' },
 };
 
-const blocks = {
-    callout: {
-        css: '/hub/blocks/callout/callout.css',
-    },
-    promotion: {
-        js: '/hub/blocks/promotion/promotion.js',
-    },
-};
+const LCP_BLOCKS = []; // add your LCP blocks to the list
+window.hlx.RUM_GENERATION = 'project-1'; // add your RUM generation information here
 
 function debug(msg) {
     if (new URLSearchParams(window.location.search).has('debug')) {
@@ -112,17 +122,6 @@ function isNonEmptyString(str) {
     return typeof str === 'string' && !!str.length;
 }
 
-function loadCSS(config = {}) {
-    if (!config.path || document.querySelector(`head > link[href='${config.path}']`)) {
-        return;
-    }
-
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = config.path;
-    document.head.append(link);
-}
-
 function loadJS(config = {}) {
     if (!config.path || document.querySelector(`head > script[src='${config.path}']`)) {
         return;
@@ -135,72 +134,6 @@ function loadJS(config = {}) {
         script.id = config.id;
     }
     document.head.append(script);
-}
-
-function addFavIcon() {
-    const link = document.createElement('link');
-    link.rel = 'icon';
-    link.type = 'image/svg+xml';
-    link.href = '/hub/icons/adobe.svg';
-    const existingLink = document.querySelector('head link[rel="icon"]');
-    if (existingLink) {
-        existingLink.parentElement.replaceChild(link, existingLink);
-    } else {
-        document.head.appendChild(link);
-    }
-}
-
-function loadFonts() {
-    loadCSS({
-        path: '/hub/styles/lazy-styles.css',
-    });
-}
-
-async function loadBlock(block, callback) {
-    if (!block.getAttribute('data-block-loaded')) {
-        const name = block.getAttribute('data-block-name');
-        if (!name) {
-            return;
-        }
-        const config = blocks[name];
-        if (!config) {
-            return;
-        }
-
-        try {
-            if (config.css) {
-                loadCSS({
-                    path: config.css,
-                });
-            }
-
-            if (config.js) {
-                const mod = await import(config.js);
-                if (!mod.default) {
-                    return;
-                }
-
-                await mod.default(block, name, document, callback);
-            }
-        } catch (e) {
-            debug(`failed to load block ${name}`, config);
-        }
-    }
-}
-
-function loadBlocks() {
-    document.querySelectorAll('main > div > .block')
-        .forEach(async (block) => loadBlock(block));
-}
-
-async function postLCP() {
-    await loadBlocks();
-    loadFonts();
-    addFavIcon();
-}
-
-function setLCPTrigger() {
-    postLCP();
 }
 
 function handlePageDetails() {
@@ -441,29 +374,28 @@ function loadFEDS() {
     });
 }
 
-function decorateBlock(block) {
-    const name = block.classList[0];
-    if (!name) {
-        return;
-    }
-
-    block.classList.add('block');
-    block.setAttribute('data-block-name', name);
+/**
+ * Decorates the main element.
+ * @param {Element} main The main element
+ */
+// eslint-disable-next-line import/prefer-default-export
+export function decorateMain(main, doc) {
+    // hopefully forward compatible button decoration
+    decorateButtons(main);
+    decorateIcons(main);
+    // buildAutoBlocks(main);
+    decorateSections(main);
+    decorateBlocks(main);
 }
 
-function decorateBlocks() {
-    document.querySelectorAll('main > div > div').forEach(decorateBlock);
-}
-
-function decoratePromotion() {
-    if (document.querySelector('main .promotion') instanceof HTMLElement) {
+function decoratePromotion(main, doc) {
+    if (main.querySelector('div.promotion') instanceof HTMLElement) {
         // A promotion has already been defined on the page.
         // Do not inject another one.
-        delete blocks.promotion.js;
         return;
     }
 
-    const promotionElement = document.querySelector('head meta[name="promotion"]');
+    const promotionElement = doc.querySelector('head meta[name="promotion"]');
     if (!promotionElement) {
         return;
     }
@@ -471,25 +403,91 @@ function decoratePromotion() {
     const promo = document.createElement('div');
     promo.classList.add('promotion');
     promo.setAttribute('data-promotion', promotionElement.getAttribute('content').toLowerCase());
-    document.querySelector('main > div').appendChild(promo);
+    main.querySelector('div').appendChild(promo);
 }
 
-function decoratePage() {
-    decoratePromotion();
-    decorateBlocks();
+/**
+ * Adds the favicon.
+ * @param {string} href The favicon URL
+ */
+ export function addFavIcon(href) {
+    const link = document.createElement('link');
+    link.rel = 'icon';
+    link.type = 'image/svg+xml';
+    link.href = href;
+    const existingLink = document.querySelector('head link[rel="icon"]');
+    if (existingLink) {
+      existingLink.parentElement.replaceChild(link, existingLink);
+    } else {
+      document.getElementsByTagName('head')[0].appendChild(link);
+    }
+}
+
+/**
+ * loads everything needed to get to LCP.
+ */
+ async function loadEager(doc) {
+    document.documentElement.lang = 'en';
+    decorateTemplateAndTheme();
+    const main = doc.querySelector('main');
+    if (main) {
+      decorateMain(main, doc);
+      await waitForLCP(LCP_BLOCKS);
+    }
+}
+
+/**
+ * loads everything that doesn't need to be delayed.
+ */
+ async function loadLazy(doc) {
+    const main = doc.querySelector('main');
+    await loadBlocks(main);
+    decoratePromotion(main, doc)
+  
+    const { hash } = window.location;
+    const element = hash ? main.querySelector(hash) : false;
+    if (hash && element) element.scrollIntoView();
+  
+    // loadHeader(doc.querySelector('header'));
+    // loadFooter(doc.querySelector('footer'));
+  
+    loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
+    addFavIcon(`${window.hlx.codeBasePath}/icons/adobe.svg`);
+    
+    // from old code
     handlePageDetails();
-    setLCPTrigger();
     loadIMS();
     loadFEDS();
+
+    sampleRUM('lazy');
+    sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
+    sampleRUM.observe(main.querySelectorAll('picture > img'));
+}
+
+/**
+ * loads everything that happens a lot later, without impacting
+ * the user experience.
+ */
+ function loadDelayed() {
+    // eslint-disable-next-line import/no-cycle
+    window.setTimeout(() => import('./delayed.js'), 3000);
+    // load anything that can be postponed to the latest here
     loadLaunch();
-}
 
-decoratePage();
-
-if (document.querySelector('helix-sidekick')) {
-    import('./plugins.js');
-} else {
-    document.addEventListener('helix-sidekick-ready', () => {
+    // load sidekick
+    if (document.querySelector('helix-sidekick')) {
         import('./plugins.js');
-    }, { once: true });
+    } else {
+        document.addEventListener('helix-sidekick-ready', () => {
+            import('./plugins.js');
+        }, { once: true });
+    }
 }
+
+async function loadPage() {
+    await loadEager(document);
+    await loadLazy(document);
+    loadDelayed();
+}
+
+loadPage();
